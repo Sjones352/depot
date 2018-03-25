@@ -25,6 +25,8 @@ gem 'pg', '~> 0.18.4'
 
 #gem bootstrap
 gem 'bootstrap-sass', '~> 3.3.7'
+# gem 'bootstrap', '~> 4.0'
+gem 'bootstrap_jt', '~> 0.1.0'
 
 gem 'simple_form'
 
