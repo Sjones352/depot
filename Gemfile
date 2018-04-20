@@ -28,6 +28,9 @@ gem 'bootstrap-sass', '~> 3.3.7'
 # gem 'bootstrap', '~> 4.0'
 gem 'bootstrap_jt', '~> 0.1.0'
 
+# use in rails console
+gem 'pry-rails'
+
 gem 'simple_form'
 
 # Use jquery as the JavaScript library

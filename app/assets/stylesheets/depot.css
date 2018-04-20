@@ -1,5 +1,24 @@
 /* Global styles */
 
+
+#banner {
+  background: #9c9;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-bottom:  2px solid;
+  font: small-caps 40px/40px "Times New Roman", sans-serif;
+  color: #282;
+  text-align: center;
+}
+
+#banner img {
+  float: left;
+}
+
+#columns {
+  background: pink;
+}
+
 #store #notice {
         color: #000;
         border: 2px solid red;
