@@ -100,7 +100,12 @@ label {
  }
 
  .button-edit {
-   box-shadow: inset 0 0 0 2px red !important;
+   box-shadow: inset 0 0 0 2px black !important;
+ }
+
+ .button-destroy {
+   background-color: red;
+   box-shadow: inset 0 0 0 2px transparent !important;
  }
 
 .button:hover {
