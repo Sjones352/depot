@@ -23,7 +23,9 @@
         <td>
           <%= link_to 'Show', product, class:"btn btn-info" %>
           <br/>
-          <%= link_to 'Edit', edit_product_path(product), class: "btn bg-primary text-white" %>
+          <%= link_to  edit_product_path(product), class: "button button-border button-edit" do%>
+            <i class="glyphicon glyphicon-edit"></i> Edit
+          <% end %>
           <br/>
           <%= link_to 'Destroy', product, class: "btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %>
         </td>

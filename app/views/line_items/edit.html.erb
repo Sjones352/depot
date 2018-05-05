@@ -3,4 +3,6 @@
 <%= render 'form', line_item: @line_item %>
 
 <%= link_to 'Show', @line_item %> |
-<%= link_to 'Back', line_items_path, class: "btn btn-info" %>
+<%= link_to line_items_path, class: "button button-border" do%>
+<i class="glyphicon glyphicon-hand-left"></i> Back
+<% end %>
