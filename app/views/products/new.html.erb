@@ -2,7 +2,9 @@
   <div class="col-md-10 col-md-offset-1">
     <div class="panel panel-default">
       <div class="panel-heading">
-        <%= link_to 'Back', products_path, class: "btn btn-info" %>
+        <%= link_to  products_path, class: "button button-border" do %>
+        <i class="glyphicon glyphicon-hand-left"></i> Back
+        <% end %>
       </div>
       <div class="panel-body">
         <%= render 'form' %>
