@@ -28,6 +28,8 @@ gem 'bootstrap-sass', '~> 3.3.7'
 # gem 'bootstrap', '~> 4.0'
 gem 'bootstrap_jt', '~> 0.1.0'
 
+gem 'uswds-rails', github: '18F/uswds-rails-gem'
+
 # use in rails console
 gem 'pry-rails'
 
