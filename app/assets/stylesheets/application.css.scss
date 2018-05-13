@@ -39,6 +39,11 @@ h1 {
   font-size: 24px;
 }
 
+h3{
+  font-weight: bold;
+  font-size: 18px;
+}
+
 #notice {
   color: #000 !important;
   padding: 1em;
@@ -72,5 +77,21 @@ h1 {
    	  }
    	 }
    	}
+   }
+}
+
+
+.carts {
+ .cart_title {
+ font: 120% bold;
+ }
+
+ .item_price, .total_line {
+ text-align: right;
+ }
+
+ .total_line .total_cell {
+  font-weight: bold;
+  border-top: 1px solid #595;
    }
 }

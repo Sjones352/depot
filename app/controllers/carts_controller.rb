@@ -1,28 +1,33 @@
 class CartsController < ApplicationController
   before_action :set_cart, only: [:show, :edit, :update, :destroy]
 
-  # GET /carts
-  # GET /carts.json
+
   def index
     @carts = Cart.all
   end
 
-  # GET /carts/1
-  # GET /carts/1.json
   def show
+    begin
+    @cart = Cart.find(params[:id]) 
+    rescue ActiveRecord::RecordNotFound
+      logger.error "Attempt to access invalid cart #{params[:id]}"
+      redirect_to store_url, notice: 'Invalid cart'
+    else
+      respond_to do |format|
+        format.html #show.html.erb
+        format.json {render json: @cart}
+      end
+    end
   end
 
-  # GET /carts/new
   def new
     @cart = Cart.new
   end
 
-  # GET /carts/1/edit
   def edit
   end
 
-  # POST /carts
-  # POST /carts.json
+
   def create
     @cart = Cart.new(cart_params)
 
@@ -37,8 +42,7 @@ class CartsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /carts/1
-  # PATCH/PUT /carts/1.json
+
   def update
     respond_to do |format|
       if @cart.update(cart_params)
@@ -51,12 +55,13 @@ class CartsController < ApplicationController
     end
   end
 
-  # DELETE /carts/1
-  # DELETE /carts/1.json
+
   def destroy
+    @cart = current_cart
     @cart.destroy
+    session[:cart_id] = nil
     respond_to do |format|
-      format.html { redirect_to carts_url, notice: 'Cart was successfully destroyed.' }
+      format.html { redirect_to store_url, notice: 'Cart is currently empty' }
       format.json { head :no_content }
     end
   end
@@ -69,6 +74,7 @@ class CartsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def cart_params
-      params.fetch(:cart, {})
+      # params.fetch(:cart, {})
+      params.require(:post).permit(:title, :text)
     end
 end

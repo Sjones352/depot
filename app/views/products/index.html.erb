@@ -4,7 +4,7 @@
     <% @products.each do |product| %>
       <tr>
         <td>
-          <%= image_tag(product.image_url, :class => 'img-responsive') %>
+          <%= image_tag product.image_url, :class => 'img-responsive' unless product.image_url.blank? %>
         </td>
         <td class="list_description">
           <dl>
