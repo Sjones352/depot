@@ -12,6 +12,7 @@
  *
  *= require_tree
  *= require_self
+ *= require jquery-ui
  */
 
 @import "bootstrap-sprockets";
@@ -21,15 +22,15 @@
 @import "datepicker";
 
 #banner {
-    background: #929;
-	padding: 10px;
-	border-bottom: 2px solid;
-	font: small-caps 40px/40px "Times New Roman", serif;
-	color: #282;
-	text-align: center;
+  background: #929;
+  padding: 10px;
+  border-bottom: 2px solid;
+  font: small-caps 40px/40px "Times New Roman", serif;
+  color: #282;
+  text-align: center;
 
   img {
-  	float: left;
+    float: left;
   }
 }
 
@@ -39,7 +40,7 @@ h1 {
   font-size: 24px;
 }
 
-h3{
+h3 {
   font-weight: bold;
   font-size: 18px;
 }
@@ -55,43 +56,117 @@ h3{
 #columns {
   background: #141;
 
-   #main {
-   	margin-left: 17em;
-   	padding: 1em;
-   	background: white;
-   }
+  #main {
+    margin-left: 17em;
+    padding: 1em;
+    background: white;
+  }
 
-   #side {
-   	float: left;
-   	width: 17em;
+  #side {
+    float: left;
+    width: 17em;
 
-   	ul {
-   		padding: 0;
+    ul {
+      padding: 0;
 
-   	 li {
-   	 	list-style: none;
+      li {
+        list-style: none;
 
-   	  a {
-   	  	color: #bfb;
-   	  	font-size: small;
-   	  }
-   	 }
-   	}
-   }
+        a {
+          color: #bfb;
+          font-size: small;
+        }
+      }
+    }
+  }
 }
 
 
 .carts {
- .cart_title {
- font: 120% bold;
- }
+  .cart_title {
+    font: 120% bold;
+  }
 
- .item_price, .total_line {
- text-align: right;
- }
+  .item_price,
+  .total_line {
+    text-align: right;
+  }
 
- .total_line .total_cell {
-  font-weight: bold;
-  border-top: 1px solid #595;
-   }
+  .total_line .total_cell {
+    font-weight: bold;
+    border-top: 1px solid #595;
+  }
+}
+
+#side {
+  background: #141;
+
+  input {
+    font-size: small;
+  }
+
+  #cart {
+    font-size: smaller;
+    color: white;
+
+    table {
+      border-top: 1px dotted #595;
+      border-bottom: 1px dotted #595;
+      margin-bottom: 10px;
+    }
+  }
+
+  ul {
+    padding: 0;
+    li {
+      list-style: none;
+      a {
+        color: #bfb;
+        font-size: small;
+      }
+    }
+  }
+}
+
+.depot_form {
+  fieldset {
+    background: #efe;
+    legend {
+      color: #dfd;
+      background: #141;
+      font-family: sans-serif;
+
+      padding: 0.2em 1em;
+    }
+  }
+  form {
+    label {
+      width: 5em;
+      float: left;
+      text-align: right;
+      padding-top: 0.2em;
+      margin-right: 0.1em;
+      display: block;
+    }
+    select,
+    textarea,
+    input {
+      margin-left: 0.5em;
+    }
+    .submit {
+      margin-left: 4em;
+    }
+    br {
+      display: none
+    }
+  }
+}
+
+.cart_buttons {
+  display: inline-flex;
+}
+
+
+.button-padding {
+  padding: 10px 10px !important;
 }

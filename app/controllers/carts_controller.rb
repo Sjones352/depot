@@ -29,7 +29,7 @@ class CartsController < ApplicationController
 
 
   def create
-    @cart = Cart.new(cart_params)
+    @cart = Cart.new(params[:cart])
 
     respond_to do |format|
       if @cart.save
@@ -45,7 +45,7 @@ class CartsController < ApplicationController
 
   def update
     respond_to do |format|
-      if @cart.update(cart_params)
+      if @cart.update(params[:cart])
         format.html { redirect_to @cart, notice: 'Cart was successfully updated.' }
         format.json { render :show, status: :ok, location: @cart }
       else
@@ -61,7 +61,7 @@ class CartsController < ApplicationController
     @cart.destroy
     session[:cart_id] = nil
     respond_to do |format|
-      format.html { redirect_to store_url, notice: 'Cart is currently empty' }
+      format.html { redirect_to store_url}
       format.json { head :no_content }
     end
   end
@@ -72,9 +72,7 @@ class CartsController < ApplicationController
       @cart = Cart.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def cart_params
-      # params.fetch(:cart, {})
-      params.require(:post).permit(:title, :text)
-    end
+    # def cart_params
+    #   params.require(:post).permit(:title, :text)
+    # end
 end

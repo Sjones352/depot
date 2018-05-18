@@ -1,10 +1,11 @@
 class ApplicationController < ActionController::Base
-  protect_from_forgery
+  # protect_from_forgery
+  before_action :current_cart
 
   private
 
    def current_cart 
-   	 Cart.find(session[:cart_id])
+   	@cart = Cart.find(session[:cart_id])
    rescue ActiveRecord::RecordNotFound
    	 cart = Cart.create
    	 session[:cart_id] = cart.id
