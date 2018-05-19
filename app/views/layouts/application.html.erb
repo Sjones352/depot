@@ -9,22 +9,28 @@
 </head>
 
 <body class="<%=controller.controller_name %>">
-<div id="main-container" class="container">
- <div id="banner">
-  <%= image_tag("logo.png") %>
-  <%= @page_title || "Pragmatic Bookshelf" %>
-</div>
+  <div id="main-container" class="container">
+    <div id="banner">
+      <%= image_tag("logo.png") %>
+        <%= @page_title || "Pragmatic Bookshelf" %>
+    </div>
     <div id="columns">
-     <ul class="nav navbar-nav navbar-header">
-       <li><%= link_to 'Home', products_path, class: "active" %></li>
-       <li><%= link_to 'Products', new_product_path, class: "nav-link scroll" %></li>
-       <li><%= link_to 'Line Items', new_line_item_path, class: "nav-link scroll" %></li>
-    </ul>
-  <div id="main">
-  <%= yield %>
-</div>
-</div>
-</div>
+      <ul class="nav navbar-nav navbar-header">
+        <li>
+          <%= link_to 'Home', products_path, class: "active" %>
+        </li>
+        <li>
+          <%= link_to 'Products', new_product_path, class: "nav-link scroll" %>
+        </li>
+        <li>
+          <%= link_to 'Line Items', new_line_item_path, class: "nav-link scroll" %>
+        </li>
+      </ul>
+      <div id="main">
+        <%= yield %>
+      </div>
+    </div>
+  </div>
 </body>
 
 </html>
