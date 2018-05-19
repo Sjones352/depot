@@ -15,6 +15,7 @@
         <%= @page_title || "Pragmatic Bookshelf" %>
     </div>
     <div id="columns">
+      <div id="side">
       <ul class="nav navbar-nav navbar-header">
         <li>
           <%= link_to 'Home', products_path, class: "active" %>
@@ -26,6 +27,7 @@
           <%= link_to 'Line Items', new_line_item_path, class: "nav-link scroll" %>
         </li>
       </ul>
+     </div>
       <div id="main">
         <%= yield %>
       </div>
