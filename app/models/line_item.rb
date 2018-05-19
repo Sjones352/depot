@@ -1,10 +1,11 @@
 class LineItem < ActiveRecord::Base
-	validates_numericality_of :product_id, presence: true
+	validates :product_id, :cart_id, presence: true
 
 	belongs_to :product
 	belongs_to :cart
 
 	def total_price
-     product.price * quantity
+     product.price.to_s.to_d * quantity.to_s.to_d
+     # product.price * quantity
     end
 end

@@ -1,51 +1,43 @@
-
 <div class="col-xs-12">
-<%= simple_form_for(@product) do |f| %>
-  <% if @product.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@product.errors.count, "error") %> prohibited this invoice from being saved:</h2>
-
-      <ul>
-      <% @product.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+  <%= simple_form_for(@product) do |f| %>
+    <% if @product.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@product.errors.count, "error") %> prohibited this invoice from being saved:</h2>
+        <ul>
+          <% @product.errors.full_messages.each do |message| %>
+            <li>
+              <%= message %>
+            </li>
+            <% end %>
+        </ul>
+      </div>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-<form class="form-horizontal">
-
-  <div class="col-xs-12"></div>
-  <div class="form-group">
-   <%= f.label :title %>
-   <%= f.input_field :title, class: "form_control"  %>
-  </div>
-
-  <div class="col-xs-12"></div>
-  <div class="form-group mb-2">
-   <%= f.label :description  %>
-   <%= f.input_field :description, class: "form_control"  %>
-  </div>
-
-  <div class="col-xs-12"></div>
-  <div class="form-group">
-  <%= f.label :image_url %>
-  <%= f.input_field :image_url, class: "form_control" %>
-  </div>
-
-  <div class="col-xs-12"></div>
-  <div class="form-group">
-  <%= f.label :price  %>
-  <%= f.input_field :price, class: "form_control" %>
-  </div>
-
-   <div class="actions">
-    <%= f.submit class: "btn btn-primary" do %>
-    <i class="glyphicon glyphicon-edit"></i> Submit
-    <% end %>
-  </div>
-
-</form>
+        <form class="form-horizontal">
+          <div class="col-xs-12"></div>
+          <div class="form-group">
+            <%= f.label :title %>
+              <%= f.input_field :title, class: "form_control"  %>
+          </div>
+          <div class="col-xs-12"></div>
+          <div class="form-group mb-2">
+            <%= f.label :description  %>
+              <%= f.input_field :description, class: "form_control"  %>
+          </div>
+          <div class="col-xs-12"></div>
+          <div class="form-group">
+            <%= f.label :image_url %>
+              <%= f.input_field :image_url, class: "form_control" %>
+          </div>
+          <div class="col-xs-12"></div>
+          <div class="form-group">
+            <%= f.label :price  %>
+              <%= f.input_field :price, class: "form_control" %>
+          </div>
+          <div class="actions">
+            <%= f.submit class: "btn btn-primary" do %>
+              <i class="glyphicon glyphicon-edit"></i> Submit
+              <% end %>
+          </div>
+        </form>
 </div>
-
 <% end %>

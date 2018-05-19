@@ -11,6 +11,6 @@
 </p>
 </div>
 <%= link_to 'button button-border', edit_line_item_path(@line_item) %> |
-<%= link_to line_items_path, class: "button button-border" do %>
+<%= link_to line_items_path(@product), class: "button button-border" do %>
 <i class="glyphicon glyphicon-hand-left"></i> Back
 <% end %>
