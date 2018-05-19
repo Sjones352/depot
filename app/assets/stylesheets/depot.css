@@ -15,6 +15,9 @@
   float: left;
 }
 
+#columns {
+  background: pink;
+}
 
 #store #notice {
         color: #000;

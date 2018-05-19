@@ -23,9 +23,6 @@ gem 'coffee-rails', '~> 4.2'
 # gem pg
 gem 'pg', '~> 0.18.4'
 
-#jquery
-gem 'jquery-ui-rails'
-
 #gem bootstrap
 gem 'bootstrap-sass', '~> 3.3.7'
 # gem 'bootstrap', '~> 4.0'

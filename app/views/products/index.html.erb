@@ -21,15 +21,15 @@
           <%= product.price %>
         </td>
         <td>
-          <%= button_to product, class:"btn btn-success" do %>
+          <%= link_to product, class:"btn btn-success" do %>
           <i class="glyphicon glyphicon-cog"></i> Show
           <% end %>
           <br/>
-          <%= button_to  edit_product_path(product), class: "button button-border button-edit" do%>
+          <%= link_to  edit_product_path(product), class: "button button-border button-edit" do%>
             <i class="glyphicon glyphicon-edit"></i> Edit
           <% end %>
           <br/>
-          <%= button_to product, class: "button button-border", method: :delete, data: { confirm: 'Are you sure?' } do %>
+          <%= link_to product, class: "button button-border button-destroy", method: :delete, data: { confirm: 'Are you sure?' } do %>
           <i class="glyphicon glyphicon-remove"></i> Destroy
           <% end %>
         </td>
