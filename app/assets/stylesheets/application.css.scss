@@ -21,15 +21,15 @@
 @import "datepicker";
 
 #banner {
-    background: #929;
-	padding: 10px;
-	border-bottom: 2px solid;
-	font: small-caps 40px/40px "Times New Roman", serif;
-	color: #282;
-	text-align: center;
+  background: #929;
+  padding: 10px;
+  border-bottom: 2px solid;
+  font: small-caps 40px/40px "Times New Roman", serif;
+  color: #282;
+  text-align: center;
 
   img {
-  	float: left;
+    float: left;
   }
 }
 
@@ -39,7 +39,7 @@ h1 {
   font-size: 24px;
 }
 
-h3{
+h3 {
   font-weight: bold;
   font-size: 18px;
 }
@@ -55,43 +55,71 @@ h3{
 #columns {
   background: #141;
 
-   #main {
-   	margin-left: 17em;
-   	padding: 1em;
-   	background: white;
-   }
+  #main {
+    margin-left: 17em;
+    padding: 1em;
+    background: white;
+  }
 
-   #side {
-   	float: left;
-   	width: 17em;
+  #side {
+    float: left;
+    width: 17em;
+    padding: 1em 2em;
+    background: #141;
 
-   	ul {
-   		padding: 0;
+    form,
+    div {
+      display: inline;
+    }
 
-   	 li {
-   	 	list-style: none;
+    input {
+      font-size: small;
+    }
 
-   	  a {
-   	  	color: #bfb;
-   	  	font-size: small;
-   	  }
-   	 }
-   	}
-   }
+    #cart {
+      font-size: smaller;
+      color: white;
+
+      table {
+        border-top: 1px dotted #595;
+        border-bottom: 1px dotted #595;
+        margin-bottom: 10px;
+      }
+    }
+
+    ul {
+      padding: 0;
+
+      li {
+        list-style: none;
+
+        a {
+          color: #bfb;
+          font-size: small;
+        }
+      }
+    }
+  }
 }
 
 
-.carts {
- .cart_title {
- font: 120% bold;
- }
+.carts,
+#side #cart {
+  .cart_title {
+    font: 120% bold;
+  }
 
- .item_price, .total_line {
- text-align: right;
- }
+  .item_price,
+  .total_line {
+    text-align: right;
+  }
 
- .total_line .total_cell {
-  font-weight: bold;
-  border-top: 1px solid #595;
-   }
+  .total_line .total_cell {
+    font-weight: bold;
+    border-top: 1px solid #595;
+  }
+}
+
+button-padding {
+  padding: 10px 10px !important;
 }
