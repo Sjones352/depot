@@ -3,7 +3,8 @@
     <%= notice %>
   </p>
   <% end %>
-   <!--  <table>
+  <div class="cart_title">Your Cart</div>
+    <table>
       <% @cart.line_items.each do |item| %>
         <tr>
           <td>
@@ -24,10 +25,4 @@
           </tr>
     </table>
     <%= button_to 'Empty cart', @cart, method: :delete,
-confirm: 'Are you sure?' %> -->
-
-<ul>
-<% @cart.line_items.each do |item| %>
-<li><%= item.product.title %></li>
-<% end %>
-</ul>
+confirm: 'Are you sure?' %>
