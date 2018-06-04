@@ -2,14 +2,14 @@
 
 one:
   title: MyString
-  description: This work had better work coz I have spent so much time on it.
+  description: This had better work coz I have spent so much time on it.
   image_url: ruby.png
   price: 49.50
 
 two:
   title: MyString
   description: MyText
-  image_url: MyString
+  image_url: rails.png
   price: 9.99
 
 ruby: 

@@ -11,7 +11,7 @@
       <%= sanitize(product.description) %>
       <div class="price_line">
       	<span class="price"><%= number_to_currency(product.price) %></span>
-      	<%= button_to line_items_path(product_id: product), class: 'btn btn-success' do %>
+      	<%= button_to line_items_path(product_id: product), remote: true, class: 'btn btn-success' do %>
         <i class="glyphicon glyphicon-plus"></i> Add to Cart
        <% end %>
       </div>

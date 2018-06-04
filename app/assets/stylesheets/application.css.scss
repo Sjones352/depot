@@ -11,6 +11,7 @@
  * It is generally better to create a new file per style scope.
  *
  *= require_tree
+ *= require jquery-ui
  *= require_self
  */
 
@@ -22,76 +23,144 @@
 
 #banner {
     background: #929;
-	padding: 10px;
-	border-bottom: 2px solid;
-	font: small-caps 40px/40px "Times New Roman", serif;
-	color: #282;
-	text-align: center;
+    padding: 10px;
+    border-bottom: 2px solid;
+    font: small-caps 40px/40px "Times New Roman", serif;
+    color: #282;
+    text-align: center;
 
-  img {
-  	float: left;
-  }
+    img {
+        float: left;
+    }
 }
 
 h1 {
-  text-align: left;
-  font-weight: bold;
-  font-size: 24px;
+    text-align: left;
+    font-weight: bold;
+    font-size: 24px;
 }
 
-h3{
-  font-weight: bold;
-  font-size: 18px;
+h3 {
+    font-weight: bold;
+    font-size: 18px;
 }
 
 #notice {
-  color: #000 !important;
-  padding: 1em;
-  margin-bottom: 2em;
-  background-color: #f0f0f0;
-  font: bold small sans-serif;
+    color: #000 !important;
+    padding: 1em;
+    margin-bottom: 2em;
+    background-color: #f0f0f0;
+    font: bold small sans-serif;
 }
 
 #columns {
-  background: #141;
+    background: #141;
 
-   #main {
-   	margin-left: 17em;
-   	padding: 1em;
-   	background: white;
-   }
+    #main {
+        margin-left: 17em;
+        padding: 1em;
+        background: white;
+    }
 
-   #side {
-   	float: left;
-   	width: 17em;
+    #side {
+        float: left;
+        width: 17em;
+        padding: 1em 2em;
+        background: #141;
 
-   	ul {
-   		padding: 0;
+        form,
+        div {
+            display: inline;
+        }
 
-   	 li {
-   	 	list-style: none;
+        input {
+            font-size: small;
+        }
 
-   	  a {
-   	  	color: #bfb;
-   	  	font-size: small;
-   	  }
-   	 }
-   	}
-   }
+        #cart {
+            font-size: smaller;
+            color: white;
+
+            table {
+                border-top: 1px dotted #595;
+                border-bottom: 1px dotted #595;
+                margin-bottom: 10px;
+            }
+        }
+
+        ul {
+            padding: 0;
+
+            li {
+                list-style: none;
+
+                a {
+                    color: #bfb;
+                    font-size: small;
+                }
+            }
+        }
+    }
 }
 
 
-.carts {
- .cart_title {
- font: 120% bold;
- }
+.carts,
+#side #cart {
+    .cart_title {
+        font: 120% bold;
+    }
 
- .item_price, .total_line {
- text-align: right;
- }
+    .item_price,
+    .total_line {
+        text-align: right;
+    }
 
- .total_line .total_cell {
-  font-weight: bold;
-  border-top: 1px solid #595;
-   }
+    .total_line .total_cell {
+        font-weight: bold;
+        border-top: 1px solid #595;
+    }
+}
+
+button-padding {
+    padding: 10px 10px !important;
+}
+
+.cart_buttons {
+    /*text-align: center;*/
+    display: inline-block; // position: absolute;
+    /*top: 50%;*/
+    /*left: 50%;*/
+}
+
+.depot_form {
+    fieldset {
+        background: #efe;
+        legend {
+            color: #dfd;
+            background: #141;
+            font-family: sans-serif;
+            padding: 0.2em 1em;
+        }
+    }
+    form {
+        label {
+            width: 5em;
+            float: left;
+            text-align: right;
+            padding-top: 0.2em;
+            margin-right: 0.1em;
+            display: block;
+        }
+        select,
+        textarea,
+        input {
+            margin-left: 0.5em;
+        }
+        .submit {
+            margin-left: 4em;
+        }
+        br {
+            display: none
+        }
+    }
 }

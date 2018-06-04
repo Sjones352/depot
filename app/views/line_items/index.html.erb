@@ -26,4 +26,6 @@
 
 <br>
 
-<%= link_to 'New Line Item', new_line_item_path, class: "btn btn-primary" %>
+<%= link_to new_line_item_path, class: "btn btn-primary"  do%>
+ <i class="glyphicon glyphicon-hand-left"></i> New Line Item
+<% end %>
