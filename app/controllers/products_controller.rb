@@ -6,25 +6,38 @@ class ProductsController < ApplicationController
   end
 
   def show
+    product = Product.find(params[:id])
+
+    respond_to do |format|
+      format.html { render :show, locals: { product: product } }
+      format.json { render inline: product.to_json }
+    end
   end
 
   def new
     @product = Product.new
   end
 
+  def who_bought
+    @product = Product.find(params[:id])
+    respond_to do |format|
+      format.atom
+    end
+  end
+
   def edit
   end
 
   def create
-    @product = Product.new(product_params)
+    product = Product.new(product_params)
 
     respond_to do |format|
-      if @product.save
-        format.html { redirect_to @product, notice: 'Product was successfully created.' }
-        format.json { render :show, status: :created, location: @product }
+      if product.save
+        format.html { redirect_to product, notice: 'Product was successfully created.' }
+        format.json { render :show, locals: { product: product }, status: :created, location: product }
       else
         format.html { render :new }
-        format.json { render json: @product.errors, status: :unprocessable_entity }
+        format.json { render json: product.errors, status: :unprocessable_entity }
       end
     end
   end

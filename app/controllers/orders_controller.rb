@@ -6,6 +6,12 @@ class OrdersController < ApplicationController
   end
 
   def show
+    @order = Order.find(params[:id])
+
+    respond_to do |format|
+      format.html { render :show, locals: { order: order } }
+      format.json { render inline: order.to_json }
+    end
   end
 
   def new

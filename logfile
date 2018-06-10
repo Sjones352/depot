@@ -1,0 +1,8 @@
+2018-06-04 21:33:12.037 EDT [19928] LOG:  listening on IPv6 address "::1", port 5432
+2018-06-04 21:33:12.038 EDT [19928] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2018-06-04 21:33:12.039 EDT [19928] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2018-06-04 21:33:12.056 EDT [19929] LOG:  database system was shut down at 2018-06-04 21:32:41 EDT
+2018-06-04 21:33:12.059 EDT [19928] LOG:  database system is ready to accept connections
+2018-06-04 21:33:35.233 EDT [19952] FATAL:  database "depot_development" does not exist
+2018-06-04 21:46:30.718 EDT [20089] FATAL:  database "depot_development" does not exist
+2018-06-08 22:40:29.393 EDT [19933] WARNING:  corrupted statistics file "pg_stat_tmp/global.stat"

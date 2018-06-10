@@ -5,29 +5,29 @@
   <div class="col-md-8 col-md-offset-2">
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h3 class="panel-title">Invoices</h3>
+        <h3 class="panel-title">Products</h3>
       </div>
       <div class="panel-body">
         <p>
           <strong>Title:</strong>
-          <%= @product.title %>
+          <%= product.title %>
         </p>
         <p>
           <strong>Description:</strong>
-          <%= @product.description  %>
+          <%= product.description  %>
         </p>
         <p>
           <strong>Image url:</strong>
-          <%=@product.image_url %>
+          <%=product.image_url %>
         </p>
         <p>
           <strong>Price:</strong>
-          <%= @product.price %>
+          <%= product.price %>
         </p>
       </div>
       <div class="panel-footer">
         <div class="btn-group">
-          <%= link_to edit_product_path(@product), class: "button button-border button-edit" do %>
+          <%= link_to edit_product_path(product), class: "button button-border button-edit" do %>
           <i class="glyphicon glyphicon-edit"></i> Edit
           <% end %>
           <%= link_to  products_path, class: "button button-border" do %>
