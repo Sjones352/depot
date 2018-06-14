@@ -2,7 +2,12 @@ class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
 
   def index
-    @products = Product.all
+    products = Product.all
+
+    respond_to do |format|
+      format.html { render :index, locals: { product: products } }
+      format.json
+    end
   end
 
   def show
@@ -10,7 +15,7 @@ class ProductsController < ApplicationController
 
     respond_to do |format|
       format.html { render :show, locals: { product: product } }
-      format.json { render inline: product.to_json }
+      format.json { render :show}
     end
   end
 

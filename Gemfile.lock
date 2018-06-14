@@ -187,7 +187,7 @@ DEPENDENCIES
   bootstrap_jt (~> 0.1.0)
   byebug
   coffee-rails (~> 4.2)
-  jbuilder (~> 2.5)
+  jbuilder (~> 2.7)
   jquery-rails
   jquery-ui-rails
   listen (~> 3.0.5)

@@ -6,3 +6,9 @@
 2018-06-04 21:33:35.233 EDT [19952] FATAL:  database "depot_development" does not exist
 2018-06-04 21:46:30.718 EDT [20089] FATAL:  database "depot_development" does not exist
 2018-06-08 22:40:29.393 EDT [19933] WARNING:  corrupted statistics file "pg_stat_tmp/global.stat"
+2018-06-11 13:08:11.613 EDT [69865] FATAL:  database "appeals_sprint_development" does not exist
+2018-06-11 13:11:22.996 EDT [70165] FATAL:  database "ricknjns" does not exist
+2018-06-11 13:11:36.979 EDT [70171] FATAL:  database "ricknjns" does not exist
+2018-06-11 22:42:52.340 EDT [19928] LOG:  received smart shutdown request
+2018-06-11 22:42:52.344 EDT [19928] LOG:  worker process: logical replication launcher (PID 19935) exited with exit code 1
+2018-06-11 22:42:52.345 EDT [19930] LOG:  shutting down
