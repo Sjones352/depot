@@ -6,8 +6,9 @@ class ProductsController < ApplicationController
 
     respond_to do |format|
       format.html { render :index, locals: { product: products } }
-      format.json
+      format.json { render :products }
     end
+     # render json: products
   end
 
   def show
