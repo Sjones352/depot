@@ -6,7 +6,7 @@ class OrdersController < ApplicationController
   end
 
   def show
-    @order = Order.find(params[:id])
+    order = Order.find(params[:id])
 
     respond_to do |format|
       format.html { render :show, locals: { order: order } }
