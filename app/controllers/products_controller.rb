@@ -8,7 +8,11 @@ class ProductsController < ApplicationController
       format.html { render :index, locals: { product: products } }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       format.json { render inline: products.to_json }
+=======
+      format.json
+>>>>>>> parent of 959c669... jbuilder
 =======
       format.json
 >>>>>>> parent of 959c669... jbuilder
