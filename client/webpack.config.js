@@ -20,10 +20,8 @@ const config = {
     'webpack-bundle': [
       'es5-shim/es5-shim',
       'es5-shim/es5-sham',
-      'react-on-rails',
       'babel-polyfill',
-      // './app/bundles/HelloWorld/startup/registration',
-      './app/components'
+      './app/bundles/HelloWorld/startup/registration',
     ],
   },
 
