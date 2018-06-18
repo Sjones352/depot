@@ -51,8 +51,7 @@ gem 'jbuilder', '~> 2.7'
 # gem 'capistrano-rails', group: :development
 
 #react gem
-gem "react_on_rails", "8.0.6"
-
+gem 'react-rails'
 
 #start server
 gem "foreman"
