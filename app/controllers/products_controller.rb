@@ -6,7 +6,11 @@ class ProductsController < ApplicationController
 
     respond_to do |format|
       format.html { render :index, locals: { product: products } }
+<<<<<<< HEAD
       format.json { render inline: products.to_json }
+=======
+      format.json
+>>>>>>> parent of 959c669... jbuilder
     end
   end
 
