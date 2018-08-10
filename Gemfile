@@ -50,6 +50,11 @@ gem 'jbuilder', '~> 2.7'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+#Testing
+gem 'selenium-webdriver', '~> 2.53', '>= 2.53.4'
+gem 'rspec', '~> 3.5'
+gem 'capybara', '~> 2.7', '>= 2.7.1'
+
 #react gem
 gem 'react-rails'
 
