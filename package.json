@@ -1,8 +1,15 @@
 {
   "name": "depot",
   "private": true,
-  "dependencies": {},
+  "dependencies": {
+    "@rails/webpacker": "3.5",
+    "lodash": "^4.17.10",
+    "lodash.map": "^4.6.0"
+  },
   "scripts": {
     "postinstall": "cd client && yarn install"
+  },
+  "devDependencies": {
+    "webpack-dev-server": "2.11.2"
   }
 }

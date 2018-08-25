@@ -19,4 +19,6 @@
 //= require react
 //= require react_ujs
 //= require components
+//= require lodash
+//= require components/_all_fruits.js.jsx
 //= require_tree

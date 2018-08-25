@@ -52,11 +52,12 @@ gem 'jbuilder', '~> 2.7'
 
 #Testing
 gem 'selenium-webdriver', '~> 2.53', '>= 2.53.4'
-gem 'rspec', '~> 3.5'
 gem 'capybara', '~> 2.7', '>= 2.7.1'
 
 #react gem
 gem 'react-rails'
+gem 'lodash-rails'
+
 
 #start server
 gem "foreman"
@@ -64,6 +65,8 @@ gem "foreman"
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+  gem 'rspec-rails', '~> 3.7'
+  gem 'rails-controller-testing'
 end
 
 group :development do
@@ -75,8 +78,17 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
+group :test do
+    gem 'database_cleaner'
+    gem 'capybara', '~> 2.7', '>= 2.7.1'
+ end
+
+
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'mini_racer', platforms: :ruby
 gem 'webpacker_lite'
+
+# gem 'webpacker', '~> 3.5'
+gem 'simplecov', require: false, group: :test
