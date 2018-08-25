@@ -940,3 +940,25 @@ Completed 200 OK in 6ms (Views: 5.5ms | ActiveRecord: 0.0ms)
   [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
   [1m[36mProduct Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "products" WHERE "products"."title" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
   [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (6.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.9ms)[0m  [1m[35mALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "carts" DISABLE TRIGGER ALL;ALTER TABLE "fruits" DISABLE TRIGGER ALL;ALTER TABLE "line_items" DISABLE TRIGGER ALL;ALTER TABLE "orders" DISABLE TRIGGER ALL;ALTER TABLE "products" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (1.3ms)[0m  [1m[34m          SELECT schemaname || '.' || tablename
+          FROM pg_tables
+          WHERE
+            tablename !~ '_prt_' AND
+            tablename <> 'schema_migrations' AND
+            schemaname = ANY (current_schemas(false))
+[0m
+  [1m[35m (1.5ms)[0m  [1m[34mselect table_name from information_schema.views where table_schema = 'depot_test'[0m
+  [1m[35m (35.6ms)[0m  [1m[35mTRUNCATE TABLE "public"."carts", "public"."fruits", "public"."line_items", "public"."orders", "public"."products", "public"."ar_internal_metadata" RESTART IDENTITY CASCADE;[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "carts" ENABLE TRIGGER ALL;ALTER TABLE "fruits" ENABLE TRIGGER ALL;ALTER TABLE "line_items" ENABLE TRIGGER ALL;ALTER TABLE "orders" ENABLE TRIGGER ALL;ALTER TABLE "products" ENABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+Processing by OrdersController#index as HTML
+  Rendering orders/index.html.erb within layouts/application
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+  Rendered orders/index.html.erb within layouts/application (1.7ms)
+  Template rendering was prevented by rspec-rails. Use `render_views` to verify rendered view contents if necessary.
+Completed 200 OK in 25ms (Views: 14.3ms | ActiveRecord: 0.0ms)
