@@ -88,7 +88,7 @@ group :test do
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'mini_racer', platforms: :ruby
-gem 'webpacker_lite'
+# gem 'webpacker_lite'
 
-# gem 'webpacker', '~> 3.5'
+gem 'webpacker', '~> 3.5'
 gem 'simplecov', require: false, group: :test
