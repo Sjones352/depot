@@ -17,9 +17,10 @@ class OrdersController < ApplicationController
   def new
     @cart = current_cart
     if @cart.line_items.empty?
-      redirect_to store_url, notice: "Your cart is empty as shit"
+      redirect_to store_url, notice: "Your cart is empty"
       return
     end
+
     @order = Order.new
     respond_to do |format|
       format.html # new.hmtl.erb
@@ -38,14 +39,14 @@ class OrdersController < ApplicationController
       if @order.save
         Cart.destroy(session[:cart_id])
         session[:cart_id] = nil
-        format.html { redirect_to store_url, notice: 
+        format.html { redirect_to store_url, notice:
           'Thank you for your order.' }
-        format.json { render  json: @order, status: :created, 
+        format.json { render  json: @order, status: :created,
           location: @order }
       else
         @cart = current_cart
         format.html { render action: "new" }
-        format.json { render json: @order.errors, 
+        format.json { render json: @order.errors,
           status: :unprocessable_entity }
       end
     end

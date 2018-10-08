@@ -12,11 +12,6 @@ gem 'rails', '~> 5.0.5'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 5.0'
-# Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '>= 1.3.0'
-# Use CoffeeScript for .coffee assets and views
-gem 'coffee-rails', '~> 4.2'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
@@ -83,6 +78,15 @@ group :test do
     gem 'capybara', '~> 2.7', '>= 2.7.1'
  end
 
+ # group :assets do
+   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
+   gem 'sass-rails', '~> 5.0'
+   # Use CoffeeScript for .coffee assets and views
+   gem 'coffee-rails', '~> 4.2'
+   # Use Uglifier as compressor for JavaScript assets
+   gem 'uglifier', '>= 1.3.0'
+ # end
+
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
@@ -92,3 +96,5 @@ gem 'mini_racer', platforms: :ruby
 
 gem 'webpacker', '~> 3.5'
 gem 'simplecov', require: false, group: :test
+
+gem 'will_paginate', '~> 3.1', '>= 3.1.6'

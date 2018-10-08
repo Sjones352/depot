@@ -7894,3 +7894,729 @@ Processing by ProductsController#index as HTML
 Completed 200 OK in 7735ms (Views: 7732.7ms | ActiveRecord: 0.4ms)
 
 
+Started GET "/" for 127.0.0.1 at 2018-10-07 18:21:12 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (26.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StoreController#index as HTML
+  [1m[36mCart Load (20.4ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering store/index.html.erb within layouts/application
+  [1m[36mProduct Load (24.9ms)[0m  [1m[34mSELECT "products".* FROM "products" ORDER BY "products"."title" ASC[0m
+Started GET "/" for 127.0.0.1 at 2018-10-07 18:21:17 -0400
+Processing by StoreController#index as HTML
+  [1m[36mCart Load (0.6ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering store/index.html.erb within layouts/application
+  [1m[36mProduct Load (42.9ms)[0m  [1m[34mSELECT "products".* FROM "products" ORDER BY "products"."title" ASC[0m
+  Rendered store/index.html.erb within layouts/application (13833.1ms)
+  Rendered store/index.html.erb within layouts/application (9705.0ms)
+[Webpacker] Compiling…
+[Webpacker] Compiled all packs in /Users/ricknjns/Desktop/Ruby/depot/public/packs
+  [1m[36mLineItem Exists (9.5ms)[0m  [1m[34mSELECT  1 AS one FROM "line_items" WHERE "line_items"."cart_id" = $1 LIMIT $2[0m  [["cart_id", 8], ["LIMIT", 1]]
+  [1m[36mLineItem Exists (9.3ms)[0m  [1m[34mSELECT  1 AS one FROM "line_items" WHERE "line_items"."cart_id" = $1 LIMIT $2[0m  [["cart_id", 8], ["LIMIT", 1]]
+  [1m[36mLineItem Load (0.3ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 8]]
+  [1m[36mLineItem Load (0.4ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 8]]
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered carts/_cart.html.erb (4.8ms)
+  Rendered carts/_cart.html.erb (8.0ms)
+Completed 200 OK in 13973ms (Views: 13911.8ms | ActiveRecord: 58.0ms)
+
+
+Completed 200 OK in 18179ms (Views: 18042.6ms | ActiveRecord: 98.1ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2018-10-07 18:21:55 -0400
+Processing by ProductsController#index as HTML
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  Rendered products/index.html.erb within layouts/application (31.1ms)
+Completed 200 OK in 576ms (Views: 572.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/products/new" for 127.0.0.1 at 2018-10-07 18:22:00 -0400
+Processing by ProductsController#new as HTML
+  Rendering products/new.html.erb within layouts/application
+  Rendered products/_form.html.erb (78.3ms)
+  Rendered products/new.html.erb within layouts/application (83.0ms)
+Completed 200 OK in 389ms (Views: 383.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/line_items/new" for 127.0.0.1 at 2018-10-07 18:22:02 -0400
+Processing by LineItemsController#new as HTML
+  Rendering line_items/new.html.erb within layouts/application
+  Rendered line_items/_form.html.erb (6.9ms)
+  Rendered line_items/new.html.erb within layouts/application (10.7ms)
+Completed 200 OK in 393ms (Views: 376.1ms | ActiveRecord: 5.2ms)
+
+
+Started GET "/products/new" for 127.0.0.1 at 2018-10-07 18:22:05 -0400
+Processing by ProductsController#new as HTML
+  Rendering products/new.html.erb within layouts/application
+  Rendered products/_form.html.erb (18.6ms)
+  Rendered products/new.html.erb within layouts/application (23.7ms)
+Completed 200 OK in 439ms (Views: 435.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2018-10-07 18:22:06 -0400
+Processing by ProductsController#index as HTML
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (1.1ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  Rendered products/index.html.erb within layouts/application (54.6ms)
+Completed 200 OK in 393ms (Views: 390.6ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-10-07 18:22:11 -0400
+Processing by StoreController#index as HTML
+  [1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering store/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT "products".* FROM "products" ORDER BY "products"."title" ASC[0m
+  Rendered store/index.html.erb within layouts/application (15.1ms)
+  [1m[36mLineItem Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "line_items" WHERE "line_items"."cart_id" = $1 LIMIT $2[0m  [["cart_id", 8], ["LIMIT", 1]]
+  [1m[36mLineItem Load (0.3ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 8]]
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered carts/_cart.html.erb (2.4ms)
+Completed 200 OK in 361ms (Views: 354.4ms | ActiveRecord: 1.9ms)
+
+
+Started POST "/line_items?product_id=4" for 127.0.0.1 at 2018-10-07 18:51:32 -0400
+Processing by LineItemsController#create as JS
+  Parameters: {"authenticity_token"=>"oXdgWwtq3/E+YYkOKZSUYRKIpZ2jdhti5RNxVWhRmtBtJ5W1MOB3xSYC0YoZFQ41NRPLH4nlKK37dHXDzD74fg==", "product_id"=>"4"}
+  [1m[36mCart Load (0.9ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.8ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mLineItem Load (0.5ms)[0m  [1m[34mSELECT  "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1 AND "line_items"."product_id" = $2 LIMIT $3[0m  [["cart_id", 8], ["product_id", 4], ["LIMIT", 1]]
+  [1m[35m (6.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35mSQL (9.7ms)[0m  [1m[32mINSERT INTO "line_items" ("product_id", "cart_id", "created_at", "updated_at", "quantity") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["product_id", 4], ["cart_id", 8], ["created_at", "2018-10-07 22:51:32.385181"], ["updated_at", "2018-10-07 22:51:32.385181"], ["quantity", 1]]
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+  Rendering line_items/create.js.erb
+  [1m[36mLineItem Load (0.3ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 8]]
+  Rendered collection of line_items/_line_item.html.erb [1 times] (5.3ms)
+  Rendered carts/_cart.html.erb (16.4ms)
+  Rendered line_items/create.js.erb (23.7ms)
+Completed 200 OK in 142ms (Views: 31.9ms | ActiveRecord: 20.7ms)
+
+
+Started GET "/orders/new" for 127.0.0.1 at 2018-10-07 18:51:39 -0400
+Processing by OrdersController#new as HTML
+  [1m[36mCart Load (0.9ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mLineItem Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "line_items" WHERE "line_items"."cart_id" = $1 LIMIT $2[0m  [["cart_id", 8], ["LIMIT", 1]]
+  Rendering orders/new.html.erb within layouts/application
+  Rendered orders/_form.html.erb (16.4ms)
+  Rendered orders/new.html.erb within layouts/application (19.1ms)
+  [1m[36mLineItem Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "line_items" WHERE "line_items"."cart_id" = $1 LIMIT $2[0m  [["cart_id", 8], ["LIMIT", 1]]
+  [1m[36mLineItem Load (0.3ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 8]]
+  [1m[36mProduct Load (0.9ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered collection of line_items/_line_item.html.erb [1 times] (4.9ms)
+  Rendered carts/_cart.html.erb (10.0ms)
+Completed 200 OK in 641ms (Views: 606.2ms | ActiveRecord: 8.5ms)
+
+
+Started POST "/orders" for 127.0.0.1 at 2018-10-07 18:52:45 -0400
+Processing by OrdersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"K/jHlhVA9LbHzY69zP8X+/FjiUfUQ96RAsLxyTFS1BfnqDJ4Lspcgt+u1jn8fo2v1vjnxf7Q7V4cpfVflT22uQ==", "order"=>{"name"=>"Sandra Diana Jones", "address"=>"71206 Sunningdale PL\r\nWaldorf MD 20602\r\nUSA", "email"=>"primsun22@yahoo.com", "pay_type"=>"check"}, "commit"=>"Place Order"}
+  [1m[36mCart Load (1.0ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mLineItem Load (0.2ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 8]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35mSQL (19.3ms)[0m  [1m[32mINSERT INTO "orders" ("name", "address", "email", "pay_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Sandra Diana Jones"], ["address", "71206 Sunningdale PL\r\nWaldorf MD 20602\r\nUSA"], ["email", "primsun22@yahoo.com"], ["pay_type", "check"], ["created_at", "2018-10-07 22:52:45.093712"], ["updated_at", "2018-10-07 22:52:45.093712"]]
+  [1m[35mSQL (1.9ms)[0m  [1m[33mUPDATE "line_items" SET "cart_id" = $1, "order_id" = $2, "updated_at" = $3 WHERE "line_items"."id" = $4[0m  [["cart_id", nil], ["order_id", 4], ["updated_at", "2018-10-07 22:52:45.116017"], ["id", 12]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCart Load (0.3ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mLineItem Load (0.2ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 8]]
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "carts" WHERE "carts"."id" = $1[0m  [["id", 8]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 64ms (ActiveRecord: 24.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-10-07 18:52:45 -0400
+Processing by StoreController#index as HTML
+  [1m[36mCart Load (0.4ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (2.4ms)[0m  [1m[32mINSERT INTO "carts" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2018-10-07 22:52:45.145519"], ["updated_at", "2018-10-07 22:52:45.145519"]]
+  [1m[35m (12.2ms)[0m  [1m[35mCOMMIT[0m
+  Rendering store/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" ORDER BY "products"."title" ASC[0m
+  Rendered store/index.html.erb within layouts/application (15.8ms)
+  [1m[36mLineItem Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "line_items" WHERE "line_items"."cart_id" = $1 LIMIT $2[0m  [["cart_id", 13], ["LIMIT", 1]]
+  [1m[36mLineItem Load (0.3ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 13]]
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered carts/_cart.html.erb (2.8ms)
+Completed 200 OK in 519ms (Views: 495.0ms | ActiveRecord: 16.1ms)
+
+
+Started GET "/store" for 127.0.0.1 at 2018-10-07 19:19:53 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/store"):
+  
+actionpack (5.0.6) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.6) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.6) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.4) lib/rack/method_override.rb:22:in `call'
+rack (2.0.4) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.6) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.6) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.4) lib/rack/sendfile.rb:111:in `call'
+webpacker (3.5.5) lib/webpacker/dev_server_proxy.rb:22:in `perform_request'
+rack-proxy (0.6.4) lib/rack/proxy.rb:57:in `call'
+railties (5.0.6) lib/rails/engine.rb:522:in `call'
+puma (3.11.3) lib/puma/configuration.rb:225:in `call'
+puma (3.11.3) lib/puma/server.rb:624:in `handle_request'
+puma (3.11.3) lib/puma/server.rb:438:in `process_client'
+puma (3.11.3) lib/puma/server.rb:302:in `block in run'
+puma (3.11.3) lib/puma/thread_pool.rb:120:in `call'
+puma (3.11.3) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  Rendering /Users/ricknjns/.rvm/gems/ruby-2.2.5/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /Users/ricknjns/.rvm/gems/ruby-2.2.5/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/ricknjns/.rvm/gems/ruby-2.2.5/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.2ms)
+  Rendered collection of /Users/ricknjns/.rvm/gems/ruby-2.2.5/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/routes/_route.html.erb [41 times] (34.4ms)
+  Rendered /Users/ricknjns/.rvm/gems/ruby-2.2.5/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/routes/_table.html.erb (8.5ms)
+  Rendering /Users/ricknjns/.rvm/gems/ruby-2.2.5/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/ricknjns/.rvm/gems/ruby-2.2.5/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (4.8ms)
+  Rendered /Users/ricknjns/.rvm/gems/ruby-2.2.5/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (170.8ms)
+Started GET "/" for 127.0.0.1 at 2018-10-07 19:19:57 -0400
+Processing by StoreController#index as HTML
+  [1m[36mCart Load (0.3ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  Rendering store/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT "products".* FROM "products" ORDER BY "products"."title" ASC[0m
+  Rendered store/index.html.erb within layouts/application (41.4ms)
+  [1m[36mLineItem Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "line_items" WHERE "line_items"."cart_id" = $1 LIMIT $2[0m  [["cart_id", 13], ["LIMIT", 1]]
+  [1m[36mLineItem Load (0.2ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 13]]
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered carts/_cart.html.erb (4.2ms)
+Completed 200 OK in 892ms (Views: 838.5ms | ActiveRecord: 14.8ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2018-10-07 19:20:00 -0400
+Processing by ProductsController#index as HTML
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  Rendered products/index.html.erb within layouts/application (22.9ms)
+Completed 200 OK in 729ms (Views: 726.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/products/new" for 127.0.0.1 at 2018-10-07 21:38:48 -0400
+Processing by ProductsController#new as HTML
+  Rendering products/new.html.erb within layouts/application
+  Rendered products/_form.html.erb (56.4ms)
+  Rendered products/new.html.erb within layouts/application (70.8ms)
+Completed 200 OK in 1395ms (Views: 1375.0ms | ActiveRecord: 0.0ms)
+
+
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+Started POST "/products" for 127.0.0.1 at 2018-10-07 21:41:05 -0400
+Processing by ProductsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"E5/5CGH6ZhtAKCIqjKEihKvZuFUncSnnmGSq2Xgh+pPGsxnTmNrqblowFflYF2bDe50zKrbaFN0kiRrfuAAbUg==", "product"=>{"title"=>"Programming Ruby 1.9", "description"=>"This is a programming Language that I am trying to learn", "image_url"=>"rails.png", "price"=>"37.00"}, "commit"=>"Create Product"}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Exists (7.0ms)[0m  [1m[34mSELECT  1 AS one FROM "products" WHERE "products"."title" = $1 LIMIT $2[0m  [["title", "Programming Ruby 1.9"], ["LIMIT", 1]]
+  [1m[35mSQL (6.0ms)[0m  [1m[32mINSERT INTO "products" ("title", "description", "image_url", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Programming Ruby 1.9"], ["description", "This is a programming Language that I am trying to learn"], ["image_url", "rails.png"], ["price", "37.0"], ["created_at", "2018-10-08 01:41:05.354576"], ["updated_at", "2018-10-08 01:41:05.354576"]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/products/8
+Completed 302 Found in 91ms (ActiveRecord: 14.3ms)
+
+
+Started GET "/products/8" for 127.0.0.1 at 2018-10-07 21:41:05 -0400
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering products/show.html.erb within layouts/application
+  Rendered products/show.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 1126ms (Views: 1118.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2018-10-07 21:41:12 -0400
+Processing by ProductsController#index as HTML
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  Rendered products/index.html.erb within layouts/application (22.8ms)
+Completed 200 OK in 574ms (Views: 572.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/line_items/new" for 127.0.0.1 at 2018-10-07 22:23:58 -0400
+Processing by LineItemsController#new as HTML
+  Rendering line_items/new.html.erb within layouts/application
+  Rendered line_items/_form.html.erb (14.9ms)
+  Rendered line_items/new.html.erb within layouts/application (19.9ms)
+Completed 200 OK in 922ms (Views: 888.2ms | ActiveRecord: 5.7ms)
+
+
+Started GET "/products/new" for 127.0.0.1 at 2018-10-07 22:24:01 -0400
+Processing by ProductsController#new as HTML
+  Rendering products/new.html.erb within layouts/application
+  Rendered products/_form.html.erb (15.9ms)
+  Rendered products/new.html.erb within layouts/application (18.8ms)
+Completed 200 OK in 838ms (Views: 810.6ms | ActiveRecord: 6.4ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2018-10-07 22:24:09 -0400
+Processing by ProductsController#index as HTML
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.8ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  Rendered products/index.html.erb within layouts/application (54.3ms)
+Completed 200 OK in 1019ms (Views: 1014.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/products/new" for 127.0.0.1 at 2018-10-07 22:24:11 -0400
+Processing by ProductsController#new as HTML
+  Rendering products/new.html.erb within layouts/application
+  Rendered products/_form.html.erb (21.6ms)
+  Rendered products/new.html.erb within layouts/application (27.1ms)
+Completed 200 OK in 598ms (Views: 593.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/line_items/new" for 127.0.0.1 at 2018-10-07 22:24:12 -0400
+Processing by LineItemsController#new as HTML
+  Rendering line_items/new.html.erb within layouts/application
+  Rendered line_items/_form.html.erb (6.2ms)
+  Rendered line_items/new.html.erb within layouts/application (10.3ms)
+Completed 200 OK in 597ms (Views: 593.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2018-10-07 22:24:16 -0400
+Processing by ProductsController#index as HTML
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  Rendered products/index.html.erb within layouts/application (37.9ms)
+Completed 200 OK in 555ms (Views: 553.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/products/8" for 127.0.0.1 at 2018-10-07 22:24:20 -0400
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mProduct Load (0.9ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering products/show.html.erb within layouts/application
+  Rendered products/show.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 547ms (Views: 541.7ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2018-10-07 22:24:27 -0400
+Processing by ProductsController#index as HTML
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  Rendered products/index.html.erb within layouts/application (37.6ms)
+Completed 200 OK in 500ms (Views: 498.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/products/5" for 127.0.0.1 at 2018-10-07 22:24:40 -0400
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering products/show.html.erb within layouts/application
+  Rendered products/show.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 582ms (Views: 579.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/products/5/edit" for 127.0.0.1 at 2018-10-07 22:24:43 -0400
+Processing by ProductsController#edit as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering products/edit.html.erb within layouts/application
+  Rendered products/_form.html.erb (20.1ms)
+  Rendered products/edit.html.erb within layouts/application (25.1ms)
+Completed 200 OK in 525ms (Views: 520.0ms | ActiveRecord: 0.3ms)
+
+
+Started PATCH "/products/5" for 127.0.0.1 at 2018-10-07 22:24:54 -0400
+Processing by ProductsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"HoMKgjzf00FdYUuZIUni1lxLcvj2pM3d9CGHd+s4+W/Owv9nnFKD2EultPDh1Mi7/SKvwpEUqmpuiO9Dy0oJRA==", "product"=>{"title"=>"ruby", "description"=>"This is fun. ", "image_url"=>"ruby.png", "price"=>"34.0"}, "commit"=>"Update Product", "id"=>"5"}
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "products" WHERE "products"."title" = $1 AND ("products"."id" != $2) LIMIT $3[0m  [["title", "ruby"], ["id", 5], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "products" SET "title" = $1, "updated_at" = $2 WHERE "products"."id" = $3[0m  [["title", "ruby"], ["updated_at", "2018-10-08 02:24:54.661247"], ["id", 5]]
+  [1m[35m (5.8ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/products/5
+Completed 302 Found in 20ms (ActiveRecord: 7.5ms)
+
+
+Started GET "/products/5" for 127.0.0.1 at 2018-10-07 22:24:54 -0400
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering products/show.html.erb within layouts/application
+  Rendered products/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 476ms (Views: 473.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2018-10-07 22:24:58 -0400
+Processing by ProductsController#index as HTML
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  Rendered products/index.html.erb within layouts/application (17.1ms)
+Completed 200 OK in 486ms (Views: 485.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-10-07 22:25:15 -0400
+Processing by StoreController#index as HTML
+  [1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  Rendering store/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.8ms)[0m  [1m[34mSELECT "products".* FROM "products" ORDER BY "products"."title" ASC[0m
+  Rendered store/index.html.erb within layouts/application (15.7ms)
+  [1m[36mLineItem Exists (1.4ms)[0m  [1m[34mSELECT  1 AS one FROM "line_items" WHERE "line_items"."cart_id" = $1 LIMIT $2[0m  [["cart_id", 13], ["LIMIT", 1]]
+  [1m[36mLineItem Load (0.8ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 13]]
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered carts/_cart.html.erb (5.9ms)
+Completed 200 OK in 478ms (Views: 460.5ms | ActiveRecord: 5.2ms)
+
+
+Started POST "/line_items?product_id=5" for 127.0.0.1 at 2018-10-07 22:25:35 -0400
+Processing by LineItemsController#create as JS
+  Parameters: {"authenticity_token"=>"y0yshiBZPOer0XdxVhEuRwpxGFuMA5x6QI0+/4+QvUMHHFloG9OU07OyL/VmkLQTLep22aaQr7Ve6jppK//f7Q==", "product_id"=>"5"}
+  [1m[36mCart Load (0.3ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mLineItem Load (0.3ms)[0m  [1m[34mSELECT  "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1 AND "line_items"."product_id" = $2 LIMIT $3[0m  [["cart_id", 13], ["product_id", 5], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "line_items" ("product_id", "cart_id", "created_at", "updated_at", "quantity") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["product_id", 5], ["cart_id", 13], ["created_at", "2018-10-08 02:25:35.227337"], ["updated_at", "2018-10-08 02:25:35.227337"], ["quantity", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  Rendering line_items/create.js.erb
+  [1m[36mLineItem Load (0.3ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 13]]
+  Rendered collection of line_items/_line_item.html.erb [1 times] (1.0ms)
+  Rendered carts/_cart.html.erb (6.4ms)
+  Rendered line_items/create.js.erb (8.8ms)
+Completed 200 OK in 30ms (Views: 15.0ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/orders/new" for 127.0.0.1 at 2018-10-07 22:25:38 -0400
+Processing by OrdersController#new as HTML
+  [1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mLineItem Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "line_items" WHERE "line_items"."cart_id" = $1 LIMIT $2[0m  [["cart_id", 13], ["LIMIT", 1]]
+  Rendering orders/new.html.erb within layouts/application
+  Rendered orders/_form.html.erb (3.3ms)
+  Rendered orders/new.html.erb within layouts/application (5.9ms)
+  [1m[36mLineItem Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "line_items" WHERE "line_items"."cart_id" = $1 LIMIT $2[0m  [["cart_id", 13], ["LIMIT", 1]]
+  [1m[36mLineItem Load (0.4ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 13]]
+  [1m[36mProduct Load (8.5ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  Rendered collection of line_items/_line_item.html.erb [1 times] (13.0ms)
+  Rendered carts/_cart.html.erb (20.8ms)
+Completed 200 OK in 461ms (Views: 433.4ms | ActiveRecord: 12.4ms)
+
+
+Started POST "/orders" for 127.0.0.1 at 2018-10-07 22:26:24 -0400
+Processing by OrdersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"u3kvODi3NcLzVcI63xA0RfX4q9IKlxN1SXD9/8QNXMp3KdrWAz2d9us2mr7vka4R0mPFUCAEILpXF/lpYGI+ZA==", "order"=>{"name"=>"Liz Kayodi", "address"=>"2101 Sunningdale Pl", "email"=>"primsun22@yahoo.com", "pay_type"=>"Credit card"}, "commit"=>"Place Order"}
+  [1m[36mCart Load (0.4ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mLineItem Load (0.3ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 13]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "orders" ("name", "address", "email", "pay_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Liz Kayodi"], ["address", "2101 Sunningdale Pl"], ["email", "primsun22@yahoo.com"], ["pay_type", "Credit card"], ["created_at", "2018-10-08 02:26:25.007775"], ["updated_at", "2018-10-08 02:26:25.007775"]]
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "line_items" SET "cart_id" = $1, "order_id" = $2, "updated_at" = $3 WHERE "line_items"."id" = $4[0m  [["cart_id", nil], ["order_id", 5], ["updated_at", "2018-10-08 02:26:25.010544"], ["id", 13]]
+  [1m[35m (4.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCart Load (0.5ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mLineItem Load (0.2ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 13]]
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "carts" WHERE "carts"."id" = $1[0m  [["id", 13]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 32ms (ActiveRecord: 8.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-10-07 22:26:25 -0400
+Processing by StoreController#index as HTML
+  [1m[36mCart Load (0.3ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "carts" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2018-10-08 02:26:25.035071"], ["updated_at", "2018-10-08 02:26:25.035071"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  Rendering store/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" ORDER BY "products"."title" ASC[0m
+  Rendered store/index.html.erb within layouts/application (11.0ms)
+  [1m[36mLineItem Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "line_items" WHERE "line_items"."cart_id" = $1 LIMIT $2[0m  [["cart_id", 14], ["LIMIT", 1]]
+  [1m[36mLineItem Load (0.4ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 14]]
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered carts/_cart.html.erb (3.4ms)
+Completed 200 OK in 662ms (Views: 653.3ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-10-07 23:57:00 -0400
+Processing by StoreController#index as HTML
+  [1m[36mCart Load (1.3ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  Rendering store/index.html.erb within layouts/application
+  [1m[36mProduct Load (1.4ms)[0m  [1m[34mSELECT "products".* FROM "products" ORDER BY "products"."title" ASC[0m
+  Rendered store/index.html.erb within layouts/application (101.3ms)
+  [1m[36mLineItem Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "line_items" WHERE "line_items"."cart_id" = $1 LIMIT $2[0m  [["cart_id", 14], ["LIMIT", 1]]
+  [1m[36mLineItem Load (0.5ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 14]]
+  Rendered collection of templates [0 times] (0.1ms)
+  Rendered carts/_cart.html.erb (6.2ms)
+Completed 200 OK in 1422ms (Views: 1391.0ms | ActiveRecord: 3.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-10-08 00:04:14 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (1.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StoreController#index as HTML
+  [1m[36mCart Load (0.4ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  Rendering store/index.html.erb within layouts/application
+  [1m[36mProduct Load (1.2ms)[0m  [1m[34mSELECT "products".* FROM "products" ORDER BY "products"."title" ASC[0m
+  Rendered store/index.html.erb within layouts/application (10285.0ms)
+Completed 500 Internal Server Error in 10345ms (ActiveRecord: 9.0ms)
+
+
+  
+ActionView::Template::Error (File to import not found or unreadable: datepicker.
+Load paths:
+  /Users/ricknjns/Desktop/Ruby/depot/app/assets/config
+  /Users/ricknjns/Desktop/Ruby/depot/app/assets/images
+  /Users/ricknjns/Desktop/Ruby/depot/app/assets/javascripts
+  /Users/ricknjns/Desktop/Ruby/depot/app/assets/stylesheets
+  /Users/ricknjns/Desktop/Ruby/depot/vendor/assets/javascripts
+  /Users/ricknjns/Desktop/Ruby/depot/vendor/assets/stylesheets
+  /Users/ricknjns/.rvm/gems/ruby-2.2.5/gems/lodash-rails-4.17.10/vendor/assets/javascripts
+  /Users/ricknjns/.rvm/gems/ruby-2.2.5/gems/jquery-rails-4.3.1/vendor/assets/javascripts
+  /Users/ricknjns/.rvm/gems/ruby-2.2.5/gems/jquery-ui-rails-6.0.1/app/assets/images
+  /Users/ricknjns/.rvm/gems/ruby-2.2.5/gems/jquery-ui-rails-6.0.1/app/assets/javascripts
+  /Users/ricknjns/.rvm/gems/ruby-2.2.5/gems/jquery-ui-rails-6.0.1/app/assets/stylesheets
+  /Users/ricknjns/.rvm/gems/ruby-2.2.5/bundler/gems/uswds-rails-gem-aa12ddd31420/app/assets/javascripts
+  /Users/ricknjns/.rvm/gems/ruby-2.2.5/bundler/gems/uswds-rails-gem-aa12ddd31420/app/assets/stylesheets
+  /Users/ricknjns/.rvm/gems/ruby-2.2.5/bundler/gems/uswds-rails-gem-aa12ddd31420/vendor/assets/fonts
+  /Users/ricknjns/.rvm/gems/ruby-2.2.5/bundler/gems/uswds-rails-gem-aa12ddd31420/vendor/assets/images
+  /Users/ricknjns/.rvm/gems/ruby-2.2.5/bundler/gems/uswds-rails-gem-aa12ddd31420/vendor/assets/javascripts
+  /Users/ricknjns/.rvm/gems/ruby-2.2.5/bundler/gems/uswds-rails-gem-aa12ddd31420/vendor/assets/stylesheets
+  /Users/ricknjns/.rvm/gems/ruby-2.2.5/gems/bootstrap_jt-0.1.0/vendor/assets/fonts
+  /Users/ricknjns/.rvm/gems/ruby-2.2.5/gems/bootstrap_jt-0.1.0/vendor/assets/javascripts
+  /Users/ricknjns/.rvm/gems/ruby-2.2.5/gems/bootstrap_jt-0.1.0/vendor/assets/stylesheets
+  /Users/ricknjns/.rvm/gems/ruby-2.2.5/gems/actioncable-5.0.6/lib/assets/compiled
+  /Users/ricknjns/.rvm/gems/ruby-2.2.5/gems/turbolinks-source-5.1.0/lib/assets/javascripts
+  /Users/ricknjns/Desktop/Ruby/depot/node_modules
+  /Users/ricknjns/.rvm/gems/ruby-2.2.5/gems/react-rails-2.4.4/lib/assets/react-source/development
+  /Users/ricknjns/.rvm/gems/ruby-2.2.5/gems/react-rails-2.4.4/lib/assets/javascripts
+  /Users/ricknjns/.rvm/gems/ruby-2.2.5/gems/bootstrap-sass-3.3.7/assets/stylesheets
+  /Users/ricknjns/.rvm/gems/ruby-2.2.5/gems/bootstrap-sass-3.3.7/assets/javascripts
+  /Users/ricknjns/.rvm/gems/ruby-2.2.5/gems/bootstrap-sass-3.3.7/assets/fonts
+  /Users/ricknjns/.rvm/gems/ruby-2.2.5/gems/bootstrap-sass-3.3.7/assets/images
+  /Users/ricknjns/.rvm/gems/ruby-2.2.5/gems/bootstrap-sass-3.3.7/assets/stylesheets
+  /Users/ricknjns/.rvm/gems/ruby-2.2.5/bundler/gems/uswds-rails-gem-aa12ddd31420/lib/assets/stylesheets):
+     6: 
+     7: <% @products.each do |product| %>
+     8:  <div class="entry">
+     9:  	<%= image_tag product.image_url unless product.image_url.blank? %>
+    10:      <h3><%= product.title %></h3>
+    11:       <p><%= product.description %></p>
+    12:       <div class="price_line">
+  
+app/assets/stylesheets/application.css.scss:23
+app/views/store/index.html.erb:9:in `block in _app_views_store_index_html_erb___132194974454439950_70131514871540'
+app/views/store/index.html.erb:7:in `_app_views_store_index_html_erb___132194974454439950_70131514871540'
+  Rendering /Users/ricknjns/.rvm/gems/ruby-2.2.5/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /Users/ricknjns/.rvm/gems/ruby-2.2.5/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/ricknjns/.rvm/gems/ruby-2.2.5/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (22.0ms)
+  Rendering /Users/ricknjns/.rvm/gems/ruby-2.2.5/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/ricknjns/.rvm/gems/ruby-2.2.5/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (6.8ms)
+  Rendering /Users/ricknjns/.rvm/gems/ruby-2.2.5/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/ricknjns/.rvm/gems/ruby-2.2.5/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /Users/ricknjns/.rvm/gems/ruby-2.2.5/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (155.3ms)
+Started GET "/" for 127.0.0.1 at 2018-10-08 00:04:36 -0400
+Processing by StoreController#index as HTML
+  [1m[36mCart Load (0.6ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  Rendering store/index.html.erb within layouts/application
+  [1m[36mProduct Load (1.1ms)[0m  [1m[34mSELECT "products".* FROM "products" ORDER BY "products"."title" ASC[0m
+  Rendered store/index.html.erb within layouts/application (1124.5ms)
+Completed 500 Internal Server Error in 1133ms (ActiveRecord: 1.7ms)
+
+
+  
+ActionView::Template::Error (File to import not found or unreadable: datepicker.
+Load paths:
+  /Users/ricknjns/Desktop/Ruby/depot/app/assets/config
+  /Users/ricknjns/Desktop/Ruby/depot/app/assets/images
+  /Users/ricknjns/Desktop/Ruby/depot/app/assets/javascripts
+  /Users/ricknjns/Desktop/Ruby/depot/app/assets/stylesheets
+  /Users/ricknjns/Desktop/Ruby/depot/vendor/assets/javascripts
+  /Users/ricknjns/Desktop/Ruby/depot/vendor/assets/stylesheets
+  /Users/ricknjns/.rvm/gems/ruby-2.2.5/gems/lodash-rails-4.17.10/vendor/assets/javascripts
+  /Users/ricknjns/.rvm/gems/ruby-2.2.5/gems/jquery-rails-4.3.1/vendor/assets/javascripts
+  /Users/ricknjns/.rvm/gems/ruby-2.2.5/gems/jquery-ui-rails-6.0.1/app/assets/images
+  /Users/ricknjns/.rvm/gems/ruby-2.2.5/gems/jquery-ui-rails-6.0.1/app/assets/javascripts
+  /Users/ricknjns/.rvm/gems/ruby-2.2.5/gems/jquery-ui-rails-6.0.1/app/assets/stylesheets
+  /Users/ricknjns/.rvm/gems/ruby-2.2.5/bundler/gems/uswds-rails-gem-aa12ddd31420/app/assets/javascripts
+  /Users/ricknjns/.rvm/gems/ruby-2.2.5/bundler/gems/uswds-rails-gem-aa12ddd31420/app/assets/stylesheets
+  /Users/ricknjns/.rvm/gems/ruby-2.2.5/bundler/gems/uswds-rails-gem-aa12ddd31420/vendor/assets/fonts
+  /Users/ricknjns/.rvm/gems/ruby-2.2.5/bundler/gems/uswds-rails-gem-aa12ddd31420/vendor/assets/images
+  /Users/ricknjns/.rvm/gems/ruby-2.2.5/bundler/gems/uswds-rails-gem-aa12ddd31420/vendor/assets/javascripts
+  /Users/ricknjns/.rvm/gems/ruby-2.2.5/bundler/gems/uswds-rails-gem-aa12ddd31420/vendor/assets/stylesheets
+  /Users/ricknjns/.rvm/gems/ruby-2.2.5/gems/bootstrap_jt-0.1.0/vendor/assets/fonts
+  /Users/ricknjns/.rvm/gems/ruby-2.2.5/gems/bootstrap_jt-0.1.0/vendor/assets/javascripts
+  /Users/ricknjns/.rvm/gems/ruby-2.2.5/gems/bootstrap_jt-0.1.0/vendor/assets/stylesheets
+  /Users/ricknjns/.rvm/gems/ruby-2.2.5/gems/actioncable-5.0.6/lib/assets/compiled
+  /Users/ricknjns/.rvm/gems/ruby-2.2.5/gems/turbolinks-source-5.1.0/lib/assets/javascripts
+  /Users/ricknjns/Desktop/Ruby/depot/node_modules
+  /Users/ricknjns/.rvm/gems/ruby-2.2.5/gems/react-rails-2.4.4/lib/assets/react-source/development
+  /Users/ricknjns/.rvm/gems/ruby-2.2.5/gems/react-rails-2.4.4/lib/assets/javascripts
+  /Users/ricknjns/.rvm/gems/ruby-2.2.5/gems/bootstrap-sass-3.3.7/assets/stylesheets
+  /Users/ricknjns/.rvm/gems/ruby-2.2.5/gems/bootstrap-sass-3.3.7/assets/javascripts
+  /Users/ricknjns/.rvm/gems/ruby-2.2.5/gems/bootstrap-sass-3.3.7/assets/fonts
+  /Users/ricknjns/.rvm/gems/ruby-2.2.5/gems/bootstrap-sass-3.3.7/assets/images
+  /Users/ricknjns/.rvm/gems/ruby-2.2.5/gems/bootstrap-sass-3.3.7/assets/stylesheets
+  /Users/ricknjns/.rvm/gems/ruby-2.2.5/bundler/gems/uswds-rails-gem-aa12ddd31420/lib/assets/stylesheets):
+     6: 
+     7: <% @products.each do |product| %>
+     8:  <div class="entry">
+     9:  	<%= image_tag product.image_url unless product.image_url.blank? %>
+    10:      <h3><%= product.title %></h3>
+    11:       <p><%= product.description %></p>
+    12:       <div class="price_line">
+  
+app/assets/stylesheets/application.css.scss:23
+app/views/store/index.html.erb:9:in `block in _app_views_store_index_html_erb___132194974454439950_70131541417400'
+app/views/store/index.html.erb:7:in `_app_views_store_index_html_erb___132194974454439950_70131541417400'
+  Rendering /Users/ricknjns/.rvm/gems/ruby-2.2.5/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /Users/ricknjns/.rvm/gems/ruby-2.2.5/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/ricknjns/.rvm/gems/ruby-2.2.5/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (11.5ms)
+  Rendering /Users/ricknjns/.rvm/gems/ruby-2.2.5/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/ricknjns/.rvm/gems/ruby-2.2.5/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.6ms)
+  Rendering /Users/ricknjns/.rvm/gems/ruby-2.2.5/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/ricknjns/.rvm/gems/ruby-2.2.5/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/ricknjns/.rvm/gems/ruby-2.2.5/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (80.2ms)
+Started GET "/" for 127.0.0.1 at 2018-10-08 00:05:22 -0400
+Processing by StoreController#index as HTML
+  [1m[36mCart Load (0.3ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  Rendering store/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" ORDER BY "products"."title" ASC[0m
+  Rendered store/index.html.erb within layouts/application (1117.9ms)
+Completed 500 Internal Server Error in 1128ms (ActiveRecord: 0.9ms)
+
+
+  
+ActionView::Template::Error (File to import not found or unreadable: datepicker.
+Load paths:
+  /Users/ricknjns/Desktop/Ruby/depot/app/assets/config
+  /Users/ricknjns/Desktop/Ruby/depot/app/assets/images
+  /Users/ricknjns/Desktop/Ruby/depot/app/assets/javascripts
+  /Users/ricknjns/Desktop/Ruby/depot/app/assets/stylesheets
+  /Users/ricknjns/Desktop/Ruby/depot/vendor/assets/javascripts
+  /Users/ricknjns/Desktop/Ruby/depot/vendor/assets/stylesheets
+  /Users/ricknjns/.rvm/gems/ruby-2.2.5/gems/lodash-rails-4.17.10/vendor/assets/javascripts
+  /Users/ricknjns/.rvm/gems/ruby-2.2.5/gems/jquery-rails-4.3.1/vendor/assets/javascripts
+  /Users/ricknjns/.rvm/gems/ruby-2.2.5/gems/jquery-ui-rails-6.0.1/app/assets/images
+  /Users/ricknjns/.rvm/gems/ruby-2.2.5/gems/jquery-ui-rails-6.0.1/app/assets/javascripts
+  /Users/ricknjns/.rvm/gems/ruby-2.2.5/gems/jquery-ui-rails-6.0.1/app/assets/stylesheets
+  /Users/ricknjns/.rvm/gems/ruby-2.2.5/bundler/gems/uswds-rails-gem-aa12ddd31420/app/assets/javascripts
+  /Users/ricknjns/.rvm/gems/ruby-2.2.5/bundler/gems/uswds-rails-gem-aa12ddd31420/app/assets/stylesheets
+  /Users/ricknjns/.rvm/gems/ruby-2.2.5/bundler/gems/uswds-rails-gem-aa12ddd31420/vendor/assets/fonts
+  /Users/ricknjns/.rvm/gems/ruby-2.2.5/bundler/gems/uswds-rails-gem-aa12ddd31420/vendor/assets/images
+  /Users/ricknjns/.rvm/gems/ruby-2.2.5/bundler/gems/uswds-rails-gem-aa12ddd31420/vendor/assets/javascripts
+  /Users/ricknjns/.rvm/gems/ruby-2.2.5/bundler/gems/uswds-rails-gem-aa12ddd31420/vendor/assets/stylesheets
+  /Users/ricknjns/.rvm/gems/ruby-2.2.5/gems/bootstrap_jt-0.1.0/vendor/assets/fonts
+  /Users/ricknjns/.rvm/gems/ruby-2.2.5/gems/bootstrap_jt-0.1.0/vendor/assets/javascripts
+  /Users/ricknjns/.rvm/gems/ruby-2.2.5/gems/bootstrap_jt-0.1.0/vendor/assets/stylesheets
+  /Users/ricknjns/.rvm/gems/ruby-2.2.5/gems/actioncable-5.0.6/lib/assets/compiled
+  /Users/ricknjns/.rvm/gems/ruby-2.2.5/gems/turbolinks-source-5.1.0/lib/assets/javascripts
+  /Users/ricknjns/Desktop/Ruby/depot/node_modules
+  /Users/ricknjns/.rvm/gems/ruby-2.2.5/gems/react-rails-2.4.4/lib/assets/react-source/development
+  /Users/ricknjns/.rvm/gems/ruby-2.2.5/gems/react-rails-2.4.4/lib/assets/javascripts
+  /Users/ricknjns/.rvm/gems/ruby-2.2.5/gems/bootstrap-sass-3.3.7/assets/stylesheets
+  /Users/ricknjns/.rvm/gems/ruby-2.2.5/gems/bootstrap-sass-3.3.7/assets/javascripts
+  /Users/ricknjns/.rvm/gems/ruby-2.2.5/gems/bootstrap-sass-3.3.7/assets/fonts
+  /Users/ricknjns/.rvm/gems/ruby-2.2.5/gems/bootstrap-sass-3.3.7/assets/images
+  /Users/ricknjns/.rvm/gems/ruby-2.2.5/gems/bootstrap-sass-3.3.7/assets/stylesheets
+  /Users/ricknjns/.rvm/gems/ruby-2.2.5/bundler/gems/uswds-rails-gem-aa12ddd31420/lib/assets/stylesheets):
+     6: 
+     7: <% @products.each do |product| %>
+     8:  <div class="entry">
+     9:  	<%= image_tag product.image_url unless product.image_url.blank? %>
+    10:      <h3><%= product.title %></h3>
+    11:       <p><%= product.description %></p>
+    12:       <div class="price_line">
+  
+app/assets/stylesheets/application.css.scss:23
+app/views/store/index.html.erb:9:in `block in _app_views_store_index_html_erb___132194974454439950_70131486973980'
+app/views/store/index.html.erb:7:in `_app_views_store_index_html_erb___132194974454439950_70131486973980'
+  Rendering /Users/ricknjns/.rvm/gems/ruby-2.2.5/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /Users/ricknjns/.rvm/gems/ruby-2.2.5/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/ricknjns/.rvm/gems/ruby-2.2.5/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (15.1ms)
+  Rendering /Users/ricknjns/.rvm/gems/ruby-2.2.5/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/ricknjns/.rvm/gems/ruby-2.2.5/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (5.0ms)
+  Rendering /Users/ricknjns/.rvm/gems/ruby-2.2.5/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/ricknjns/.rvm/gems/ruby-2.2.5/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.7ms)
+  Rendered /Users/ricknjns/.rvm/gems/ruby-2.2.5/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (115.7ms)
+Started GET "/" for 127.0.0.1 at 2018-10-08 00:05:27 -0400
+Processing by StoreController#index as HTML
+  [1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  Rendering store/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" ORDER BY "products"."title" ASC[0m
+  Rendered store/index.html.erb within layouts/application (927.8ms)
+Completed 500 Internal Server Error in 934ms (ActiveRecord: 0.6ms)
+
+
+  
+ActionView::Template::Error (File to import not found or unreadable: datepicker.
+Load paths:
+  /Users/ricknjns/Desktop/Ruby/depot/app/assets/config
+  /Users/ricknjns/Desktop/Ruby/depot/app/assets/images
+  /Users/ricknjns/Desktop/Ruby/depot/app/assets/javascripts
+  /Users/ricknjns/Desktop/Ruby/depot/app/assets/stylesheets
+  /Users/ricknjns/Desktop/Ruby/depot/vendor/assets/javascripts
+  /Users/ricknjns/Desktop/Ruby/depot/vendor/assets/stylesheets
+  /Users/ricknjns/.rvm/gems/ruby-2.2.5/gems/lodash-rails-4.17.10/vendor/assets/javascripts
+  /Users/ricknjns/.rvm/gems/ruby-2.2.5/gems/jquery-rails-4.3.1/vendor/assets/javascripts
+  /Users/ricknjns/.rvm/gems/ruby-2.2.5/gems/jquery-ui-rails-6.0.1/app/assets/images
+  /Users/ricknjns/.rvm/gems/ruby-2.2.5/gems/jquery-ui-rails-6.0.1/app/assets/javascripts
+  /Users/ricknjns/.rvm/gems/ruby-2.2.5/gems/jquery-ui-rails-6.0.1/app/assets/stylesheets
+  /Users/ricknjns/.rvm/gems/ruby-2.2.5/bundler/gems/uswds-rails-gem-aa12ddd31420/app/assets/javascripts
+  /Users/ricknjns/.rvm/gems/ruby-2.2.5/bundler/gems/uswds-rails-gem-aa12ddd31420/app/assets/stylesheets
+  /Users/ricknjns/.rvm/gems/ruby-2.2.5/bundler/gems/uswds-rails-gem-aa12ddd31420/vendor/assets/fonts
+  /Users/ricknjns/.rvm/gems/ruby-2.2.5/bundler/gems/uswds-rails-gem-aa12ddd31420/vendor/assets/images
+  /Users/ricknjns/.rvm/gems/ruby-2.2.5/bundler/gems/uswds-rails-gem-aa12ddd31420/vendor/assets/javascripts
+  /Users/ricknjns/.rvm/gems/ruby-2.2.5/bundler/gems/uswds-rails-gem-aa12ddd31420/vendor/assets/stylesheets
+  /Users/ricknjns/.rvm/gems/ruby-2.2.5/gems/bootstrap_jt-0.1.0/vendor/assets/fonts
+  /Users/ricknjns/.rvm/gems/ruby-2.2.5/gems/bootstrap_jt-0.1.0/vendor/assets/javascripts
+  /Users/ricknjns/.rvm/gems/ruby-2.2.5/gems/bootstrap_jt-0.1.0/vendor/assets/stylesheets
+  /Users/ricknjns/.rvm/gems/ruby-2.2.5/gems/actioncable-5.0.6/lib/assets/compiled
+  /Users/ricknjns/.rvm/gems/ruby-2.2.5/gems/turbolinks-source-5.1.0/lib/assets/javascripts
+  /Users/ricknjns/Desktop/Ruby/depot/node_modules
+  /Users/ricknjns/.rvm/gems/ruby-2.2.5/gems/react-rails-2.4.4/lib/assets/react-source/development
+  /Users/ricknjns/.rvm/gems/ruby-2.2.5/gems/react-rails-2.4.4/lib/assets/javascripts
+  /Users/ricknjns/.rvm/gems/ruby-2.2.5/gems/bootstrap-sass-3.3.7/assets/stylesheets
+  /Users/ricknjns/.rvm/gems/ruby-2.2.5/gems/bootstrap-sass-3.3.7/assets/javascripts
+  /Users/ricknjns/.rvm/gems/ruby-2.2.5/gems/bootstrap-sass-3.3.7/assets/fonts
+  /Users/ricknjns/.rvm/gems/ruby-2.2.5/gems/bootstrap-sass-3.3.7/assets/images
+  /Users/ricknjns/.rvm/gems/ruby-2.2.5/gems/bootstrap-sass-3.3.7/assets/stylesheets
+  /Users/ricknjns/.rvm/gems/ruby-2.2.5/bundler/gems/uswds-rails-gem-aa12ddd31420/lib/assets/stylesheets):
+     6: 
+     7: <% @products.each do |product| %>
+     8:  <div class="entry">
+     9:  	<%= image_tag product.image_url unless product.image_url.blank? %>
+    10:      <h3><%= product.title %></h3>
+    11:       <p><%= product.description %></p>
+    12:       <div class="price_line">
+  
+app/assets/stylesheets/application.css.scss:23
+app/views/store/index.html.erb:9:in `block in _app_views_store_index_html_erb___132194974454439950_70131517469560'
+app/views/store/index.html.erb:7:in `_app_views_store_index_html_erb___132194974454439950_70131517469560'
+  Rendering /Users/ricknjns/.rvm/gems/ruby-2.2.5/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /Users/ricknjns/.rvm/gems/ruby-2.2.5/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/ricknjns/.rvm/gems/ruby-2.2.5/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (10.5ms)
+  Rendering /Users/ricknjns/.rvm/gems/ruby-2.2.5/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/ricknjns/.rvm/gems/ruby-2.2.5/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.8ms)
+  Rendering /Users/ricknjns/.rvm/gems/ruby-2.2.5/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/ricknjns/.rvm/gems/ruby-2.2.5/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/ricknjns/.rvm/gems/ruby-2.2.5/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (76.4ms)
+Started GET "/" for 127.0.0.1 at 2018-10-08 00:05:48 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StoreController#index as HTML
+  [1m[36mCart Load (0.5ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  Rendering store/index.html.erb within layouts/application
+  [1m[36mProduct Load (1.4ms)[0m  [1m[34mSELECT "products".* FROM "products" ORDER BY "products"."title" ASC[0m
+  Rendered store/index.html.erb within layouts/application (10253.6ms)
+  [1m[36mLineItem Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "line_items" WHERE "line_items"."cart_id" = $1 LIMIT $2[0m  [["cart_id", 14], ["LIMIT", 1]]
+  [1m[36mLineItem Load (0.3ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 14]]
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered carts/_cart.html.erb (6.4ms)
+Completed 200 OK in 11123ms (Views: 11072.3ms | ActiveRecord: 11.5ms)
+
+
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mOrder Load (0.6ms)[0m  [1m[34mSELECT "orders".* FROM "orders"[0m

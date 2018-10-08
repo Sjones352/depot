@@ -1008,3 +1008,434 @@ Completed 200 OK in 9ms (Views: 8.6ms | ActiveRecord: 0.0ms)
   [1m[35m (0.9ms)[0m  [1m[35mBEGIN[0m
   [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "carts" ENABLE TRIGGER ALL;ALTER TABLE "fruits" ENABLE TRIGGER ALL;ALTER TABLE "line_items" ENABLE TRIGGER ALL;ALTER TABLE "orders" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "products" ENABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" ENABLE TRIGGER ALL[0m
   [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::SchemaMigration Load (29.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (6.7ms)[0m  [1m[35mALTER TABLE "carts" DISABLE TRIGGER ALL;ALTER TABLE "fruits" DISABLE TRIGGER ALL;ALTER TABLE "line_items" DISABLE TRIGGER ALL;ALTER TABLE "orders" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "products" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFixture Delete (0.8ms)[0m  [1m[31mDELETE FROM "carts"[0m
+  [1m[36mFixture Insert (0.5ms)[0m  [1m[32mINSERT INTO "carts" ("created_at", "updated_at", "id") VALUES ('2018-10-07 23:28:11.995922', '2018-10-07 23:28:11.995922', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "carts" ("created_at", "updated_at", "id") VALUES ('2018-10-07 23:28:11.995922', '2018-10-07 23:28:11.995922', 298486374)[0m
+  [1m[35m (2.1ms)[0m  [1m[34mselect MAX("id") from "carts"[0m
+  [1m[36mFixture Delete (0.8ms)[0m  [1m[31mDELETE FROM "fruits"[0m
+  [1m[36mFixture Insert (0.5ms)[0m  [1m[32mINSERT INTO "fruits" ("name", "description", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2018-10-07 23:28:12.068618', '2018-10-07 23:28:12.068618', 980190962)[0m
+  [1m[36mFixture Insert (0.2ms)[0m  [1m[32mINSERT INTO "fruits" ("name", "description", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2018-10-07 23:28:12.068618', '2018-10-07 23:28:12.068618', 298486374)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mselect MAX("id") from "fruits"[0m
+  [1m[36mFixture Delete (0.8ms)[0m  [1m[31mDELETE FROM "line_items"[0m
+  [1m[36mFixture Insert (0.5ms)[0m  [1m[32mINSERT INTO "line_items" ("created_at", "updated_at", "id", "product_id", "order_id") VALUES ('2018-10-07 23:28:12.077053', '2018-10-07 23:28:12.077053', 980190962, 207281424, 980190962)[0m
+  [1m[36mFixture Insert (0.2ms)[0m  [1m[32mINSERT INTO "line_items" ("created_at", "updated_at", "id", "product_id", "order_id") VALUES ('2018-10-07 23:28:12.077053', '2018-10-07 23:28:12.077053', 298486374, 207281424, 980190962)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mselect MAX("id") from "line_items"[0m
+  [1m[36mFixture Delete (0.8ms)[0m  [1m[31mDELETE FROM "orders"[0m
+  [1m[36mFixture Insert (0.6ms)[0m  [1m[32mINSERT INTO "orders" ("name", "address", "email", "pay_type", "created_at", "updated_at", "id") VALUES ('Dave Thomas', 'MyText', 'dave@example.org', 'Check', '2018-10-07 23:28:12.085086', '2018-10-07 23:28:12.085086', 980190962)[0m
+  [1m[36mFixture Insert (0.3ms)[0m  [1m[32mINSERT INTO "orders" ("name", "address", "email", "pay_type", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', 'MyString', 'MyString', '2018-10-07 23:28:12.085086', '2018-10-07 23:28:12.085086', 298486374)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mselect MAX("id") from "orders"[0m
+  [1m[36mFixture Delete (0.9ms)[0m  [1m[31mDELETE FROM "products"[0m
+  [1m[36mFixture Insert (0.8ms)[0m  [1m[32mINSERT INTO "products" ("title", "description", "image_url", "price", "created_at", "updated_at", "id") VALUES ('MyString', 'This had better work coz I have spent so much time on it.', 'ruby.png', 49.5, '2018-10-07 23:28:12.093607', '2018-10-07 23:28:12.093607', 980190962)[0m
+  [1m[36mFixture Insert (0.2ms)[0m  [1m[32mINSERT INTO "products" ("title", "description", "image_url", "price", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', 'rails.png', 9.99, '2018-10-07 23:28:12.093607', '2018-10-07 23:28:12.093607', 298486374)[0m
+  [1m[36mFixture Insert (0.2ms)[0m  [1m[32mINSERT INTO "products" ("title", "description", "price", "image_url", "created_at", "updated_at", "id") VALUES ('Programming Ruby 1.9', 'Ruby is the fastest groing and most exciting dynamic language out there. If you need to get working programs delivered fast, you should add Ruby to your toolbox.', 49.5, 'ruby.png', '2018-10-07 23:28:12.093607', '2018-10-07 23:28:12.093607', 207281424)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mselect MAX("id") from "products"[0m
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "carts" ENABLE TRIGGER ALL;ALTER TABLE "fruits" ENABLE TRIGGER ALL;ALTER TABLE "line_items" ENABLE TRIGGER ALL;ALTER TABLE "orders" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "products" ENABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+--------------------------------------------------
+ProductsControllerTest: test_should_create_product
+--------------------------------------------------
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 980190962], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "products"[0m
+  [1m[35m (6.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.3ms)[0m  [1m[35mALTER TABLE "carts" DISABLE TRIGGER ALL;ALTER TABLE "fruits" DISABLE TRIGGER ALL;ALTER TABLE "line_items" DISABLE TRIGGER ALL;ALTER TABLE "orders" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "products" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFixture Delete (7.0ms)[0m  [1m[31mDELETE FROM "carts"[0m
+  [1m[36mFixture Insert (0.4ms)[0m  [1m[32mINSERT INTO "carts" ("created_at", "updated_at", "id") VALUES ('2018-10-07 23:53:21.709959', '2018-10-07 23:53:21.709959', 980190962)[0m
+  [1m[36mFixture Insert (0.2ms)[0m  [1m[32mINSERT INTO "carts" ("created_at", "updated_at", "id") VALUES ('2018-10-07 23:53:21.709959', '2018-10-07 23:53:21.709959', 298486374)[0m
+  [1m[35m (1.1ms)[0m  [1m[34mselect MAX("id") from "carts"[0m
+  [1m[36mFixture Delete (0.5ms)[0m  [1m[31mDELETE FROM "fruits"[0m
+  [1m[36mFixture Insert (0.2ms)[0m  [1m[32mINSERT INTO "fruits" ("name", "description", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2018-10-07 23:53:21.729963', '2018-10-07 23:53:21.729963', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "fruits" ("name", "description", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2018-10-07 23:53:21.729963', '2018-10-07 23:53:21.729963', 298486374)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mselect MAX("id") from "fruits"[0m
+  [1m[36mFixture Delete (0.4ms)[0m  [1m[31mDELETE FROM "line_items"[0m
+  [1m[36mFixture Insert (0.2ms)[0m  [1m[32mINSERT INTO "line_items" ("created_at", "updated_at", "id", "product_id", "order_id") VALUES ('2018-10-07 23:53:21.738726', '2018-10-07 23:53:21.738726', 980190962, 207281424, 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "line_items" ("created_at", "updated_at", "id", "product_id", "order_id") VALUES ('2018-10-07 23:53:21.738726', '2018-10-07 23:53:21.738726', 298486374, 207281424, 980190962)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mselect MAX("id") from "line_items"[0m
+  [1m[36mFixture Delete (0.4ms)[0m  [1m[31mDELETE FROM "orders"[0m
+  [1m[36mFixture Insert (0.2ms)[0m  [1m[32mINSERT INTO "orders" ("name", "address", "email", "pay_type", "created_at", "updated_at", "id") VALUES ('Dave Thomas', 'MyText', 'dave@example.org', 'Check', '2018-10-07 23:53:21.745034', '2018-10-07 23:53:21.745034', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "orders" ("name", "address", "email", "pay_type", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', 'MyString', 'MyString', '2018-10-07 23:53:21.745034', '2018-10-07 23:53:21.745034', 298486374)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mselect MAX("id") from "orders"[0m
+  [1m[36mFixture Delete (0.4ms)[0m  [1m[31mDELETE FROM "products"[0m
+  [1m[36mFixture Insert (0.2ms)[0m  [1m[32mINSERT INTO "products" ("title", "description", "image_url", "price", "created_at", "updated_at", "id") VALUES ('MyString', 'This had better work coz I have spent so much time on it.', 'ruby.png', 49.5, '2018-10-07 23:53:21.750969', '2018-10-07 23:53:21.750969', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "products" ("title", "description", "image_url", "price", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', 'rails.png', 9.99, '2018-10-07 23:53:21.750969', '2018-10-07 23:53:21.750969', 298486374)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "products" ("title", "description", "price", "image_url", "created_at", "updated_at", "id") VALUES ('Programming Ruby 1.9', 'Ruby is the fastest groing and most exciting dynamic language out there. If you need to get working programs delivered fast, you should add Ruby to your toolbox.', 49.5, 'ruby.png', '2018-10-07 23:53:21.750969', '2018-10-07 23:53:21.750969', 207281424)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mselect MAX("id") from "products"[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "carts" ENABLE TRIGGER ALL;ALTER TABLE "fruits" ENABLE TRIGGER ALL;ALTER TABLE "line_items" ENABLE TRIGGER ALL;ALTER TABLE "orders" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "products" ENABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+--------------------------------------------
+LineItemsControllerTest: test_should_get_new
+--------------------------------------------
+  [1m[36mLineItem Load (0.2ms)[0m  [1m[34mSELECT  "line_items".* FROM "line_items" WHERE "line_items"."id" = $1 LIMIT $2[0m  [["id", 980190962], ["LIMIT", 1]]
+Started GET "/line_items/new" for 127.0.0.1 at 2018-10-07 19:53:22 -0400
+Processing by LineItemsController#new as HTML
+  Rendering line_items/new.html.erb within layouts/application
+  Rendered line_items/_form.html.erb (82.7ms)
+  Rendered line_items/new.html.erb within layouts/application (86.8ms)
+[Webpacker] Compiling…
+[Webpacker] Compiled all packs in /Users/ricknjns/Desktop/Ruby/depot/public/packs-test
+Completed 200 OK in 18413ms (Views: 18399.2ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+------------------------------------------------------
+LineItemsControllerTest: test_should_destroy_line_item
+------------------------------------------------------
+  [1m[36mLineItem Load (0.3ms)[0m  [1m[34mSELECT  "line_items".* FROM "line_items" WHERE "line_items"."id" = $1 LIMIT $2[0m  [["id", 980190962], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "line_items"[0m
+Started DELETE "/line_items/980190962" for 127.0.0.1 at 2018-10-07 19:53:40 -0400
+Processing by LineItemsController#destroy as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mLineItem Load (0.3ms)[0m  [1m[34mSELECT  "line_items".* FROM "line_items" WHERE "line_items"."id" = $1 LIMIT $2[0m  [["id", 980190962], ["LIMIT", 1]]
+  [1m[35m (5.7ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "line_items" WHERE "line_items"."id" = $1[0m  [["id", 980190962]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/line_items
+Completed 302 Found in 16ms (ActiveRecord: 6.5ms)
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "line_items"[0m
+  [1m[35m (0.6ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+-----------------------------------------------------
+LineItemsControllerTest: test_should_create_line_item
+-----------------------------------------------------
+  [1m[36mLineItem Load (0.4ms)[0m  [1m[34mSELECT  "line_items".* FROM "line_items" WHERE "line_items"."id" = $1 LIMIT $2[0m  [["id", 980190962], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "line_items"[0m
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 207281424], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "carts" DISABLE TRIGGER ALL;ALTER TABLE "fruits" DISABLE TRIGGER ALL;ALTER TABLE "line_items" DISABLE TRIGGER ALL;ALTER TABLE "orders" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "products" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFixture Delete (0.3ms)[0m  [1m[31mDELETE FROM "carts"[0m
+  [1m[36mFixture Insert (0.3ms)[0m  [1m[32mINSERT INTO "carts" ("created_at", "updated_at", "id") VALUES ('2018-10-07 23:54:01.997702', '2018-10-07 23:54:01.997702', 980190962)[0m
+  [1m[36mFixture Insert (0.2ms)[0m  [1m[32mINSERT INTO "carts" ("created_at", "updated_at", "id") VALUES ('2018-10-07 23:54:01.997702', '2018-10-07 23:54:01.997702', 298486374)[0m
+  [1m[35m (3.6ms)[0m  [1m[34mselect MAX("id") from "carts"[0m
+  [1m[36mFixture Delete (0.3ms)[0m  [1m[31mDELETE FROM "fruits"[0m
+  [1m[36mFixture Insert (0.2ms)[0m  [1m[32mINSERT INTO "fruits" ("name", "description", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2018-10-07 23:54:02.013698', '2018-10-07 23:54:02.013698', 980190962)[0m
+  [1m[36mFixture Insert (0.2ms)[0m  [1m[32mINSERT INTO "fruits" ("name", "description", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2018-10-07 23:54:02.013698', '2018-10-07 23:54:02.013698', 298486374)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mselect MAX("id") from "fruits"[0m
+  [1m[36mFixture Delete (0.3ms)[0m  [1m[31mDELETE FROM "line_items"[0m
+  [1m[36mFixture Insert (0.2ms)[0m  [1m[32mINSERT INTO "line_items" ("created_at", "updated_at", "id", "product_id", "order_id") VALUES ('2018-10-07 23:54:02.022586', '2018-10-07 23:54:02.022586', 980190962, 207281424, 980190962)[0m
+  [1m[36mFixture Insert (0.2ms)[0m  [1m[32mINSERT INTO "line_items" ("created_at", "updated_at", "id", "product_id", "order_id") VALUES ('2018-10-07 23:54:02.022586', '2018-10-07 23:54:02.022586', 298486374, 207281424, 980190962)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mselect MAX("id") from "line_items"[0m
+  [1m[36mFixture Delete (1.8ms)[0m  [1m[31mDELETE FROM "orders"[0m
+  [1m[36mFixture Insert (0.3ms)[0m  [1m[32mINSERT INTO "orders" ("name", "address", "email", "pay_type", "created_at", "updated_at", "id") VALUES ('Dave Thomas', 'MyText', 'dave@example.org', 'Check', '2018-10-07 23:54:02.036125', '2018-10-07 23:54:02.036125', 980190962)[0m
+  [1m[36mFixture Insert (0.5ms)[0m  [1m[32mINSERT INTO "orders" ("name", "address", "email", "pay_type", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', 'MyString', 'MyString', '2018-10-07 23:54:02.036125', '2018-10-07 23:54:02.036125', 298486374)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mselect MAX("id") from "orders"[0m
+  [1m[36mFixture Delete (0.3ms)[0m  [1m[31mDELETE FROM "products"[0m
+  [1m[36mFixture Insert (0.3ms)[0m  [1m[32mINSERT INTO "products" ("title", "description", "image_url", "price", "created_at", "updated_at", "id") VALUES ('MyString', 'This had better work coz I have spent so much time on it.', 'ruby.png', 49.5, '2018-10-07 23:54:02.050214', '2018-10-07 23:54:02.050214', 980190962)[0m
+  [1m[36mFixture Insert (0.3ms)[0m  [1m[32mINSERT INTO "products" ("title", "description", "image_url", "price", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', 'rails.png', 9.99, '2018-10-07 23:54:02.050214', '2018-10-07 23:54:02.050214', 298486374)[0m
+  [1m[36mFixture Insert (2.2ms)[0m  [1m[32mINSERT INTO "products" ("title", "description", "price", "image_url", "created_at", "updated_at", "id") VALUES ('Programming Ruby 1.9', 'Ruby is the fastest groing and most exciting dynamic language out there. If you need to get working programs delivered fast, you should add Ruby to your toolbox.', 49.5, 'ruby.png', '2018-10-07 23:54:02.050214', '2018-10-07 23:54:02.050214', 207281424)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mselect MAX("id") from "products"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "carts" ENABLE TRIGGER ALL;ALTER TABLE "fruits" ENABLE TRIGGER ALL;ALTER TABLE "line_items" ENABLE TRIGGER ALL;ALTER TABLE "orders" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "products" ENABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+--------------------------------------------
+LineItemsControllerTest: test_should_get_new
+--------------------------------------------
+  [1m[36mLineItem Load (0.3ms)[0m  [1m[34mSELECT  "line_items".* FROM "line_items" WHERE "line_items"."id" = $1 LIMIT $2[0m  [["id", 980190962], ["LIMIT", 1]]
+Started GET "/line_items/new" for 127.0.0.1 at 2018-10-07 19:54:02 -0400
+Processing by LineItemsController#new as HTML
+  Rendering line_items/new.html.erb within layouts/application
+  Rendered line_items/_form.html.erb (72.5ms)
+  Rendered line_items/new.html.erb within layouts/application (77.0ms)
+Completed 200 OK in 2187ms (Views: 2175.1ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+---------------------------------------------------
+LineItemsControllerTest: test_should_show_line_item
+---------------------------------------------------
+  [1m[36mLineItem Load (0.2ms)[0m  [1m[34mSELECT  "line_items".* FROM "line_items" WHERE "line_items"."id" = $1 LIMIT $2[0m  [["id", 980190962], ["LIMIT", 1]]
+Started GET "/line_items/980190962" for 127.0.0.1 at 2018-10-07 19:54:04 -0400
+Processing by LineItemsController#show as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mLineItem Load (0.3ms)[0m  [1m[34mSELECT  "line_items".* FROM "line_items" WHERE "line_items"."id" = $1 LIMIT $2[0m  [["id", 980190962], ["LIMIT", 1]]
+  Rendering line_items/show.html.erb within layouts/application
+  Rendered line_items/show.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 13ms (Views: 7.4ms | ActiveRecord: 0.3ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+-----------------------------------------------------
+LineItemsControllerTest: test_should_create_line_item
+-----------------------------------------------------
+  [1m[36mLineItem Load (0.2ms)[0m  [1m[34mSELECT  "line_items".* FROM "line_items" WHERE "line_items"."id" = $1 LIMIT $2[0m  [["id", 980190962], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "line_items"[0m
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 207281424], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "carts" DISABLE TRIGGER ALL;ALTER TABLE "fruits" DISABLE TRIGGER ALL;ALTER TABLE "line_items" DISABLE TRIGGER ALL;ALTER TABLE "orders" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "products" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFixture Delete (0.3ms)[0m  [1m[31mDELETE FROM "carts"[0m
+  [1m[36mFixture Insert (0.2ms)[0m  [1m[32mINSERT INTO "carts" ("created_at", "updated_at", "id") VALUES ('2018-10-07 23:55:03.113408', '2018-10-07 23:55:03.113408', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "carts" ("created_at", "updated_at", "id") VALUES ('2018-10-07 23:55:03.113408', '2018-10-07 23:55:03.113408', 298486374)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mselect MAX("id") from "carts"[0m
+  [1m[36mFixture Delete (0.3ms)[0m  [1m[31mDELETE FROM "fruits"[0m
+  [1m[36mFixture Insert (0.2ms)[0m  [1m[32mINSERT INTO "fruits" ("name", "description", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2018-10-07 23:55:03.122986', '2018-10-07 23:55:03.122986', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "fruits" ("name", "description", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2018-10-07 23:55:03.122986', '2018-10-07 23:55:03.122986', 298486374)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mselect MAX("id") from "fruits"[0m
+  [1m[36mFixture Delete (0.3ms)[0m  [1m[31mDELETE FROM "line_items"[0m
+  [1m[36mFixture Insert (0.2ms)[0m  [1m[32mINSERT INTO "line_items" ("created_at", "updated_at", "id", "product_id", "order_id") VALUES ('2018-10-07 23:55:03.129843', '2018-10-07 23:55:03.129843', 980190962, 207281424, 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "line_items" ("created_at", "updated_at", "id", "product_id", "order_id") VALUES ('2018-10-07 23:55:03.129843', '2018-10-07 23:55:03.129843', 298486374, 207281424, 980190962)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mselect MAX("id") from "line_items"[0m
+  [1m[36mFixture Delete (0.3ms)[0m  [1m[31mDELETE FROM "orders"[0m
+  [1m[36mFixture Insert (0.2ms)[0m  [1m[32mINSERT INTO "orders" ("name", "address", "email", "pay_type", "created_at", "updated_at", "id") VALUES ('Dave Thomas', 'MyText', 'dave@example.org', 'Check', '2018-10-07 23:55:03.135946', '2018-10-07 23:55:03.135946', 980190962)[0m
+  [1m[36mFixture Insert (0.2ms)[0m  [1m[32mINSERT INTO "orders" ("name", "address", "email", "pay_type", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', 'MyString', 'MyString', '2018-10-07 23:55:03.135946', '2018-10-07 23:55:03.135946', 298486374)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mselect MAX("id") from "orders"[0m
+  [1m[36mFixture Delete (0.3ms)[0m  [1m[31mDELETE FROM "products"[0m
+  [1m[36mFixture Insert (0.2ms)[0m  [1m[32mINSERT INTO "products" ("title", "description", "image_url", "price", "created_at", "updated_at", "id") VALUES ('MyString', 'This had better work coz I have spent so much time on it.', 'ruby.png', 49.5, '2018-10-07 23:55:03.142252', '2018-10-07 23:55:03.142252', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "products" ("title", "description", "image_url", "price", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', 'rails.png', 9.99, '2018-10-07 23:55:03.142252', '2018-10-07 23:55:03.142252', 298486374)[0m
+  [1m[36mFixture Insert (0.3ms)[0m  [1m[32mINSERT INTO "products" ("title", "description", "price", "image_url", "created_at", "updated_at", "id") VALUES ('Programming Ruby 1.9', 'Ruby is the fastest groing and most exciting dynamic language out there. If you need to get working programs delivered fast, you should add Ruby to your toolbox.', 49.5, 'ruby.png', '2018-10-07 23:55:03.142252', '2018-10-07 23:55:03.142252', 207281424)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mselect MAX("id") from "products"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "carts" ENABLE TRIGGER ALL;ALTER TABLE "fruits" ENABLE TRIGGER ALL;ALTER TABLE "line_items" ENABLE TRIGGER ALL;ALTER TABLE "orders" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "products" ENABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+--------------------------------------------------
+ProductsControllerTest: test_should_update_product
+--------------------------------------------------
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 980190962], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "carts" DISABLE TRIGGER ALL;ALTER TABLE "fruits" DISABLE TRIGGER ALL;ALTER TABLE "line_items" DISABLE TRIGGER ALL;ALTER TABLE "orders" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "products" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFixture Delete (0.3ms)[0m  [1m[31mDELETE FROM "carts"[0m
+  [1m[36mFixture Insert (0.3ms)[0m  [1m[32mINSERT INTO "carts" ("created_at", "updated_at", "id") VALUES ('2018-10-07 23:56:16.692217', '2018-10-07 23:56:16.692217', 980190962)[0m
+  [1m[36mFixture Insert (0.2ms)[0m  [1m[32mINSERT INTO "carts" ("created_at", "updated_at", "id") VALUES ('2018-10-07 23:56:16.692217', '2018-10-07 23:56:16.692217', 298486374)[0m
+  [1m[35m (2.0ms)[0m  [1m[34mselect MAX("id") from "carts"[0m
+  [1m[36mFixture Delete (0.3ms)[0m  [1m[31mDELETE FROM "fruits"[0m
+  [1m[36mFixture Insert (0.2ms)[0m  [1m[32mINSERT INTO "fruits" ("name", "description", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2018-10-07 23:56:16.706140', '2018-10-07 23:56:16.706140', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "fruits" ("name", "description", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2018-10-07 23:56:16.706140', '2018-10-07 23:56:16.706140', 298486374)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mselect MAX("id") from "fruits"[0m
+  [1m[36mFixture Delete (0.3ms)[0m  [1m[31mDELETE FROM "line_items"[0m
+  [1m[36mFixture Insert (0.2ms)[0m  [1m[32mINSERT INTO "line_items" ("created_at", "updated_at", "id", "product_id", "order_id") VALUES ('2018-10-07 23:56:16.712197', '2018-10-07 23:56:16.712197', 980190962, 207281424, 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "line_items" ("created_at", "updated_at", "id", "product_id", "order_id") VALUES ('2018-10-07 23:56:16.712197', '2018-10-07 23:56:16.712197', 298486374, 207281424, 980190962)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mselect MAX("id") from "line_items"[0m
+  [1m[36mFixture Delete (0.3ms)[0m  [1m[31mDELETE FROM "orders"[0m
+  [1m[36mFixture Insert (0.2ms)[0m  [1m[32mINSERT INTO "orders" ("name", "address", "email", "pay_type", "created_at", "updated_at", "id") VALUES ('Dave Thomas', 'MyText', 'dave@example.org', 'Check', '2018-10-07 23:56:16.718255', '2018-10-07 23:56:16.718255', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "orders" ("name", "address", "email", "pay_type", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', 'MyString', 'MyString', '2018-10-07 23:56:16.718255', '2018-10-07 23:56:16.718255', 298486374)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mselect MAX("id") from "orders"[0m
+  [1m[36mFixture Delete (0.3ms)[0m  [1m[31mDELETE FROM "products"[0m
+  [1m[36mFixture Insert (0.2ms)[0m  [1m[32mINSERT INTO "products" ("title", "description", "image_url", "price", "created_at", "updated_at", "id") VALUES ('MyString', 'This had better work coz I have spent so much time on it.', 'ruby.png', 49.5, '2018-10-07 23:56:16.725105', '2018-10-07 23:56:16.725105', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "products" ("title", "description", "image_url", "price", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', 'rails.png', 9.99, '2018-10-07 23:56:16.725105', '2018-10-07 23:56:16.725105', 298486374)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "products" ("title", "description", "price", "image_url", "created_at", "updated_at", "id") VALUES ('Programming Ruby 1.9', 'Ruby is the fastest groing and most exciting dynamic language out there. If you need to get working programs delivered fast, you should add Ruby to your toolbox.', 49.5, 'ruby.png', '2018-10-07 23:56:16.725105', '2018-10-07 23:56:16.725105', 207281424)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mselect MAX("id") from "products"[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "carts" ENABLE TRIGGER ALL;ALTER TABLE "fruits" ENABLE TRIGGER ALL;ALTER TABLE "line_items" ENABLE TRIGGER ALL;ALTER TABLE "orders" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "products" ENABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------------
+LineItemsControllerTest: test_should_get_index
+----------------------------------------------
+  [1m[36mLineItem Load (0.2ms)[0m  [1m[34mSELECT  "line_items".* FROM "line_items" WHERE "line_items"."id" = $1 LIMIT $2[0m  [["id", 980190962], ["LIMIT", 1]]
+Started GET "/line_items" for 127.0.0.1 at 2018-10-07 19:56:16 -0400
+Processing by LineItemsController#index as HTML
+  Rendering line_items/index.html.erb within layouts/application
+  [1m[36mLineItem Load (0.3ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items"[0m
+  Rendered line_items/index.html.erb within layouts/application (9.1ms)
+Completed 200 OK in 2052ms (Views: 2040.6ms | ActiveRecord: 0.3ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (6.9ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "carts" DISABLE TRIGGER ALL;ALTER TABLE "fruits" DISABLE TRIGGER ALL;ALTER TABLE "line_items" DISABLE TRIGGER ALL;ALTER TABLE "orders" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "products" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFixture Delete (6.8ms)[0m  [1m[31mDELETE FROM "carts"[0m
+  [1m[36mFixture Insert (0.3ms)[0m  [1m[32mINSERT INTO "carts" ("created_at", "updated_at", "id") VALUES ('2018-10-08 01:25:05.841160', '2018-10-08 01:25:05.841160', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "carts" ("created_at", "updated_at", "id") VALUES ('2018-10-08 01:25:05.841160', '2018-10-08 01:25:05.841160', 298486374)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mselect MAX("id") from "carts"[0m
+  [1m[36mFixture Delete (0.4ms)[0m  [1m[31mDELETE FROM "fruits"[0m
+  [1m[36mFixture Insert (0.2ms)[0m  [1m[32mINSERT INTO "fruits" ("name", "description", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2018-10-08 01:25:05.866469', '2018-10-08 01:25:05.866469', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "fruits" ("name", "description", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2018-10-08 01:25:05.866469', '2018-10-08 01:25:05.866469', 298486374)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mselect MAX("id") from "fruits"[0m
+  [1m[36mFixture Delete (0.3ms)[0m  [1m[31mDELETE FROM "line_items"[0m
+  [1m[36mFixture Insert (0.2ms)[0m  [1m[32mINSERT INTO "line_items" ("created_at", "updated_at", "id", "product_id", "order_id") VALUES ('2018-10-08 01:25:05.873177', '2018-10-08 01:25:05.873177', 980190962, 207281424, 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "line_items" ("created_at", "updated_at", "id", "product_id", "order_id") VALUES ('2018-10-08 01:25:05.873177', '2018-10-08 01:25:05.873177', 298486374, 207281424, 980190962)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mselect MAX("id") from "line_items"[0m
+  [1m[36mFixture Delete (0.4ms)[0m  [1m[31mDELETE FROM "orders"[0m
+  [1m[36mFixture Insert (1.3ms)[0m  [1m[32mINSERT INTO "orders" ("name", "address", "email", "pay_type", "created_at", "updated_at", "id") VALUES ('Dave Thomas', 'MyText', 'dave@example.org', 'Check', '2018-10-08 01:25:05.880643', '2018-10-08 01:25:05.880643', 980190962)[0m
+  [1m[36mFixture Insert (0.3ms)[0m  [1m[32mINSERT INTO "orders" ("name", "address", "email", "pay_type", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', 'MyString', 'MyString', '2018-10-08 01:25:05.880643', '2018-10-08 01:25:05.880643', 298486374)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mselect MAX("id") from "orders"[0m
+  [1m[36mFixture Delete (0.4ms)[0m  [1m[31mDELETE FROM "products"[0m
+  [1m[36mFixture Insert (0.2ms)[0m  [1m[32mINSERT INTO "products" ("title", "description", "image_url", "price", "created_at", "updated_at", "id") VALUES ('MyString', 'This had better work coz I have spent so much time on it.', 'ruby.png', 49.5, '2018-10-08 01:25:05.888918', '2018-10-08 01:25:05.888918', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "products" ("title", "description", "image_url", "price", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', 'rails.png', 9.99, '2018-10-08 01:25:05.888918', '2018-10-08 01:25:05.888918', 298486374)[0m
+  [1m[36mFixture Insert (0.2ms)[0m  [1m[32mINSERT INTO "products" ("title", "description", "price", "image_url", "created_at", "updated_at", "id") VALUES ('Programming Ruby 1.9', 'Ruby is the fastest groing and most exciting dynamic language out there. If you need to get working programs delivered fast, you should add Ruby to your toolbox.', 49.5, 'ruby.png', '2018-10-08 01:25:05.888918', '2018-10-08 01:25:05.888918', 207281424)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mselect MAX("id") from "products"[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "carts" ENABLE TRIGGER ALL;ALTER TABLE "fruits" ENABLE TRIGGER ALL;ALTER TABLE "line_items" ENABLE TRIGGER ALL;ALTER TABLE "orders" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "products" ENABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+-----------------------------------------------------
+LineItemsControllerTest: test_should_create_line_item
+-----------------------------------------------------
+  [1m[36mLineItem Load (0.2ms)[0m  [1m[34mSELECT  "line_items".* FROM "line_items" WHERE "line_items"."id" = $1 LIMIT $2[0m  [["id", 980190962], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "line_items"[0m
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 207281424], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "carts" DISABLE TRIGGER ALL;ALTER TABLE "fruits" DISABLE TRIGGER ALL;ALTER TABLE "line_items" DISABLE TRIGGER ALL;ALTER TABLE "orders" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "products" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFixture Delete (1.2ms)[0m  [1m[31mDELETE FROM "carts"[0m
+  [1m[36mFixture Insert (0.4ms)[0m  [1m[32mINSERT INTO "carts" ("created_at", "updated_at", "id") VALUES ('2018-10-08 01:25:40.438647', '2018-10-08 01:25:40.438647', 980190962)[0m
+  [1m[36mFixture Insert (0.2ms)[0m  [1m[32mINSERT INTO "carts" ("created_at", "updated_at", "id") VALUES ('2018-10-08 01:25:40.438647', '2018-10-08 01:25:40.438647', 298486374)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mselect MAX("id") from "carts"[0m
+  [1m[36mFixture Delete (0.4ms)[0m  [1m[31mDELETE FROM "fruits"[0m
+  [1m[36mFixture Insert (0.2ms)[0m  [1m[32mINSERT INTO "fruits" ("name", "description", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2018-10-08 01:25:40.454172', '2018-10-08 01:25:40.454172', 980190962)[0m
+  [1m[36mFixture Insert (0.2ms)[0m  [1m[32mINSERT INTO "fruits" ("name", "description", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2018-10-08 01:25:40.454172', '2018-10-08 01:25:40.454172', 298486374)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mselect MAX("id") from "fruits"[0m
+  [1m[36mFixture Delete (0.3ms)[0m  [1m[31mDELETE FROM "line_items"[0m
+  [1m[36mFixture Insert (0.2ms)[0m  [1m[32mINSERT INTO "line_items" ("created_at", "updated_at", "id", "product_id", "order_id") VALUES ('2018-10-08 01:25:40.464519', '2018-10-08 01:25:40.464519', 980190962, 207281424, 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "line_items" ("created_at", "updated_at", "id", "product_id", "order_id") VALUES ('2018-10-08 01:25:40.464519', '2018-10-08 01:25:40.464519', 298486374, 207281424, 980190962)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mselect MAX("id") from "line_items"[0m
+  [1m[36mFixture Delete (0.3ms)[0m  [1m[31mDELETE FROM "orders"[0m
+  [1m[36mFixture Insert (0.2ms)[0m  [1m[32mINSERT INTO "orders" ("name", "address", "email", "pay_type", "created_at", "updated_at", "id") VALUES ('Dave Thomas', 'MyText', 'dave@example.org', 'Check', '2018-10-08 01:25:40.471758', '2018-10-08 01:25:40.471758', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "orders" ("name", "address", "email", "pay_type", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', 'MyString', 'MyString', '2018-10-08 01:25:40.471758', '2018-10-08 01:25:40.471758', 298486374)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mselect MAX("id") from "orders"[0m
+  [1m[36mFixture Delete (0.3ms)[0m  [1m[31mDELETE FROM "products"[0m
+  [1m[36mFixture Insert (0.2ms)[0m  [1m[32mINSERT INTO "products" ("title", "description", "image_url", "price", "created_at", "updated_at", "id") VALUES ('MyString', 'This had better work coz I have spent so much time on it.', 'ruby.png', 49.5, '2018-10-08 01:25:40.477967', '2018-10-08 01:25:40.477967', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "products" ("title", "description", "image_url", "price", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', 'rails.png', 9.99, '2018-10-08 01:25:40.477967', '2018-10-08 01:25:40.477967', 298486374)[0m
+  [1m[36mFixture Insert (0.2ms)[0m  [1m[32mINSERT INTO "products" ("title", "description", "price", "image_url", "created_at", "updated_at", "id") VALUES ('Programming Ruby 1.9', 'Ruby is the fastest groing and most exciting dynamic language out there. If you need to get working programs delivered fast, you should add Ruby to your toolbox.', 49.5, 'ruby.png', '2018-10-08 01:25:40.477967', '2018-10-08 01:25:40.477967', 207281424)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mselect MAX("id") from "products"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "carts" ENABLE TRIGGER ALL;ALTER TABLE "fruits" ENABLE TRIGGER ALL;ALTER TABLE "line_items" ENABLE TRIGGER ALL;ALTER TABLE "orders" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "products" ENABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+--------------------------------------------------------------
+LineItemsControllerTest: test_should_create_line_item_via_ajax
+--------------------------------------------------------------
+  [1m[36mLineItem Load (0.3ms)[0m  [1m[34mSELECT  "line_items".* FROM "line_items" WHERE "line_items"."id" = $1 LIMIT $2[0m  [["id", 980190962], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "line_items"[0m
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 207281424], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (6.7ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "carts" DISABLE TRIGGER ALL;ALTER TABLE "fruits" DISABLE TRIGGER ALL;ALTER TABLE "line_items" DISABLE TRIGGER ALL;ALTER TABLE "orders" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "products" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFixture Delete (0.4ms)[0m  [1m[31mDELETE FROM "carts"[0m
+  [1m[36mFixture Insert (6.4ms)[0m  [1m[32mINSERT INTO "carts" ("created_at", "updated_at", "id") VALUES ('2018-10-08 02:21:49.148971', '2018-10-08 02:21:49.148971', 980190962)[0m
+  [1m[36mFixture Insert (0.2ms)[0m  [1m[32mINSERT INTO "carts" ("created_at", "updated_at", "id") VALUES ('2018-10-08 02:21:49.148971', '2018-10-08 02:21:49.148971', 298486374)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mselect MAX("id") from "carts"[0m
+  [1m[36mFixture Delete (0.3ms)[0m  [1m[31mDELETE FROM "fruits"[0m
+  [1m[36mFixture Insert (0.3ms)[0m  [1m[32mINSERT INTO "fruits" ("name", "description", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2018-10-08 02:21:49.174770', '2018-10-08 02:21:49.174770', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "fruits" ("name", "description", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2018-10-08 02:21:49.174770', '2018-10-08 02:21:49.174770', 298486374)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mselect MAX("id") from "fruits"[0m
+  [1m[36mFixture Delete (0.3ms)[0m  [1m[31mDELETE FROM "line_items"[0m
+  [1m[36mFixture Insert (0.2ms)[0m  [1m[32mINSERT INTO "line_items" ("created_at", "updated_at", "id", "product_id", "order_id") VALUES ('2018-10-08 02:21:49.181348', '2018-10-08 02:21:49.181348', 980190962, 207281424, 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "line_items" ("created_at", "updated_at", "id", "product_id", "order_id") VALUES ('2018-10-08 02:21:49.181348', '2018-10-08 02:21:49.181348', 298486374, 207281424, 980190962)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mselect MAX("id") from "line_items"[0m
+  [1m[36mFixture Delete (0.3ms)[0m  [1m[31mDELETE FROM "orders"[0m
+  [1m[36mFixture Insert (0.2ms)[0m  [1m[32mINSERT INTO "orders" ("name", "address", "email", "pay_type", "created_at", "updated_at", "id") VALUES ('Dave Thomas', 'MyText', 'dave@example.org', 'Check', '2018-10-08 02:21:49.187098', '2018-10-08 02:21:49.187098', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "orders" ("name", "address", "email", "pay_type", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', 'MyString', 'MyString', '2018-10-08 02:21:49.187098', '2018-10-08 02:21:49.187098', 298486374)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mselect MAX("id") from "orders"[0m
+  [1m[36mFixture Delete (0.4ms)[0m  [1m[31mDELETE FROM "products"[0m
+  [1m[36mFixture Insert (0.2ms)[0m  [1m[32mINSERT INTO "products" ("title", "description", "image_url", "price", "created_at", "updated_at", "id") VALUES ('MyString', 'This had better work coz I have spent so much time on it.', 'ruby.png', 49.5, '2018-10-08 02:21:49.192919', '2018-10-08 02:21:49.192919', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "products" ("title", "description", "image_url", "price", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', 'rails.png', 9.99, '2018-10-08 02:21:49.192919', '2018-10-08 02:21:49.192919', 298486374)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "products" ("title", "description", "price", "image_url", "created_at", "updated_at", "id") VALUES ('Programming Ruby 1.9', 'Ruby is the fastest groing and most exciting dynamic language out there. If you need to get working programs delivered fast, you should add Ruby to your toolbox.', 49.5, 'ruby.png', '2018-10-08 02:21:49.192919', '2018-10-08 02:21:49.192919', 207281424)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mselect MAX("id") from "products"[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "carts" ENABLE TRIGGER ALL;ALTER TABLE "fruits" ENABLE TRIGGER ALL;ALTER TABLE "line_items" ENABLE TRIGGER ALL;ALTER TABLE "orders" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "products" ENABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+------------------------------------------------
+OrdersControllerTest: test_requires_item_in_cart
+------------------------------------------------
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT $2[0m  [["id", 980190962], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "carts" DISABLE TRIGGER ALL;ALTER TABLE "fruits" DISABLE TRIGGER ALL;ALTER TABLE "line_items" DISABLE TRIGGER ALL;ALTER TABLE "orders" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "products" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFixture Delete (0.3ms)[0m  [1m[31mDELETE FROM "carts"[0m
+  [1m[36mFixture Insert (0.2ms)[0m  [1m[32mINSERT INTO "carts" ("created_at", "updated_at", "id") VALUES ('2018-10-08 02:22:40.464255', '2018-10-08 02:22:40.464255', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "carts" ("created_at", "updated_at", "id") VALUES ('2018-10-08 02:22:40.464255', '2018-10-08 02:22:40.464255', 298486374)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mselect MAX("id") from "carts"[0m
+  [1m[36mFixture Delete (0.3ms)[0m  [1m[31mDELETE FROM "fruits"[0m
+  [1m[36mFixture Insert (0.2ms)[0m  [1m[32mINSERT INTO "fruits" ("name", "description", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2018-10-08 02:22:40.473184', '2018-10-08 02:22:40.473184', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "fruits" ("name", "description", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2018-10-08 02:22:40.473184', '2018-10-08 02:22:40.473184', 298486374)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mselect MAX("id") from "fruits"[0m
+  [1m[36mFixture Delete (0.3ms)[0m  [1m[31mDELETE FROM "line_items"[0m
+  [1m[36mFixture Insert (0.2ms)[0m  [1m[32mINSERT INTO "line_items" ("created_at", "updated_at", "id", "product_id", "order_id") VALUES ('2018-10-08 02:22:40.480130', '2018-10-08 02:22:40.480130', 980190962, 207281424, 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "line_items" ("created_at", "updated_at", "id", "product_id", "order_id") VALUES ('2018-10-08 02:22:40.480130', '2018-10-08 02:22:40.480130', 298486374, 207281424, 980190962)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mselect MAX("id") from "line_items"[0m
+  [1m[36mFixture Delete (0.3ms)[0m  [1m[31mDELETE FROM "orders"[0m
+  [1m[36mFixture Insert (0.2ms)[0m  [1m[32mINSERT INTO "orders" ("name", "address", "email", "pay_type", "created_at", "updated_at", "id") VALUES ('Dave Thomas', 'MyText', 'dave@example.org', 'Check', '2018-10-08 02:22:40.486777', '2018-10-08 02:22:40.486777', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "orders" ("name", "address", "email", "pay_type", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', 'MyString', 'MyString', '2018-10-08 02:22:40.486777', '2018-10-08 02:22:40.486777', 298486374)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mselect MAX("id") from "orders"[0m
+  [1m[36mFixture Delete (0.3ms)[0m  [1m[31mDELETE FROM "products"[0m
+  [1m[36mFixture Insert (0.2ms)[0m  [1m[32mINSERT INTO "products" ("title", "description", "image_url", "price", "created_at", "updated_at", "id") VALUES ('MyString', 'This had better work coz I have spent so much time on it.', 'ruby.png', 49.5, '2018-10-08 02:22:40.494964', '2018-10-08 02:22:40.494964', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "products" ("title", "description", "image_url", "price", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', 'rails.png', 9.99, '2018-10-08 02:22:40.494964', '2018-10-08 02:22:40.494964', 298486374)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "products" ("title", "description", "price", "image_url", "created_at", "updated_at", "id") VALUES ('Programming Ruby 1.9', 'Ruby is the fastest groing and most exciting dynamic language out there. If you need to get working programs delivered fast, you should add Ruby to your toolbox.', 49.5, 'ruby.png', '2018-10-08 02:22:40.494964', '2018-10-08 02:22:40.494964', 207281424)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mselect MAX("id") from "products"[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "carts" ENABLE TRIGGER ALL;ALTER TABLE "fruits" ENABLE TRIGGER ALL;ALTER TABLE "line_items" ENABLE TRIGGER ALL;ALTER TABLE "orders" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "products" ENABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+------------------------------------------------
+OrdersControllerTest: test_requires_item_in_cart
+------------------------------------------------
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT $2[0m  [["id", 980190962], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "carts" DISABLE TRIGGER ALL;ALTER TABLE "fruits" DISABLE TRIGGER ALL;ALTER TABLE "line_items" DISABLE TRIGGER ALL;ALTER TABLE "orders" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "products" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFixture Delete (0.8ms)[0m  [1m[31mDELETE FROM "carts"[0m
+  [1m[36mFixture Insert (0.4ms)[0m  [1m[32mINSERT INTO "carts" ("created_at", "updated_at", "id") VALUES ('2018-10-08 02:26:37.968980', '2018-10-08 02:26:37.968980', 980190962)[0m
+  [1m[36mFixture Insert (0.2ms)[0m  [1m[32mINSERT INTO "carts" ("created_at", "updated_at", "id") VALUES ('2018-10-08 02:26:37.968980', '2018-10-08 02:26:37.968980', 298486374)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mselect MAX("id") from "carts"[0m
+  [1m[36mFixture Delete (0.3ms)[0m  [1m[31mDELETE FROM "fruits"[0m
+  [1m[36mFixture Insert (0.2ms)[0m  [1m[32mINSERT INTO "fruits" ("name", "description", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2018-10-08 02:26:37.981136', '2018-10-08 02:26:37.981136', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "fruits" ("name", "description", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2018-10-08 02:26:37.981136', '2018-10-08 02:26:37.981136', 298486374)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mselect MAX("id") from "fruits"[0m
+  [1m[36mFixture Delete (0.3ms)[0m  [1m[31mDELETE FROM "line_items"[0m
+  [1m[36mFixture Insert (0.2ms)[0m  [1m[32mINSERT INTO "line_items" ("created_at", "updated_at", "id", "product_id", "order_id") VALUES ('2018-10-08 02:26:37.987859', '2018-10-08 02:26:37.987859', 980190962, 207281424, 980190962)[0m
+  [1m[36mFixture Insert (0.2ms)[0m  [1m[32mINSERT INTO "line_items" ("created_at", "updated_at", "id", "product_id", "order_id") VALUES ('2018-10-08 02:26:37.987859', '2018-10-08 02:26:37.987859', 298486374, 207281424, 980190962)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mselect MAX("id") from "line_items"[0m
+  [1m[36mFixture Delete (0.4ms)[0m  [1m[31mDELETE FROM "orders"[0m
+  [1m[36mFixture Insert (0.2ms)[0m  [1m[32mINSERT INTO "orders" ("name", "address", "email", "pay_type", "created_at", "updated_at", "id") VALUES ('Dave Thomas', 'MyText', 'dave@example.org', 'Check', '2018-10-08 02:26:37.994042', '2018-10-08 02:26:37.994042', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "orders" ("name", "address", "email", "pay_type", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', 'MyString', 'MyString', '2018-10-08 02:26:37.994042', '2018-10-08 02:26:37.994042', 298486374)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mselect MAX("id") from "orders"[0m
+  [1m[36mFixture Delete (0.3ms)[0m  [1m[31mDELETE FROM "products"[0m
+  [1m[36mFixture Insert (0.2ms)[0m  [1m[32mINSERT INTO "products" ("title", "description", "image_url", "price", "created_at", "updated_at", "id") VALUES ('MyString', 'This had better work coz I have spent so much time on it.', 'ruby.png', 49.5, '2018-10-08 02:26:38.001314', '2018-10-08 02:26:38.001314', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "products" ("title", "description", "image_url", "price", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', 'rails.png', 9.99, '2018-10-08 02:26:38.001314', '2018-10-08 02:26:38.001314', 298486374)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "products" ("title", "description", "price", "image_url", "created_at", "updated_at", "id") VALUES ('Programming Ruby 1.9', 'Ruby is the fastest groing and most exciting dynamic language out there. If you need to get working programs delivered fast, you should add Ruby to your toolbox.', 49.5, 'ruby.png', '2018-10-08 02:26:38.001314', '2018-10-08 02:26:38.001314', 207281424)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mselect MAX("id") from "products"[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "carts" ENABLE TRIGGER ALL;ALTER TABLE "fruits" ENABLE TRIGGER ALL;ALTER TABLE "line_items" ENABLE TRIGGER ALL;ALTER TABLE "orders" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "products" ENABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+------------------------------------------------
+OrdersControllerTest: test_requires_item_in_cart
+------------------------------------------------
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT $2[0m  [["id", 980190962], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
