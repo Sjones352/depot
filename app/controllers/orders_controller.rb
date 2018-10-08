@@ -2,7 +2,11 @@ class OrdersController < ApplicationController
   before_action :set_order, only: [:show, :edit, :update, :destroy]
 
   def index
-    @orders = Order.all
+    @orders = Order.order(:name).paginate(:page => params[:page], :per_page => 10)
+    respond_to do |format|
+      format.html #index.html.erb
+      format.json {render json: @orders}
+    end
   end
 
   def show
