@@ -16,4 +16,8 @@
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require bootstrap.min
+//= require react
+//= require react_ujs
+//= require components
+//= require components/_all_fruits.js.jsx
 //= require_tree
