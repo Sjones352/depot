@@ -32,7 +32,7 @@ config.webpacker.check_yarn_integrity = true
   end
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
 
   config.action_mailer.perform_caching = false
 
@@ -42,7 +42,20 @@ config.webpacker.check_yarn_integrity = true
   config.active_support.deprecation = :log
 
   # Raise an error on page load if there are pending migrations.
+
   config.active_record.migration_error = :page_load
+
+  config.action_mailer.delivery_method = :smtp
+
+  config.action_mailer.stmp_settings = {
+    address:               "smtp.gmail.com",
+    port:                  587,
+    domain:                "gmail.com",
+    autherntication:       "plain",
+    user_name:             "jonessandra@gmail.com",
+    password:              "KaeLynn10**",
+    enable_starttls_auto:   true
+  }
 
   # Debug mode disables concatenation and preprocessing of assets.
   # This option may cause significant delays in view rendering with a large
