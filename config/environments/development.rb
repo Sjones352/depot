@@ -53,7 +53,7 @@ config.webpacker.check_yarn_integrity = true
     domain:                "gmail.com",
     autherntication:       "plain",
     user_name:             "jonessandra@gmail.com",
-    password:              "KaeLynn10**",
+    password:              "pass**",
     enable_starttls_auto:   true
   }
 
