@@ -3,7 +3,7 @@ class Product < ActiveRecord::Base
   has_many :orders, through: :line_items
 
   before_destroy :ensure_not_referenced_by_any_line_item
-  
+
   # default_scope {includes(:order => 'title')}
   validates :title, :description, :image_url, :presence => true
   validates_numericality_of :price, :greater_than_or_equal_to => 0.01
@@ -22,5 +22,9 @@ class Product < ActiveRecord::Base
       errors.add(:base, 'Line Items present')
     return false
     end
+  end
+
+  def hello(string)
+    "Hello"  + string
   end
 end
