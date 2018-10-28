@@ -98,3 +98,4 @@ gem 'webpacker', '~> 3.5'
 gem 'simplecov', require: false, group: :test
 
 gem 'will_paginate', '~> 3.1', '>= 3.1.6'
+gem 'actionmailer', '~> 5.0', '>= 5.0.0.1'

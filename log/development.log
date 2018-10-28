@@ -9663,3 +9663,2177 @@ Processing by OrdersController#index as HTML
 Completed 200 OK in 2517ms (Views: 2473.8ms | ActiveRecord: 6.3ms)
 
 
+Started GET "/" for 127.0.0.1 at 2018-10-26 22:17:59 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (42.9ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StoreController#index as HTML
+  [1m[36mCart Load (41.8ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO "carts" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2018-10-27 02:18:00.702423"], ["updated_at", "2018-10-27 02:18:00.702423"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  Rendering store/index.html.erb within layouts/application
+  [1m[36mProduct Load (1.7ms)[0m  [1m[34mSELECT "products".* FROM "products" ORDER BY "products"."title" ASC[0m
+  Rendered store/index.html.erb within layouts/application (13558.5ms)
+[Webpacker] Compiling…
+[Webpacker] Compiled all packs in /Users/ricknjns/Desktop/Ruby/depot/public/packs
+  [1m[36mLineItem Exists (2.5ms)[0m  [1m[34mSELECT  1 AS one FROM "line_items" WHERE "line_items"."cart_id" = $1 LIMIT $2[0m  [["cart_id", 38], ["LIMIT", 1]]
+  [1m[36mLineItem Load (0.2ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 38]]
+  Rendered collection of templates [0 times] (0.1ms)
+  Rendered carts/_cart.html.erb (16.1ms)
+Completed 200 OK in 19496ms (Views: 19373.7ms | ActiveRecord: 62.6ms)
+
+
+Started POST "/line_items?product_id=4" for 127.0.0.1 at 2018-10-26 22:18:40 -0400
+Processing by LineItemsController#create as JS
+  Parameters: {"authenticity_token"=>"HvA/SY/NU3owBE1dR6Ge4vr+vqpoBvUTPcI1Wsw3rSyvBvp9n69adtjwgElStEkPd9+5zmqfaWVnKS83HtpWDQ==", "product_id"=>"4"}
+  [1m[36mCart Load (0.7ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 38], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mLineItem Load (0.6ms)[0m  [1m[34mSELECT  "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1 AND "line_items"."product_id" = $2 LIMIT $3[0m  [["cart_id", 38], ["product_id", 4], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35mSQL (40.6ms)[0m  [1m[32mINSERT INTO "line_items" ("product_id", "cart_id", "created_at", "updated_at", "quantity") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["product_id", 4], ["cart_id", 38], ["created_at", "2018-10-27 02:18:40.586567"], ["updated_at", "2018-10-27 02:18:40.586567"], ["quantity", 1]]
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  Rendering line_items/create.js.erb
+  [1m[36mLineItem Load (0.2ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 38]]
+  Rendered collection of line_items/_line_item.html.erb [1 times] (1.0ms)
+  Rendered carts/_cart.html.erb (7.5ms)
+  Rendered line_items/create.js.erb (11.1ms)
+Completed 200 OK in 94ms (Views: 19.2ms | ActiveRecord: 49.1ms)
+
+
+Started GET "/orders/new" for 127.0.0.1 at 2018-10-26 22:18:42 -0400
+Processing by OrdersController#new as HTML
+  [1m[36mCart Load (0.7ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 38], ["LIMIT", 1]]
+  [1m[36mLineItem Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "line_items" WHERE "line_items"."cart_id" = $1 LIMIT $2[0m  [["cart_id", 38], ["LIMIT", 1]]
+  Rendering orders/new.html.erb within layouts/application
+  Rendered orders/_form.html.erb (35.2ms)
+  Rendered orders/new.html.erb within layouts/application (40.2ms)
+  [1m[36mLineItem Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "line_items" WHERE "line_items"."cart_id" = $1 LIMIT $2[0m  [["cart_id", 38], ["LIMIT", 1]]
+  [1m[36mLineItem Load (2.6ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 38]]
+  [1m[36mProduct Load (0.8ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered collection of line_items/_line_item.html.erb [1 times] (4.6ms)
+  Rendered carts/_cart.html.erb (23.9ms)
+Completed 200 OK in 862ms (Views: 826.8ms | ActiveRecord: 11.2ms)
+
+
+Started POST "/orders" for 127.0.0.1 at 2018-10-26 22:19:31 -0400
+Processing by OrdersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"MBqYO2c0Mr9UyDtrGMkHEsL4hhreXI3KCreLUUCOzBCB7F0Pd1Y7s7w89n8N3ND/T9mBftzFEbxQXJE8kmM3MQ==", "order"=>{"name"=>"Rose Balimugulira", "address"=>"2101 Monticello CT", "email"=>"rose508@gmail.com", "pay_type"=>"Check"}, "commit"=>"Place Order"}
+  [1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 38], ["LIMIT", 1]]
+  [1m[36mLineItem Load (0.2ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 38]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "orders" ("name", "address", "email", "pay_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Rose Balimugulira"], ["address", "2101 Monticello CT"], ["email", "rose508@gmail.com"], ["pay_type", "Check"], ["created_at", "2018-10-27 02:19:31.798727"], ["updated_at", "2018-10-27 02:19:31.798727"]]
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "line_items" SET "cart_id" = $1, "order_id" = $2, "updated_at" = $3 WHERE "line_items"."id" = $4[0m  [["cart_id", nil], ["order_id", 27], ["updated_at", "2018-10-27 02:19:31.801949"], ["id", 24]]
+  [1m[35m (39.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCart Load (0.8ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 38], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mLineItem Load (0.2ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 38]]
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "carts" WHERE "carts"."id" = $1[0m  [["id", 38]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+Completed 500 Internal Server Error in 352ms (ActiveRecord: 44.1ms)
+
+
+  
+NoMethodError (undefined method `stmp_settings=' for ActionMailer::Base:Class):
+  
+app/mailers/application_mailer.rb:1:in `<top (required)>'
+app/mailers/order_notifier_mailer.rb:1:in `<top (required)>'
+app/controllers/orders_controller.rb:46:in `block in create'
+app/controllers/orders_controller.rb:42:in `create'
+  Rendering /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (10.0ms)
+  Rendering /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (5.2ms)
+  Rendering /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (4.2ms)
+  Rendered /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (124.0ms)
+Started POST "/orders" for 127.0.0.1 at 2018-10-26 22:26:08 -0400
+Processing by OrdersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"MBqYO2c0Mr9UyDtrGMkHEsL4hhreXI3KCreLUUCOzBCB7F0Pd1Y7s7w89n8N3ND/T9mBftzFEbxQXJE8kmM3MQ==", "order"=>{"name"=>"Rose Balimugulira", "address"=>"2101 Monticello CT", "email"=>"rose508@gmail.com", "pay_type"=>"Check"}, "commit"=>"Place Order"}
+  [1m[36mCart Load (0.7ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 38], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "carts" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2018-10-27 02:26:08.733333"], ["updated_at", "2018-10-27 02:26:08.733333"]]
+  [1m[35m (216.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mLineItem Load (0.7ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 39]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "orders" ("name", "address", "email", "pay_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Rose Balimugulira"], ["address", "2101 Monticello CT"], ["email", "rose508@gmail.com"], ["pay_type", "Check"], ["created_at", "2018-10-27 02:26:08.963180"], ["updated_at", "2018-10-27 02:26:08.963180"]]
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCart Load (0.7ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 39], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mLineItem Load (0.2ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 39]]
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "carts" WHERE "carts"."id" = $1[0m  [["id", 39]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Completed 500 Internal Server Error in 260ms (ActiveRecord: 223.6ms)
+
+
+  
+NoMethodError (undefined method `stmp_settings=' for ActionMailer::Base:Class):
+  
+app/mailers/application_mailer.rb:1:in `<top (required)>'
+app/mailers/order_notifier_mailer.rb:1:in `<top (required)>'
+app/controllers/orders_controller.rb:46:in `block in create'
+app/controllers/orders_controller.rb:42:in `create'
+  Rendering /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (8.6ms)
+  Rendering /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.1ms)
+  Rendering /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (112.1ms)
+Started GET "/orders/new" for 127.0.0.1 at 2018-10-26 22:26:16 -0400
+Processing by OrdersController#new as HTML
+  [1m[36mCart Load (0.7ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 38], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "carts" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2018-10-27 02:26:16.613579"], ["updated_at", "2018-10-27 02:26:16.613579"]]
+  [1m[35m (40.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mLineItem Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "line_items" WHERE "line_items"."cart_id" = $1 LIMIT $2[0m  [["cart_id", 40], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 50ms (ActiveRecord: 42.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-10-26 22:26:16 -0400
+Processing by StoreController#index as HTML
+  [1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 40], ["LIMIT", 1]]
+  Rendering store/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT "products".* FROM "products" ORDER BY "products"."title" ASC[0m
+  Rendered store/index.html.erb within layouts/application (13.1ms)
+  [1m[36mLineItem Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "line_items" WHERE "line_items"."cart_id" = $1 LIMIT $2[0m  [["cart_id", 40], ["LIMIT", 1]]
+  [1m[36mLineItem Load (0.4ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 40]]
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered carts/_cart.html.erb (6.3ms)
+Completed 200 OK in 815ms (Views: 807.0ms | ActiveRecord: 1.7ms)
+
+
+Started POST "/line_items?product_id=4" for 127.0.0.1 at 2018-10-26 22:26:22 -0400
+Processing by LineItemsController#create as JS
+  Parameters: {"authenticity_token"=>"695cDQcuDPeVA2Zvg1ux2S7vWkQsOaCDJOSDchwj2oNaKJk5F0wF+333q3uWTmY0o85dIC6gPPV+D5kfzs4hog==", "product_id"=>"4"}
+  [1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 40], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mLineItem Load (0.6ms)[0m  [1m[34mSELECT  "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1 AND "line_items"."product_id" = $2 LIMIT $3[0m  [["cart_id", 40], ["product_id", 4], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "line_items" ("product_id", "cart_id", "created_at", "updated_at", "quantity") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["product_id", 4], ["cart_id", 40], ["created_at", "2018-10-27 02:26:22.707255"], ["updated_at", "2018-10-27 02:26:22.707255"], ["quantity", 1]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  Rendering line_items/create.js.erb
+  [1m[36mLineItem Load (0.3ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 40]]
+  Rendered collection of line_items/_line_item.html.erb [1 times] (1.0ms)
+  Rendered carts/_cart.html.erb (7.4ms)
+  Rendered line_items/create.js.erb (10.7ms)
+Completed 200 OK in 36ms (Views: 18.2ms | ActiveRecord: 3.6ms)
+
+
+Started GET "/orders/new" for 127.0.0.1 at 2018-10-26 22:26:25 -0400
+Processing by OrdersController#new as HTML
+  [1m[36mCart Load (0.3ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 40], ["LIMIT", 1]]
+  [1m[36mLineItem Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "line_items" WHERE "line_items"."cart_id" = $1 LIMIT $2[0m  [["cart_id", 40], ["LIMIT", 1]]
+  Rendering orders/new.html.erb within layouts/application
+  Rendered orders/_form.html.erb (4.2ms)
+  Rendered orders/new.html.erb within layouts/application (7.6ms)
+  [1m[36mLineItem Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "line_items" WHERE "line_items"."cart_id" = $1 LIMIT $2[0m  [["cart_id", 40], ["LIMIT", 1]]
+  [1m[36mLineItem Load (0.9ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 40]]
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered collection of line_items/_line_item.html.erb [1 times] (5.1ms)
+  Rendered carts/_cart.html.erb (17.8ms)
+Completed 200 OK in 657ms (Views: 650.0ms | ActiveRecord: 2.3ms)
+
+
+Started POST "/orders" for 127.0.0.1 at 2018-10-26 22:26:47 -0400
+Processing by OrdersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"0YTz4aFowb8qQyKShPKYxEmE5+yNsSYA8DuZ6Y7KlYtgcjbVsQrIs8K374aR508pxKXgiI8ounaq0IOEXCduqg==", "order"=>{"name"=>"Rose Balimugulira", "address"=>"2101 Monticello", "email"=>"rose508@gmail.com", "pay_type"=>"Purchase order"}, "commit"=>"Place Order"}
+  [1m[36mCart Load (0.5ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 40], ["LIMIT", 1]]
+  [1m[36mLineItem Load (0.2ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 40]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "orders" ("name", "address", "email", "pay_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Rose Balimugulira"], ["address", "2101 Monticello"], ["email", "rose508@gmail.com"], ["pay_type", "Purchase order"], ["created_at", "2018-10-27 02:26:47.158368"], ["updated_at", "2018-10-27 02:26:47.158368"]]
+  [1m[35mSQL (1.5ms)[0m  [1m[33mUPDATE "line_items" SET "cart_id" = $1, "order_id" = $2, "updated_at" = $3 WHERE "line_items"."id" = $4[0m  [["cart_id", nil], ["order_id", 29], ["updated_at", "2018-10-27 02:26:47.160407"], ["id", 25]]
+  [1m[35m (40.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCart Load (0.6ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 40], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mLineItem Load (0.5ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 40]]
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "carts" WHERE "carts"."id" = $1[0m  [["id", 40]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Completed 500 Internal Server Error in 74ms (ActiveRecord: 46.8ms)
+
+
+  
+NoMethodError (undefined method `stmp_settings=' for ActionMailer::Base:Class):
+  
+app/mailers/application_mailer.rb:1:in `<top (required)>'
+app/mailers/order_notifier_mailer.rb:1:in `<top (required)>'
+app/controllers/orders_controller.rb:46:in `block in create'
+app/controllers/orders_controller.rb:42:in `create'
+  Rendering /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (6.4ms)
+  Rendering /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.5ms)
+  Rendering /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (100.0ms)
+Started POST "/orders" for 127.0.0.1 at 2018-10-26 22:45:33 -0400
+  
+NoMethodError (undefined method `stmp_settings=' for ActionMailer::Base:Class):
+  
+actionmailer (5.0.6) lib/action_mailer/base.rb:565:in `method_missing'
+actionmailer (5.0.6) lib/action_mailer/railtie.rb:47:in `block (3 levels) in <class:Railtie>'
+actionmailer (5.0.6) lib/action_mailer/railtie.rb:47:in `each'
+actionmailer (5.0.6) lib/action_mailer/railtie.rb:47:in `block (2 levels) in <class:Railtie>'
+activesupport (5.0.6) lib/active_support/lazy_load_hooks.rb:69:in `instance_eval'
+activesupport (5.0.6) lib/active_support/lazy_load_hooks.rb:69:in `block in execute_hook'
+activesupport (5.0.6) lib/active_support/lazy_load_hooks.rb:60:in `with_execution_control'
+activesupport (5.0.6) lib/active_support/lazy_load_hooks.rb:65:in `execute_hook'
+activesupport (5.0.6) lib/active_support/lazy_load_hooks.rb:50:in `block in run_load_hooks'
+activesupport (5.0.6) lib/active_support/lazy_load_hooks.rb:49:in `each'
+activesupport (5.0.6) lib/active_support/lazy_load_hooks.rb:49:in `run_load_hooks'
+actionmailer (5.0.6) lib/action_mailer/base.rb:965:in `<class:Base>'
+actionmailer (5.0.6) lib/action_mailer/base.rb:421:in `<module:ActionMailer>'
+actionmailer (5.0.6) lib/action_mailer/base.rb:10:in `<top (required)>'
+activesupport (5.0.6) lib/active_support/dependencies.rb:397:in `const_defined?'
+activesupport (5.0.6) lib/active_support/dependencies.rb:397:in `qualified_const_defined?'
+activesupport (5.0.6) lib/active_support/dependencies.rb:627:in `autoloaded?'
+activesupport (5.0.6) lib/active_support/descendants_tracker.rb:24:in `block (2 levels) in clear'
+activesupport (5.0.6) lib/active_support/descendants_tracker.rb:24:in `reject!'
+activesupport (5.0.6) lib/active_support/descendants_tracker.rb:24:in `block in clear'
+activesupport (5.0.6) lib/active_support/descendants_tracker.rb:20:in `each'
+activesupport (5.0.6) lib/active_support/descendants_tracker.rb:20:in `clear'
+railties (5.0.6) lib/rails/application/finisher.rb:140:in `block (2 levels) in <module:Finisher>'
+activesupport (5.0.6) lib/active_support/evented_file_update_checker.rb:77:in `call'
+activesupport (5.0.6) lib/active_support/evented_file_update_checker.rb:77:in `execute'
+railties (5.0.6) lib/rails/application/finisher.rb:167:in `block (3 levels) in <module:Finisher>'
+activesupport (5.0.6) lib/active_support/callbacks.rb:126:in `call'
+activesupport (5.0.6) lib/active_support/callbacks.rb:126:in `call'
+activesupport (5.0.6) lib/active_support/callbacks.rb:506:in `block (2 levels) in compile'
+activesupport (5.0.6) lib/active_support/callbacks.rb:455:in `call'
+activesupport (5.0.6) lib/active_support/callbacks.rb:455:in `call'
+activesupport (5.0.6) lib/active_support/callbacks.rb:101:in `__run_callbacks__'
+activesupport (5.0.6) lib/active_support/callbacks.rb:750:in `_run_class_unload_callbacks'
+activesupport (5.0.6) lib/active_support/callbacks.rb:90:in `run_callbacks'
+activesupport (5.0.6) lib/active_support/reloader.rb:119:in `class_unload!'
+railties (5.0.6) lib/rails/application/finisher.rb:166:in `block (2 levels) in <module:Finisher>'
+activesupport (5.0.6) lib/active_support/callbacks.rb:396:in `instance_exec'
+activesupport (5.0.6) lib/active_support/callbacks.rb:396:in `block in make_lambda'
+activesupport (5.0.6) lib/active_support/callbacks.rb:169:in `call'
+activesupport (5.0.6) lib/active_support/callbacks.rb:169:in `block (2 levels) in halting'
+activesupport (5.0.6) lib/active_support/callbacks.rb:547:in `call'
+activesupport (5.0.6) lib/active_support/callbacks.rb:547:in `block (2 levels) in default_terminator'
+activesupport (5.0.6) lib/active_support/callbacks.rb:546:in `catch'
+activesupport (5.0.6) lib/active_support/callbacks.rb:546:in `block in default_terminator'
+activesupport (5.0.6) lib/active_support/callbacks.rb:170:in `call'
+activesupport (5.0.6) lib/active_support/callbacks.rb:170:in `block in halting'
+activesupport (5.0.6) lib/active_support/callbacks.rb:454:in `call'
+activesupport (5.0.6) lib/active_support/callbacks.rb:454:in `block in call'
+activesupport (5.0.6) lib/active_support/callbacks.rb:454:in `each'
+activesupport (5.0.6) lib/active_support/callbacks.rb:454:in `call'
+activesupport (5.0.6) lib/active_support/callbacks.rb:101:in `__run_callbacks__'
+activesupport (5.0.6) lib/active_support/callbacks.rb:750:in `_run_run_callbacks'
+activesupport (5.0.6) lib/active_support/callbacks.rb:90:in `run_callbacks'
+activesupport (5.0.6) lib/active_support/execution_wrapper.rb:108:in `run!'
+activesupport (5.0.6) lib/active_support/reloader.rb:113:in `run!'
+activesupport (5.0.6) lib/active_support/execution_wrapper.rb:70:in `block in run!'
+activesupport (5.0.6) lib/active_support/execution_wrapper.rb:67:in `tap'
+activesupport (5.0.6) lib/active_support/execution_wrapper.rb:67:in `run!'
+activesupport (5.0.6) lib/active_support/reloader.rb:59:in `run!'
+actionpack (5.0.6) lib/action_dispatch/middleware/executor.rb:10:in `call'
+actionpack (5.0.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.0.6) lib/action_dispatch/middleware/debug_exceptions.rb:49:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.6) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.6) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.4) lib/rack/method_override.rb:22:in `call'
+rack (2.0.4) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.6) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.6) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.4) lib/rack/sendfile.rb:111:in `call'
+webpacker (3.5.5) lib/webpacker/dev_server_proxy.rb:22:in `perform_request'
+rack-proxy (0.6.4) lib/rack/proxy.rb:57:in `call'
+railties (5.0.6) lib/rails/engine.rb:522:in `call'
+puma (3.11.3) lib/puma/configuration.rb:225:in `call'
+puma (3.11.3) lib/puma/server.rb:624:in `handle_request'
+puma (3.11.3) lib/puma/server.rb:438:in `process_client'
+puma (3.11.3) lib/puma/server.rb:302:in `block in run'
+puma (3.11.3) lib/puma/thread_pool.rb:120:in `call'
+puma (3.11.3) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  Rendering /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (7.4ms)
+  Rendering /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.4ms)
+  Rendering /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (118.6ms)
+Started POST "/orders" for 127.0.0.1 at 2018-10-27 11:36:17 -0400
+Processing by OrdersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"0YTz4aFowb8qQyKShPKYxEmE5+yNsSYA8DuZ6Y7KlYtgcjbVsQrIs8K374aR508pxKXgiI8ounaq0IOEXCduqg==", "order"=>{"name"=>"Rose Balimugulira", "address"=>"2101 Monticello", "email"=>"rose508@gmail.com", "pay_type"=>"Purchase order"}, "commit"=>"Place Order"}
+  [1m[36mCart Load (3.7ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 40], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (7.1ms)[0m  [1m[32mINSERT INTO "carts" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2018-10-27 15:36:17.456101"], ["updated_at", "2018-10-27 15:36:17.456101"]]
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mLineItem Load (0.4ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 41]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (3.6ms)[0m  [1m[32mINSERT INTO "orders" ("name", "address", "email", "pay_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Rose Balimugulira"], ["address", "2101 Monticello"], ["email", "rose508@gmail.com"], ["pay_type", "Purchase order"], ["created_at", "2018-10-27 15:36:17.516482"], ["updated_at", "2018-10-27 15:36:17.516482"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCart Load (0.4ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 41], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mLineItem Load (0.3ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 41]]
+  [1m[35mSQL (0.5ms)[0m  [1m[31mDELETE FROM "carts" WHERE "carts"."id" = $1[0m  [["id", 41]]
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+Completed 500 Internal Server Error in 458ms (ActiveRecord: 20.5ms)
+
+
+  
+NoMethodError (undefined method `stmp_settings=' for ActionMailer::Base:Class):
+  
+app/mailers/application_mailer.rb:1:in `<top (required)>'
+app/mailers/order_notifier_mailer.rb:1:in `<top (required)>'
+app/controllers/orders_controller.rb:46:in `block in create'
+app/controllers/orders_controller.rb:42:in `create'
+  Rendering /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (20.6ms)
+  Rendering /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (8.4ms)
+  Rendering /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (3.5ms)
+  Rendered /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (242.0ms)
+Started POST "/orders" for 127.0.0.1 at 2018-10-27 11:36:54 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by OrdersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"0YTz4aFowb8qQyKShPKYxEmE5+yNsSYA8DuZ6Y7KlYtgcjbVsQrIs8K374aR508pxKXgiI8ounaq0IOEXCduqg==", "order"=>{"name"=>"Rose Balimugulira", "address"=>"2101 Monticello", "email"=>"rose508@gmail.com", "pay_type"=>"Purchase order"}, "commit"=>"Place Order"}
+  [1m[36mCart Load (0.4ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 40], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "carts" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2018-10-27 15:36:55.755669"], ["updated_at", "2018-10-27 15:36:55.755669"]]
+  [1m[35m (47.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mLineItem Load (1.9ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 42]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "orders" ("name", "address", "email", "pay_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Rose Balimugulira"], ["address", "2101 Monticello"], ["email", "rose508@gmail.com"], ["pay_type", "Purchase order"], ["created_at", "2018-10-27 15:36:55.923170"], ["updated_at", "2018-10-27 15:36:55.923170"]]
+  [1m[35m (11.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCart Load (1.5ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 42], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mLineItem Load (0.6ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 42]]
+  [1m[35mSQL (1.3ms)[0m  [1m[31mDELETE FROM "carts" WHERE "carts"."id" = $1[0m  [["id", 42]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  Rendering order_notifier_mailer/received.html.erb within layouts/mailer
+  Rendered order_notifier_mailer/received.html.erb within layouts/mailer (2.9ms)
+  Rendering order_notifier_mailer/received.text.erb within layouts/mailer
+  [1m[36mLineItem Load (0.3ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."order_id" = $1[0m  [["order_id", 31]]
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered order_notifier_mailer/received.text.erb within layouts/mailer (6.4ms)
+OrderNotifierMailer#received: processed outbound mail in 593.3ms
+Sent mail to rose508@gmail.com (486.6ms)
+Date: Sat, 27 Oct 2018 11:36:57 -0400
+From: Sam Ruby <depot@example.com>
+To: rose508@gmail.com
+Message-ID: <5bd48619e537_6fda3fd5bf6c3b883795a@Sandra-1585.fios-router.home.mail>
+Subject: Pragmatic Store Order Confirmation
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_5bd48619a6ad_6fda3fd5bf6c3b8837898";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_5bd48619a6ad_6fda3fd5bf6c3b8837898
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Dear Rose Balimugulira
+
+Thank you for your recent order from The  Pragmatic Store.
+
+You ordered the following items:
+
+
+
+We'll send you a separate e-mail when your order ships.
+
+
+----==_mimepart_5bd48619a6ad_6fda3fd5bf6c3b8837898
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <h1>OrderNotifier#received</h1>
+
+<p>
+  , find me in app/views/order_notifier_mailer/received.html.erb
+</p>
+
+  </body>
+</html>
+
+----==_mimepart_5bd48619a6ad_6fda3fd5bf6c3b8837898--
+
+Completed 500 Internal Server Error in 1912ms (ActiveRecord: 87.0ms)
+
+
+  
+Net::SMTPAuthenticationError (535-5.7.8 Username and Password not accepted. Learn more at
+):
+  
+app/controllers/orders_controller.rb:46:in `block in create'
+app/controllers/orders_controller.rb:42:in `create'
+  Rendering /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (5.7ms)
+  Rendering /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.1ms)
+  Rendering /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.7ms)
+  Rendered /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (243.8ms)
+Started POST "/orders" for 127.0.0.1 at 2018-10-27 11:50:02 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (1.7ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by OrdersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"0YTz4aFowb8qQyKShPKYxEmE5+yNsSYA8DuZ6Y7KlYtgcjbVsQrIs8K374aR508pxKXgiI8ounaq0IOEXCduqg==", "order"=>{"name"=>"Rose Balimugulira", "address"=>"2101 Monticello", "email"=>"rose508@gmail.com", "pay_type"=>"Purchase order"}, "commit"=>"Place Order"}
+  [1m[36mCart Load (0.4ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 40], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.5ms)[0m  [1m[32mINSERT INTO "carts" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2018-10-27 15:50:04.666702"], ["updated_at", "2018-10-27 15:50:04.666702"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mLineItem Load (0.3ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 43]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "orders" ("name", "address", "email", "pay_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Rose Balimugulira"], ["address", "2101 Monticello"], ["email", "rose508@gmail.com"], ["pay_type", "Purchase order"], ["created_at", "2018-10-27 15:50:04.830835"], ["updated_at", "2018-10-27 15:50:04.830835"]]
+  [1m[35m (40.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCart Load (0.6ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 43], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mLineItem Load (1.2ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 43]]
+  [1m[35mSQL (0.5ms)[0m  [1m[31mDELETE FROM "carts" WHERE "carts"."id" = $1[0m  [["id", 43]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  Rendering order_notifier_mailer/received.html.erb within layouts/mailer
+  Rendered order_notifier_mailer/received.html.erb within layouts/mailer (2.3ms)
+  Rendering order_notifier_mailer/received.text.erb within layouts/mailer
+  [1m[36mLineItem Load (0.2ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."order_id" = $1[0m  [["order_id", 32]]
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered order_notifier_mailer/received.text.erb within layouts/mailer (9.1ms)
+OrderNotifierMailer#received: processed outbound mail in 845.4ms
+Sent mail to rose508@gmail.com (406.4ms)
+Date: Sat, 27 Oct 2018 11:50:06 -0400
+From: Sam Ruby <depot@example.com>
+To: rose508@gmail.com
+Message-ID: <5bd4892e83dfe_70653ff3f455b57c8778@Sandra-1585.fios-router.home.mail>
+Subject: Pragmatic Store Order Confirmation
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_5bd4892e7d386_70653ff3f455b57c876cf";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_5bd4892e7d386_70653ff3f455b57c876cf
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Dear Rose Balimugulira
+
+Thank you for your recent order from The  Pragmatic Store.
+
+You ordered the following items:
+
+
+
+We'll send you a separate e-mail when your order ships.
+
+
+----==_mimepart_5bd4892e7d386_70653ff3f455b57c876cf
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <h1>OrderNotifier#received</h1>
+
+<p>
+  , find me in app/views/order_notifier_mailer/received.html.erb
+</p>
+
+  </body>
+</html>
+
+----==_mimepart_5bd4892e7d386_70653ff3f455b57c876cf--
+
+Completed 500 Internal Server Error in 2469ms (ActiveRecord: 105.9ms)
+
+
+  
+Net::SMTPAuthenticationError (534-5.7.14 <https://accounts.google.com/signin/continue?sarp=1&scc=1&plt=AKgnsbui
+):
+  
+app/controllers/orders_controller.rb:46:in `block in create'
+app/controllers/orders_controller.rb:42:in `create'
+  Rendering /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (80.8ms)
+  Rendering /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (17.0ms)
+  Rendering /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.8ms)
+  Rendered /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (449.8ms)
+Started POST "/orders" for 127.0.0.1 at 2018-10-27 11:50:38 -0400
+Processing by OrdersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"0YTz4aFowb8qQyKShPKYxEmE5+yNsSYA8DuZ6Y7KlYtgcjbVsQrIs8K374aR508pxKXgiI8ounaq0IOEXCduqg==", "order"=>{"name"=>"Rose Balimugulira", "address"=>"2101 Monticello", "email"=>"rose508@gmail.com", "pay_type"=>"Purchase order"}, "commit"=>"Place Order"}
+  [1m[36mCart Load (5.1ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 40], ["LIMIT", 1]]
+  [1m[35m (1.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (32.2ms)[0m  [1m[32mINSERT INTO "carts" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2018-10-27 15:50:38.973656"], ["updated_at", "2018-10-27 15:50:38.973656"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mLineItem Load (2.0ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 44]]
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (2.7ms)[0m  [1m[32mINSERT INTO "orders" ("name", "address", "email", "pay_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Rose Balimugulira"], ["address", "2101 Monticello"], ["email", "rose508@gmail.com"], ["pay_type", "Purchase order"], ["created_at", "2018-10-27 15:50:39.034271"], ["updated_at", "2018-10-27 15:50:39.034271"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCart Load (9.6ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 44], ["LIMIT", 1]]
+  [1m[35m (1.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mLineItem Load (0.3ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 44]]
+  [1m[35mSQL (5.7ms)[0m  [1m[31mDELETE FROM "carts" WHERE "carts"."id" = $1[0m  [["id", 44]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  Rendering order_notifier_mailer/received.html.erb within layouts/mailer
+  Rendered order_notifier_mailer/received.html.erb within layouts/mailer (1.8ms)
+  Rendering order_notifier_mailer/received.text.erb within layouts/mailer
+  [1m[36mLineItem Load (0.3ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."order_id" = $1[0m  [["order_id", 33]]
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered order_notifier_mailer/received.text.erb within layouts/mailer (2.9ms)
+OrderNotifierMailer#received: processed outbound mail in 185.4ms
+Sent mail to rose508@gmail.com (366.0ms)
+Date: Sat, 27 Oct 2018 11:50:39 -0400
+From: Sam Ruby <depot@example.com>
+To: rose508@gmail.com
+Message-ID: <5bd4894f3eb8e_70653ff3f455b4508798e@Sandra-1585.fios-router.home.mail>
+Subject: Pragmatic Store Order Confirmation
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_5bd4894f368f1_70653ff3f455b4508789f";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_5bd4894f368f1_70653ff3f455b4508789f
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Dear Rose Balimugulira
+
+Thank you for your recent order from The  Pragmatic Store.
+
+You ordered the following items:
+
+
+
+We'll send you a separate e-mail when your order ships.
+
+
+----==_mimepart_5bd4894f368f1_70653ff3f455b4508789f
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <h1>OrderNotifier#received</h1>
+
+<p>
+  , find me in app/views/order_notifier_mailer/received.html.erb
+</p>
+
+  </body>
+</html>
+
+----==_mimepart_5bd4894f368f1_70653ff3f455b4508789f--
+
+Completed 500 Internal Server Error in 663ms (ActiveRecord: 67.0ms)
+
+
+  
+Net::SMTPAuthenticationError (534-5.7.14 <https://accounts.google.com/signin/continue?sarp=1&scc=1&plt=AKgnsbsb
+):
+  
+app/controllers/orders_controller.rb:46:in `block in create'
+app/controllers/orders_controller.rb:42:in `create'
+  Rendering /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (44.5ms)
+  Rendering /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (14.4ms)
+  Rendering /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (7.0ms)
+  Rendered /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (527.4ms)
+Started POST "/orders" for 127.0.0.1 at 2018-10-27 11:53:02 -0400
+Processing by OrdersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"0YTz4aFowb8qQyKShPKYxEmE5+yNsSYA8DuZ6Y7KlYtgcjbVsQrIs8K374aR508pxKXgiI8ounaq0IOEXCduqg==", "order"=>{"name"=>"Rose Balimugulira", "address"=>"2101 Monticello", "email"=>"rose508@gmail.com", "pay_type"=>"Purchase order"}, "commit"=>"Place Order"}
+  [1m[36mCart Load (3.5ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 40], ["LIMIT", 1]]
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "carts" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2018-10-27 15:53:02.729255"], ["updated_at", "2018-10-27 15:53:02.729255"]]
+  [1m[35m (14.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mLineItem Load (0.3ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 45]]
+  [1m[35m (0.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "orders" ("name", "address", "email", "pay_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Rose Balimugulira"], ["address", "2101 Monticello"], ["email", "rose508@gmail.com"], ["pay_type", "Purchase order"], ["created_at", "2018-10-27 15:53:02.759319"], ["updated_at", "2018-10-27 15:53:02.759319"]]
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCart Load (1.5ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 45], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mLineItem Load (1.0ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 45]]
+  [1m[35mSQL (1.4ms)[0m  [1m[31mDELETE FROM "carts" WHERE "carts"."id" = $1[0m  [["id", 45]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  Rendering order_notifier_mailer/received.html.erb within layouts/mailer
+  Rendered order_notifier_mailer/received.html.erb within layouts/mailer (0.6ms)
+  Rendering order_notifier_mailer/received.text.erb within layouts/mailer
+  [1m[36mLineItem Load (0.4ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."order_id" = $1[0m  [["order_id", 34]]
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered order_notifier_mailer/received.text.erb within layouts/mailer (2.9ms)
+OrderNotifierMailer#received: processed outbound mail in 100.4ms
+Sent mail to rose508@gmail.com (396.3ms)
+Date: Sat, 27 Oct 2018 11:53:02 -0400
+From: Sam Ruby <depot@example.com>
+To: rose508@gmail.com
+Message-ID: <5bd489ded71c9_70653ff3f455b60888199@Sandra-1585.fios-router.home.mail>
+Subject: Pragmatic Store Order Confirmation
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_5bd489ded2d2c_70653ff3f455b6088802";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_5bd489ded2d2c_70653ff3f455b6088802
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Dear Rose Balimugulira
+
+Thank you for your recent order from The  Pragmatic Store.
+
+You ordered the following items:
+
+
+
+We'll send you a separate e-mail when your order ships.
+
+
+----==_mimepart_5bd489ded2d2c_70653ff3f455b6088802
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <h1>OrderNotifier#received</h1>
+
+<p>
+  , find me in app/views/order_notifier_mailer/received.html.erb
+</p>
+
+  </body>
+</html>
+
+----==_mimepart_5bd489ded2d2c_70653ff3f455b6088802--
+
+Completed 500 Internal Server Error in 642ms (ActiveRecord: 28.2ms)
+
+
+  
+Net::SMTPAuthenticationError (534-5.7.14 <https://accounts.google.com/signin/continue?sarp=1&scc=1&plt=AKgnsbvt
+):
+  
+app/controllers/orders_controller.rb:46:in `block in create'
+app/controllers/orders_controller.rb:42:in `create'
+  Rendering /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (30.2ms)
+  Rendering /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (15.2ms)
+  Rendering /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.0ms)
+  Rendered /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (444.8ms)
+Started POST "/orders" for 127.0.0.1 at 2018-10-27 11:54:57 -0400
+Processing by OrdersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"0YTz4aFowb8qQyKShPKYxEmE5+yNsSYA8DuZ6Y7KlYtgcjbVsQrIs8K374aR508pxKXgiI8ounaq0IOEXCduqg==", "order"=>{"name"=>"Rose Balimugulira", "address"=>"2101 Monticello", "email"=>"rose508@gmail.com", "pay_type"=>"Purchase order"}, "commit"=>"Place Order"}
+  [1m[36mCart Load (0.7ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 40], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (3.2ms)[0m  [1m[32mINSERT INTO "carts" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2018-10-27 15:54:57.876898"], ["updated_at", "2018-10-27 15:54:57.876898"]]
+  [1m[35m (6.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mLineItem Load (7.3ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 46]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "orders" ("name", "address", "email", "pay_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Rose Balimugulira"], ["address", "2101 Monticello"], ["email", "rose508@gmail.com"], ["pay_type", "Purchase order"], ["created_at", "2018-10-27 15:54:57.914319"], ["updated_at", "2018-10-27 15:54:57.914319"]]
+  [1m[35m (5.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCart Load (1.3ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 46], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mLineItem Load (0.8ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 46]]
+  [1m[35mSQL (0.6ms)[0m  [1m[31mDELETE FROM "carts" WHERE "carts"."id" = $1[0m  [["id", 46]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  Rendering order_notifier_mailer/received.html.erb within layouts/mailer
+  Rendered order_notifier_mailer/received.html.erb within layouts/mailer (2.8ms)
+  Rendering order_notifier_mailer/received.text.erb within layouts/mailer
+  [1m[36mLineItem Load (0.3ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."order_id" = $1[0m  [["order_id", 35]]
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered order_notifier_mailer/received.text.erb within layouts/mailer (3.0ms)
+OrderNotifierMailer#received: processed outbound mail in 106.8ms
+Sent mail to rose508@gmail.com (285.5ms)
+Date: Sat, 27 Oct 2018 11:54:58 -0400
+From: Sam Ruby <depot@example.com>
+To: rose508@gmail.com
+Message-ID: <5bd48a52bd13_70653ff3f455b57c88324@Sandra-1585.fios-router.home.mail>
+Subject: Pragmatic Store Order Confirmation
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_5bd48a525e8f_70653ff3f455b57c882ea";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_5bd48a525e8f_70653ff3f455b57c882ea
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Dear Rose Balimugulira
+
+Thank you for your recent order from The  Pragmatic Store.
+
+You ordered the following items:
+
+
+
+We'll send you a separate e-mail when your order ships.
+
+
+----==_mimepart_5bd48a525e8f_70653ff3f455b57c882ea
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <h1>OrderNotifier#received</h1>
+
+<p>
+  , find me in app/views/order_notifier_mailer/received.html.erb
+</p>
+
+  </body>
+</html>
+
+----==_mimepart_5bd48a525e8f_70653ff3f455b57c882ea--
+
+Completed 500 Internal Server Error in 471ms (ActiveRecord: 27.7ms)
+
+
+  
+Net::SMTPAuthenticationError (534-5.7.14 <https://accounts.google.com/signin/continue?sarp=1&scc=1&plt=AKgnsbt-
+):
+  
+app/controllers/orders_controller.rb:46:in `block in create'
+app/controllers/orders_controller.rb:42:in `create'
+  Rendering /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (13.7ms)
+  Rendering /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.8ms)
+  Rendering /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.9ms)
+  Rendered /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (235.5ms)
+Started POST "/orders" for 127.0.0.1 at 2018-10-27 11:55:26 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by OrdersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"0YTz4aFowb8qQyKShPKYxEmE5+yNsSYA8DuZ6Y7KlYtgcjbVsQrIs8K374aR508pxKXgiI8ounaq0IOEXCduqg==", "order"=>{"name"=>"Rose Balimugulira", "address"=>"2101 Monticello", "email"=>"rose508@gmail.com", "pay_type"=>"Purchase order"}, "commit"=>"Place Order"}
+  [1m[36mCart Load (0.5ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 40], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (17.5ms)[0m  [1m[32mINSERT INTO "carts" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2018-10-27 15:55:28.226173"], ["updated_at", "2018-10-27 15:55:28.226173"]]
+  [1m[35m (4.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mLineItem Load (4.6ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 47]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "orders" ("name", "address", "email", "pay_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Rose Balimugulira"], ["address", "2101 Monticello"], ["email", "rose508@gmail.com"], ["pay_type", "Purchase order"], ["created_at", "2018-10-27 15:55:28.474157"], ["updated_at", "2018-10-27 15:55:28.474157"]]
+  [1m[35m (3.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCart Load (0.4ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 47], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mLineItem Load (0.3ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 47]]
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "carts" WHERE "carts"."id" = $1[0m  [["id", 47]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  Rendering order_notifier_mailer/received.html.erb within layouts/mailer
+  Rendered order_notifier_mailer/received.html.erb within layouts/mailer (2.9ms)
+  Rendering order_notifier_mailer/received.text.erb within layouts/mailer
+  [1m[36mLineItem Load (0.2ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."order_id" = $1[0m  [["order_id", 36]]
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered order_notifier_mailer/received.text.erb within layouts/mailer (70.4ms)
+OrderNotifierMailer#received: processed outbound mail in 800.8ms
+Sent mail to rose508@gmail.com (281.8ms)
+Date: Sat, 27 Oct 2018 11:55:29 -0400
+From: Sam Ruby <depot@example.com>
+To: rose508@gmail.com
+Message-ID: <5bd48a71ef972_70cb3fe08df56aec63792@Sandra-1585.fios-router.home.mail>
+Subject: Pragmatic Store Order Confirmation
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_5bd48a71ecef6_70cb3fe08df56aec636dc";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_5bd48a71ecef6_70cb3fe08df56aec636dc
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Dear Rose Balimugulira
+
+Thank you for your recent order from The  Pragmatic Store.
+
+You ordered the following items:
+
+
+
+We'll send you a separate e-mail when your order ships.
+
+
+----==_mimepart_5bd48a71ecef6_70cb3fe08df56aec636dc
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <h1>OrderNotifier#received</h1>
+
+<p>
+  , find me in app/views/order_notifier_mailer/received.html.erb
+</p>
+
+  </body>
+</html>
+
+----==_mimepart_5bd48a71ecef6_70cb3fe08df56aec636dc--
+
+Completed 500 Internal Server Error in 2225ms (ActiveRecord: 64.4ms)
+
+
+  
+Net::SMTPAuthenticationError (534-5.7.14 <https://accounts.google.com/signin/continue?sarp=1&scc=1&plt=AKgnsbv-
+):
+  
+app/controllers/orders_controller.rb:46:in `block in create'
+app/controllers/orders_controller.rb:42:in `create'
+  Rendering /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (10.1ms)
+  Rendering /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (6.3ms)
+  Rendering /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.6ms)
+  Rendered /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (398.2ms)
+Started GET "/" for 127.0.0.1 at 2018-10-27 17:52:39 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (1.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StoreController#index as HTML
+  [1m[36mCart Load (0.4ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 40], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (41.8ms)[0m  [1m[32mINSERT INTO "carts" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2018-10-27 21:52:40.398030"], ["updated_at", "2018-10-27 21:52:40.398030"]]
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  Rendering store/index.html.erb within layouts/application
+  [1m[36mProduct Load (1.1ms)[0m  [1m[34mSELECT "products".* FROM "products" ORDER BY "products"."title" ASC[0m
+  Rendered store/index.html.erb within layouts/application (3679.2ms)
+  [1m[36mLineItem Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "line_items" WHERE "line_items"."cart_id" = $1 LIMIT $2[0m  [["cart_id", 48], ["LIMIT", 1]]
+  [1m[36mLineItem Load (0.2ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 48]]
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered carts/_cart.html.erb (11.0ms)
+Completed 200 OK in 5433ms (Views: 5294.4ms | ActiveRecord: 68.7ms)
+
+
+Started POST "/line_items?product_id=4" for 127.0.0.1 at 2018-10-27 17:52:53 -0400
+Processing by LineItemsController#create as JS
+  Parameters: {"authenticity_token"=>"asFaLIuPn/PpmuMIw9wGSaPyTWlqvayFCnz8dsgrDoLbN58Ym+2W/wFuLhzWydGkLtNKDWgkMPNQl+YbGsb1ow==", "product_id"=>"4"}
+  [1m[36mCart Load (0.7ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 48], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mLineItem Load (2.4ms)[0m  [1m[34mSELECT  "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1 AND "line_items"."product_id" = $2 LIMIT $3[0m  [["cart_id", 48], ["product_id", 4], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35mSQL (44.7ms)[0m  [1m[32mINSERT INTO "line_items" ("product_id", "cart_id", "created_at", "updated_at", "quantity") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["product_id", 4], ["cart_id", 48], ["created_at", "2018-10-27 21:52:53.587452"], ["updated_at", "2018-10-27 21:52:53.587452"], ["quantity", 1]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  Rendering line_items/create.js.erb
+  [1m[36mLineItem Load (0.4ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 48]]
+  Rendered collection of line_items/_line_item.html.erb [1 times] (1.0ms)
+  Rendered carts/_cart.html.erb (12.9ms)
+  Rendered line_items/create.js.erb (17.7ms)
+Completed 200 OK in 140ms (Views: 30.7ms | ActiveRecord: 62.3ms)
+
+
+Started GET "/orders/new" for 127.0.0.1 at 2018-10-27 17:52:55 -0400
+Processing by OrdersController#new as HTML
+  [1m[36mCart Load (0.3ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 48], ["LIMIT", 1]]
+  [1m[36mLineItem Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "line_items" WHERE "line_items"."cart_id" = $1 LIMIT $2[0m  [["cart_id", 48], ["LIMIT", 1]]
+  Rendering orders/new.html.erb within layouts/application
+  Rendered orders/_form.html.erb (37.3ms)
+  Rendered orders/new.html.erb within layouts/application (42.1ms)
+  [1m[36mLineItem Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "line_items" WHERE "line_items"."cart_id" = $1 LIMIT $2[0m  [["cart_id", 48], ["LIMIT", 1]]
+  [1m[36mLineItem Load (0.7ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 48]]
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered collection of line_items/_line_item.html.erb [1 times] (7.2ms)
+  Rendered carts/_cart.html.erb (20.2ms)
+Completed 200 OK in 1062ms (Views: 1021.9ms | ActiveRecord: 7.1ms)
+
+
+Started POST "/orders" for 127.0.0.1 at 2018-10-27 17:53:02 -0400
+Processing by OrdersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"0YTz4aFowb8qQyKShPKYxEmE5+yNsSYA8DuZ6Y7KlYtgcjbVsQrIs8K374aR508pxKXgiI8ounaq0IOEXCduqg==", "order"=>{"name"=>"Rose Balimugulira", "address"=>"2101 Monticello", "email"=>"rose508@gmail.com", "pay_type"=>"Purchase order"}, "commit"=>"Place Order"}
+  [1m[36mCart Load (0.3ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 48], ["LIMIT", 1]]
+  [1m[36mLineItem Load (0.4ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 48]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35mSQL (3.4ms)[0m  [1m[32mINSERT INTO "orders" ("name", "address", "email", "pay_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Rose Balimugulira"], ["address", "2101 Monticello"], ["email", "rose508@gmail.com"], ["pay_type", "Purchase order"], ["created_at", "2018-10-27 21:53:02.626284"], ["updated_at", "2018-10-27 21:53:02.626284"]]
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "line_items" SET "cart_id" = $1, "order_id" = $2, "updated_at" = $3 WHERE "line_items"."id" = $4[0m  [["cart_id", nil], ["order_id", 37], ["updated_at", "2018-10-27 21:53:02.637377"], ["id", 26]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCart Load (0.4ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 48], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mLineItem Load (0.3ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 48]]
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "carts" WHERE "carts"."id" = $1[0m  [["id", 48]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  Rendering order_notifier_mailer/received.html.erb within layouts/mailer
+  Rendered order_notifier_mailer/received.html.erb within layouts/mailer (1.5ms)
+  Rendering order_notifier_mailer/received.text.erb within layouts/mailer
+  Rendered collection of line_items/_line_item.text.erb [1 times] (2.6ms)
+  Rendered order_notifier_mailer/received.text.erb within layouts/mailer (6.7ms)
+OrderNotifierMailer#received: processed outbound mail in 597.2ms
+Sent mail to rose508@gmail.com (357.9ms)
+Date: Sat, 27 Oct 2018 17:53:03 -0400
+From: Sam Ruby <depot@example.com>
+To: rose508@gmail.com
+Message-ID: <5bd4de3fa7d5d_75c63fd6f66e76682696f@Sandra-1585.fios-router.home.mail>
+Subject: Pragmatic Store Order Confirmation
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_5bd4de3fa3bba_75c63fd6f66e7668268aa";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_5bd4de3fa3bba_75c63fd6f66e7668268aa
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Dear Rose Balimugulira
+
+Thank you for your recent order from The  Pragmatic Store.
+
+You ordered the following items:
+
+ 1 x Agile Development
+
+
+We'll send you a separate e-mail when your order ships.
+
+
+----==_mimepart_5bd4de3fa3bba_75c63fd6f66e7668268aa
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <h1>OrderNotifier#received</h1>
+
+<p>
+  , find me in app/views/order_notifier_mailer/received.html.erb
+</p>
+
+  </body>
+</html>
+
+----==_mimepart_5bd4de3fa3bba_75c63fd6f66e7668268aa--
+
+Completed 500 Internal Server Error in 1470ms (ActiveRecord: 7.7ms)
+
+
+  
+Net::SMTPAuthenticationError (535 Authentication failed: Bad username / password
+):
+  
+app/controllers/orders_controller.rb:46:in `block in create'
+app/controllers/orders_controller.rb:42:in `create'
+  Rendering /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (10.8ms)
+  Rendering /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.6ms)
+  Rendering /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.7ms)
+  Rendered /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (184.2ms)
+Started POST "/orders" for 127.0.0.1 at 2018-10-27 18:10:59 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by OrdersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"0YTz4aFowb8qQyKShPKYxEmE5+yNsSYA8DuZ6Y7KlYtgcjbVsQrIs8K374aR508pxKXgiI8ounaq0IOEXCduqg==", "order"=>{"name"=>"Rose Balimugulira", "address"=>"2101 Monticello", "email"=>"rose508@gmail.com", "pay_type"=>"Purchase order"}, "commit"=>"Place Order"}
+  [1m[36mCart Load (0.4ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 48], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (6.7ms)[0m  [1m[32mINSERT INTO "carts" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2018-10-27 22:11:00.205507"], ["updated_at", "2018-10-27 22:11:00.205507"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mLineItem Load (0.3ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 49]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "orders" ("name", "address", "email", "pay_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Rose Balimugulira"], ["address", "2101 Monticello"], ["email", "rose508@gmail.com"], ["pay_type", "Purchase order"], ["created_at", "2018-10-27 22:11:00.289724"], ["updated_at", "2018-10-27 22:11:00.289724"]]
+  [1m[35m (40.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCart Load (0.3ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 49], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mLineItem Load (0.2ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 49]]
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "carts" WHERE "carts"."id" = $1[0m  [["id", 49]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  Rendering order_notifier_mailer/received.html.erb within layouts/mailer
+  Rendered order_notifier_mailer/received.html.erb within layouts/mailer (5.1ms)
+  Rendering order_notifier_mailer/received.text.erb within layouts/mailer
+  [1m[36mLineItem Load (1.0ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."order_id" = $1[0m  [["order_id", 38]]
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered order_notifier_mailer/received.text.erb within layouts/mailer (12.2ms)
+OrderNotifierMailer#received: processed outbound mail in 454.3ms
+Sent mail to rose508@gmail.com (30021.1ms)
+Date: Sat, 27 Oct 2018 18:11:01 -0400
+From: Sam Ruby <depot@example.com>
+To: rose508@gmail.com
+Message-ID: <5bd4e2752daab_76d03ffbdcd7af60715a@Sandra-1585.fios-router.home.mail>
+Subject: Pragmatic Store Order Confirmation
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_5bd4e27529f8d_76d03ffbdcd7af607148a";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_5bd4e27529f8d_76d03ffbdcd7af607148a
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Dear Rose Balimugulira
+
+Thank you for your recent order from The  Pragmatic Store.
+
+You ordered the following items:
+
+
+
+We'll send you a separate e-mail when your order ships.
+
+
+----==_mimepart_5bd4e27529f8d_76d03ffbdcd7af607148a
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <h1>OrderNotifier#received</h1>
+
+<p>
+  , find me in app/views/order_notifier_mailer/received.html.erb
+</p>
+
+  </body>
+</html>
+
+----==_mimepart_5bd4e27529f8d_76d03ffbdcd7af607148a--
+
+Completed 500 Internal Server Error in 31083ms (ActiveRecord: 71.3ms)
+
+
+  
+Net::OpenTimeout (execution expired):
+  
+app/controllers/orders_controller.rb:46:in `block in create'
+app/controllers/orders_controller.rb:42:in `create'
+  Rendering /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (7.4ms)
+  Rendering /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.3ms)
+  Rendering /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (144.5ms)
+Started POST "/orders" for 127.0.0.1 at 2018-10-27 18:37:26 -0400
+Processing by OrdersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"0YTz4aFowb8qQyKShPKYxEmE5+yNsSYA8DuZ6Y7KlYtgcjbVsQrIs8K374aR508pxKXgiI8ounaq0IOEXCduqg==", "order"=>{"name"=>"Rose Balimugulira", "address"=>"2101 Monticello", "email"=>"rose508@gmail.com", "pay_type"=>"Purchase order"}, "commit"=>"Place Order"}
+  [1m[36mCart Load (0.9ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 48], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (2.2ms)[0m  [1m[32mINSERT INTO "carts" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2018-10-27 22:37:27.120306"], ["updated_at", "2018-10-27 22:37:27.120306"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mLineItem Load (1.0ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 50]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.6ms)[0m  [1m[32mINSERT INTO "orders" ("name", "address", "email", "pay_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Rose Balimugulira"], ["address", "2101 Monticello"], ["email", "rose508@gmail.com"], ["pay_type", "Purchase order"], ["created_at", "2018-10-27 22:37:27.137572"], ["updated_at", "2018-10-27 22:37:27.137572"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCart Load (0.3ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 50], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mLineItem Load (0.2ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 50]]
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "carts" WHERE "carts"."id" = $1[0m  [["id", 50]]
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  Rendering order_notifier_mailer/received.html.erb within layouts/mailer
+  Rendered order_notifier_mailer/received.html.erb within layouts/mailer (0.6ms)
+  Rendering order_notifier_mailer/received.text.erb within layouts/mailer
+  [1m[36mLineItem Load (0.4ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."order_id" = $1[0m  [["order_id", 39]]
+  Rendered collection of templates [0 times] (0.1ms)
+  Rendered order_notifier_mailer/received.text.erb within layouts/mailer (6.3ms)
+OrderNotifierMailer#received: processed outbound mail in 66.4ms
+Sent mail to rose508@gmail.com (30012.3ms)
+Date: Sat, 27 Oct 2018 18:37:27 -0400
+From: Sam Ruby <depot@example.com>
+To: rose508@gmail.com
+Message-ID: <5bd4e8a7384a3_76d03ffbdcd7ae48717bf@Sandra-1585.fios-router.home.mail>
+Subject: Pragmatic Store Order Confirmation
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_5bd4e8a735f67_76d03ffbdcd7ae48716d6";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_5bd4e8a735f67_76d03ffbdcd7ae48716d6
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Dear Rose Balimugulira
+
+Thank you for your recent order from The  Pragmatic Store.
+
+You ordered the following items:
+
+
+
+We'll send you a separate e-mail when your order ships.
+
+
+----==_mimepart_5bd4e8a735f67_76d03ffbdcd7ae48716d6
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <h1>OrderNotifier#received</h1>
+
+<p>
+  , find me in app/views/order_notifier_mailer/received.html.erb
+</p>
+
+  </body>
+</html>
+
+----==_mimepart_5bd4e8a735f67_76d03ffbdcd7ae48716d6--
+
+Completed 500 Internal Server Error in 30137ms (ActiveRecord: 11.6ms)
+
+
+  
+Net::OpenTimeout (execution expired):
+  
+app/controllers/orders_controller.rb:46:in `block in create'
+app/controllers/orders_controller.rb:42:in `create'
+  Rendering /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (4.8ms)
+  Rendering /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.7ms)
+  Rendering /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (128.3ms)
+Started POST "/orders" for 127.0.0.1 at 2018-10-27 18:42:11 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (1.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by OrdersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"0YTz4aFowb8qQyKShPKYxEmE5+yNsSYA8DuZ6Y7KlYtgcjbVsQrIs8K374aR508pxKXgiI8ounaq0IOEXCduqg==", "order"=>{"name"=>"Rose Balimugulira", "address"=>"2101 Monticello", "email"=>"rose508@gmail.com", "pay_type"=>"Purchase order"}, "commit"=>"Place Order"}
+  [1m[36mCart Load (0.5ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 48], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "carts" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2018-10-27 22:42:13.004021"], ["updated_at", "2018-10-27 22:42:13.004021"]]
+  [1m[35m (41.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mLineItem Load (0.6ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 51]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "orders" ("name", "address", "email", "pay_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Rose Balimugulira"], ["address", "2101 Monticello"], ["email", "rose508@gmail.com"], ["pay_type", "Purchase order"], ["created_at", "2018-10-27 22:42:13.119529"], ["updated_at", "2018-10-27 22:42:13.119529"]]
+  [1m[35m (41.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCart Load (1.1ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 51], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mLineItem Load (0.2ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 51]]
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "carts" WHERE "carts"."id" = $1[0m  [["id", 51]]
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+  Rendering order_notifier_mailer/received.html.erb within layouts/mailer
+  Rendered order_notifier_mailer/received.html.erb within layouts/mailer (3.6ms)
+  Rendering order_notifier_mailer/received.text.erb within layouts/mailer
+  [1m[36mLineItem Load (0.2ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."order_id" = $1[0m  [["order_id", 40]]
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered order_notifier_mailer/received.text.erb within layouts/mailer (6.8ms)
+OrderNotifierMailer#received: processed outbound mail in 403.8ms
+Sent mail to rose508@gmail.com (30022.8ms)
+Date: Sat, 27 Oct 2018 18:42:13 -0400
+From: Sam Ruby <depot@example.com>
+To: rose508@gmail.com
+Message-ID: <5bd4e9c5db4b0_77e03ff6fd459d70408d4@Sandra-1585.fios-router.home.mail>
+Subject: Pragmatic Store Order Confirmation
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_5bd4e9c5d83af_77e03ff6fd459d7040728";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_5bd4e9c5d83af_77e03ff6fd459d7040728
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Dear Rose Balimugulira
+
+Thank you for your recent order from The  Pragmatic Store.
+
+You ordered the following items:
+
+
+
+We'll send you a separate e-mail when your order ships.
+
+
+----==_mimepart_5bd4e9c5d83af_77e03ff6fd459d7040728
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <h1>OrderNotifier#received</h1>
+
+<p>
+  , find me in app/views/order_notifier_mailer/received.html.erb
+</p>
+
+  </body>
+</html>
+
+----==_mimepart_5bd4e9c5d83af_77e03ff6fd459d7040728--
+
+Completed 500 Internal Server Error in 30983ms (ActiveRecord: 104.8ms)
+
+
+  
+Net::OpenTimeout (execution expired):
+  
+app/controllers/orders_controller.rb:46:in `block in create'
+app/controllers/orders_controller.rb:42:in `create'
+  Rendering /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (55.6ms)
+  Rendering /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.1ms)
+  Rendering /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.9ms)
+  Rendered /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (615.2ms)
+Started POST "/orders" for 127.0.0.1 at 2018-10-27 18:43:50 -0400
+Processing by OrdersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"lgjI21gfDQibnj0YZTQEqvkRryuGSiXdwGQnYPPM7pAn/g3vSH0EBHNq8AxwIdNHdDCoT4TTuauajz0NISEVsQ==", "order"=>{"name"=>"Rose Balimugulira", "address"=>"2101 Monticello", "email"=>"rose508@gmail.com", "pay_type"=>"Purchase order"}, "commit"=>"Place Order"}
+  [1m[36mCart Load (0.7ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 48], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "carts" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2018-10-27 22:43:50.671761"], ["updated_at", "2018-10-27 22:43:50.671761"]]
+  [1m[35m (40.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mLineItem Load (0.3ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 52]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (2.0ms)[0m  [1m[32mINSERT INTO "orders" ("name", "address", "email", "pay_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Rose Balimugulira"], ["address", "2101 Monticello"], ["email", "rose508@gmail.com"], ["pay_type", "Purchase order"], ["created_at", "2018-10-27 22:43:50.717464"], ["updated_at", "2018-10-27 22:43:50.717464"]]
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCart Load (0.7ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 52], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mLineItem Load (0.3ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 52]]
+  [1m[35mSQL (0.8ms)[0m  [1m[31mDELETE FROM "carts" WHERE "carts"."id" = $1[0m  [["id", 52]]
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  Rendering order_notifier_mailer/received.html.erb within layouts/mailer
+  Rendered order_notifier_mailer/received.html.erb within layouts/mailer (1.1ms)
+  Rendering order_notifier_mailer/received.text.erb within layouts/mailer
+  [1m[36mLineItem Load (0.2ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."order_id" = $1[0m  [["order_id", 41]]
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered order_notifier_mailer/received.text.erb within layouts/mailer (1.8ms)
+OrderNotifierMailer#received: processed outbound mail in 43.2ms
+Sent mail to rose508@gmail.com (30008.8ms)
+Date: Sat, 27 Oct 2018 18:43:50 -0400
+From: Sam Ruby <depot@example.com>
+To: rose508@gmail.com
+Message-ID: <5bd4ea26bd904_77e03ff6fd459d70410c@Sandra-1585.fios-router.home.mail>
+Subject: Pragmatic Store Order Confirmation
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_5bd4ea26bbff0_77e03ff6fd459d704091d";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_5bd4ea26bbff0_77e03ff6fd459d704091d
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Dear Rose Balimugulira
+
+Thank you for your recent order from The  Pragmatic Store.
+
+You ordered the following items:
+
+
+
+We'll send you a separate e-mail when your order ships.
+
+
+----==_mimepart_5bd4ea26bbff0_77e03ff6fd459d704091d
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <h1>OrderNotifier#received</h1>
+
+<p>
+  , find me in app/views/order_notifier_mailer/received.html.erb
+</p>
+
+  </body>
+</html>
+
+----==_mimepart_5bd4ea26bbff0_77e03ff6fd459d704091d--
+
+Completed 500 Internal Server Error in 30133ms (ActiveRecord: 48.4ms)
+
+
+  
+Net::OpenTimeout (execution expired):
+  
+app/controllers/orders_controller.rb:46:in `block in create'
+app/controllers/orders_controller.rb:42:in `create'
+  Rendering /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (17.3ms)
+  Rendering /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (8.3ms)
+  Rendering /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (8.4ms)
+  Rendered /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (341.4ms)
+Started POST "/orders" for 127.0.0.1 at 2018-10-27 18:54:13 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (1.8ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by OrdersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"lgjI21gfDQibnj0YZTQEqvkRryuGSiXdwGQnYPPM7pAn/g3vSH0EBHNq8AxwIdNHdDCoT4TTuauajz0NISEVsQ==", "order"=>{"name"=>"Rose Balimugulira", "address"=>"2101 Monticello", "email"=>"rose508@gmail.com", "pay_type"=>"Purchase order"}, "commit"=>"Place Order"}
+  [1m[36mCart Load (0.5ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 48], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "carts" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2018-10-27 22:54:14.529390"], ["updated_at", "2018-10-27 22:54:14.529390"]]
+  [1m[35m (40.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mLineItem Load (0.6ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 53]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "orders" ("name", "address", "email", "pay_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Rose Balimugulira"], ["address", "2101 Monticello"], ["email", "rose508@gmail.com"], ["pay_type", "Purchase order"], ["created_at", "2018-10-27 22:54:14.633048"], ["updated_at", "2018-10-27 22:54:14.633048"]]
+  [1m[35m (40.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCart Load (1.3ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 53], ["LIMIT", 1]]
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mLineItem Load (0.2ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 53]]
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "carts" WHERE "carts"."id" = $1[0m  [["id", 53]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  Rendering order_notifier_mailer/received.html.erb within layouts/mailer
+  Rendered order_notifier_mailer/received.html.erb within layouts/mailer (2.7ms)
+  Rendering order_notifier_mailer/received.text.erb within layouts/mailer
+  [1m[36mLineItem Load (0.7ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."order_id" = $1[0m  [["order_id", 42]]
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered order_notifier_mailer/received.text.erb within layouts/mailer (12.3ms)
+OrderNotifierMailer#received: processed outbound mail in 418.2ms
+Sent mail to rose508@gmail.com (30026.8ms)
+Date: Sat, 27 Oct 2018 18:54:15 -0400
+From: Sam Ruby <depot@example.com>
+To: rose508@gmail.com
+Message-ID: <5bd4ec9777210_78e23ff61b54ae10465d2@Sandra-1585.fios-router.home.mail>
+Subject: Pragmatic Store Order Confirmation
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_5bd4ec97736a7_78e23ff61b54ae1046439";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_5bd4ec97736a7_78e23ff61b54ae1046439
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Dear Rose Balimugulira
+
+Thank you for your recent order from The  Pragmatic Store.
+
+You ordered the following items:
+
+
+
+We'll send you a separate e-mail when your order ships.
+
+
+----==_mimepart_5bd4ec97736a7_78e23ff61b54ae1046439
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <h1>OrderNotifier#received</h1>
+
+<p>
+  , find me in app/views/order_notifier_mailer/received.html.erb
+</p>
+
+  </body>
+</html>
+
+----==_mimepart_5bd4ec97736a7_78e23ff61b54ae1046439--
+
+Completed 500 Internal Server Error in 31057ms (ActiveRecord: 100.3ms)
+
+
+  
+Net::OpenTimeout (execution expired):
+  
+app/controllers/orders_controller.rb:46:in `block in create'
+app/controllers/orders_controller.rb:42:in `create'
+  Rendering /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (7.2ms)
+  Rendering /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendering /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (133.3ms)
+Started POST "/orders" for 127.0.0.1 at 2018-10-27 18:57:03 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by OrdersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"lgjI21gfDQibnj0YZTQEqvkRryuGSiXdwGQnYPPM7pAn/g3vSH0EBHNq8AxwIdNHdDCoT4TTuauajz0NISEVsQ==", "order"=>{"name"=>"Rose Balimugulira", "address"=>"2101 Monticello", "email"=>"rose508@gmail.com", "pay_type"=>"Purchase order"}, "commit"=>"Place Order"}
+  [1m[36mCart Load (0.8ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 48], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (3.6ms)[0m  [1m[32mINSERT INTO "carts" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2018-10-27 22:57:03.891115"], ["updated_at", "2018-10-27 22:57:03.891115"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mLineItem Load (0.5ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 54]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "orders" ("name", "address", "email", "pay_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Rose Balimugulira"], ["address", "2101 Monticello"], ["email", "rose508@gmail.com"], ["pay_type", "Purchase order"], ["created_at", "2018-10-27 22:57:03.986961"], ["updated_at", "2018-10-27 22:57:03.986961"]]
+  [1m[35m (41.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCart Load (0.6ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 54], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mLineItem Load (0.2ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 54]]
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "carts" WHERE "carts"."id" = $1[0m  [["id", 54]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  Rendering order_notifier_mailer/received.html.erb within layouts/mailer
+  Rendered order_notifier_mailer/received.html.erb within layouts/mailer (4.8ms)
+  Rendering order_notifier_mailer/received.text.erb within layouts/mailer
+  [1m[36mLineItem Load (0.2ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."order_id" = $1[0m  [["order_id", 43]]
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered order_notifier_mailer/received.text.erb within layouts/mailer (7.3ms)
+OrderNotifierMailer#received: processed outbound mail in 409.7ms
+Sent mail to rose508@gmail.com (30025.7ms)
+Date: Sat, 27 Oct 2018 18:57:04 -0400
+From: Sam Ruby <depot@example.com>
+To: rose508@gmail.com
+Message-ID: <5bd4ed40c7fd3_79743fe22181e38435454@Sandra-1585.fios-router.home.mail>
+Subject: Pragmatic Store Order Confirmation
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_5bd4ed40c4a23_79743fe22181e38435372";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_5bd4ed40c4a23_79743fe22181e38435372
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Dear Rose Balimugulira
+
+Thank you for your recent order from The  Pragmatic Store.
+
+You ordered the following items:
+
+
+
+We'll send you a separate e-mail when your order ships.
+
+
+----==_mimepart_5bd4ed40c4a23_79743fe22181e38435372
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <h1>OrderNotifier#received</h1>
+
+<p>
+  , find me in app/views/order_notifier_mailer/received.html.erb
+</p>
+
+  </body>
+</html>
+
+----==_mimepart_5bd4ed40c4a23_79743fe22181e38435372--
+
+Completed 500 Internal Server Error in 31034ms (ActiveRecord: 70.0ms)
+
+
+  
+Net::OpenTimeout (execution expired):
+  
+app/controllers/orders_controller.rb:46:in `block in create'
+app/controllers/orders_controller.rb:42:in `create'
+  Rendering /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (5.3ms)
+  Rendering /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.9ms)
+  Rendering /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.0ms)
+  Rendered /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (134.0ms)
+Started POST "/orders" for 127.0.0.1 at 2018-10-27 19:04:22 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by OrdersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"lgjI21gfDQibnj0YZTQEqvkRryuGSiXdwGQnYPPM7pAn/g3vSH0EBHNq8AxwIdNHdDCoT4TTuauajz0NISEVsQ==", "order"=>{"name"=>"Rose Balimugulira", "address"=>"2101 Monticello", "email"=>"rose508@gmail.com", "pay_type"=>"Purchase order"}, "commit"=>"Place Order"}
+  [1m[36mCart Load (0.4ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 48], ["LIMIT", 1]]
+  [1m[35m (3.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "carts" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2018-10-27 23:04:23.542472"], ["updated_at", "2018-10-27 23:04:23.542472"]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mLineItem Load (0.3ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 55]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (43.5ms)[0m  [1m[32mINSERT INTO "orders" ("name", "address", "email", "pay_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Rose Balimugulira"], ["address", "2101 Monticello"], ["email", "rose508@gmail.com"], ["pay_type", "Purchase order"], ["created_at", "2018-10-27 23:04:23.620453"], ["updated_at", "2018-10-27 23:04:23.620453"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 55], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mLineItem Load (0.8ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 55]]
+  [1m[35mSQL (1.1ms)[0m  [1m[31mDELETE FROM "carts" WHERE "carts"."id" = $1[0m  [["id", 55]]
+  [1m[35m (1.6ms)[0m  [1m[35mCOMMIT[0m
+  Rendering order_notifier_mailer/received.html.erb within layouts/mailer
+  Rendered order_notifier_mailer/received.html.erb within layouts/mailer (3.8ms)
+  Rendering order_notifier_mailer/received.text.erb within layouts/mailer
+  [1m[36mLineItem Load (0.3ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."order_id" = $1[0m  [["order_id", 44]]
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered order_notifier_mailer/received.text.erb within layouts/mailer (7.9ms)
+OrderNotifierMailer#received: processed outbound mail in 473.4ms
+Sent mail to rose508@gmail.com (382.9ms)
+Date: Sat, 27 Oct 2018 19:04:24 -0400
+From: Sam Ruby <depot@example.com>
+To: rose508@gmail.com
+Message-ID: <5bd4eef8834ce_79f13fe0fb90f08059973@Sandra-1585.fios-router.home.mail>
+Subject: Pragmatic Store Order Confirmation
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_5bd4eef87f3cb_79f13fe0fb90f080598f0";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_5bd4eef87f3cb_79f13fe0fb90f080598f0
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Dear Rose Balimugulira
+
+Thank you for your recent order from The  Pragmatic Store.
+
+You ordered the following items:
+
+
+
+We'll send you a separate e-mail when your order ships.
+
+
+----==_mimepart_5bd4eef87f3cb_79f13fe0fb90f080598f0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <h1>OrderNotifier#received</h1>
+
+<p>
+  , find me in app/views/order_notifier_mailer/received.html.erb
+</p>
+
+  </body>
+</html>
+
+----==_mimepart_5bd4eef87f3cb_79f13fe0fb90f080598f0--
+
+Completed 500 Internal Server Error in 1492ms (ActiveRecord: 81.4ms)
+
+
+  
+Net::SMTPAuthenticationError (534-5.7.14 <https://accounts.google.com/signin/continue?sarp=1&scc=1&plt=AKgnsbvx
+):
+  
+app/controllers/orders_controller.rb:46:in `block in create'
+app/controllers/orders_controller.rb:42:in `create'
+  Rendering /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (10.3ms)
+  Rendering /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.7ms)
+  Rendering /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.8ms)
+  Rendered /Users/ricknjns/.rvm/gems/ruby-2.2.4/gems/actionpack-5.0.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (199.5ms)
+Started GET "/" for 127.0.0.1 at 2018-10-27 19:08:49 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (2.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StoreController#index as HTML
+  [1m[36mCart Load (0.7ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 48], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "carts" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2018-10-27 23:08:50.643550"], ["updated_at", "2018-10-27 23:08:50.643550"]]
+  [1m[35m (3.1ms)[0m  [1m[35mCOMMIT[0m
+  Rendering store/index.html.erb within layouts/application
+  [1m[36mProduct Load (2.2ms)[0m  [1m[34mSELECT "products".* FROM "products" ORDER BY "products"."title" ASC[0m
+  Rendered store/index.html.erb within layouts/application (4958.4ms)
+  [1m[36mLineItem Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "line_items" WHERE "line_items"."cart_id" = $1 LIMIT $2[0m  [["cart_id", 56], ["LIMIT", 1]]
+  [1m[36mLineItem Load (12.6ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 56]]
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered carts/_cart.html.erb (35.7ms)
+Completed 200 OK in 7010ms (Views: 6897.7ms | ActiveRecord: 32.5ms)
+
+
+Started POST "/orders" for 127.0.0.1 at 2018-10-27 19:09:10 -0400
+Processing by OrdersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"lgjI21gfDQibnj0YZTQEqvkRryuGSiXdwGQnYPPM7pAn/g3vSH0EBHNq8AxwIdNHdDCoT4TTuauajz0NISEVsQ==", "order"=>{"name"=>"Rose Balimugulira", "address"=>"2101 Monticello", "email"=>"rose508@gmail.com", "pay_type"=>"Purchase order"}, "commit"=>"Place Order"}
+  [1m[36mCart Load (0.8ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 56], ["LIMIT", 1]]
+  [1m[36mLineItem Load (0.8ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 56]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "orders" ("name", "address", "email", "pay_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Rose Balimugulira"], ["address", "2101 Monticello"], ["email", "rose508@gmail.com"], ["pay_type", "Purchase order"], ["created_at", "2018-10-27 23:09:10.686881"], ["updated_at", "2018-10-27 23:09:10.686881"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCart Load (0.4ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 56], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mLineItem Load (0.2ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 56]]
+  [1m[35mSQL (0.5ms)[0m  [1m[31mDELETE FROM "carts" WHERE "carts"."id" = $1[0m  [["id", 56]]
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  Rendering order_notifier_mailer/received.html.erb within layouts/mailer
+  Rendered order_notifier_mailer/received.html.erb within layouts/mailer (0.7ms)
+  Rendering order_notifier_mailer/received.text.erb within layouts/mailer
+  [1m[36mLineItem Load (1.5ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."order_id" = $1[0m  [["order_id", 45]]
+  Rendered collection of templates [0 times] (0.1ms)
+  Rendered order_notifier_mailer/received.text.erb within layouts/mailer (8.0ms)
+OrderNotifierMailer#received: processed outbound mail in 538.6ms
+Sent mail to rose508@gmail.com (1358.2ms)
+Date: Sat, 27 Oct 2018 19:09:11 -0400
+From: Sam Ruby <depot@example.com>
+To: rose508@gmail.com
+Message-ID: <5bd4f0178c93a_7a353fe8aa05d46c3664a@Sandra-1585.fios-router.home.mail>
+Subject: Pragmatic Store Order Confirmation
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_5bd4f0178928e_7a353fe8aa05d46c365a7";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_5bd4f0178928e_7a353fe8aa05d46c365a7
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Dear Rose Balimugulira
+
+Thank you for your recent order from The  Pragmatic Store.
+
+You ordered the following items:
+
+
+
+We'll send you a separate e-mail when your order ships.
+
+
+----==_mimepart_5bd4f0178928e_7a353fe8aa05d46c365a7
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <h1>OrderNotifier#received</h1>
+
+<p>
+  , find me in app/views/order_notifier_mailer/received.html.erb
+</p>
+
+  </body>
+</html>
+
+----==_mimepart_5bd4f0178928e_7a353fe8aa05d46c365a7--
+
+Redirected to http://localhost:3000/
+Completed 302 Found in 2284ms (ActiveRecord: 22.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-10-27 19:09:12 -0400
+Processing by StoreController#index as HTML
+  [1m[36mCart Load (1.1ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (41.3ms)[0m  [1m[32mINSERT INTO "carts" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2018-10-27 23:09:12.945141"], ["updated_at", "2018-10-27 23:09:12.945141"]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  Rendering store/index.html.erb within layouts/application
+  [1m[36mProduct Load (1.5ms)[0m  [1m[34mSELECT "products".* FROM "products" ORDER BY "products"."title" ASC[0m
+  Rendered store/index.html.erb within layouts/application (23.0ms)
+  [1m[36mLineItem Exists (1.2ms)[0m  [1m[34mSELECT  1 AS one FROM "line_items" WHERE "line_items"."cart_id" = $1 LIMIT $2[0m  [["cart_id", 57], ["LIMIT", 1]]
+  [1m[36mLineItem Load (1.1ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 57]]
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered carts/_cart.html.erb (11.7ms)
+Completed 200 OK in 863ms (Views: 799.9ms | ActiveRecord: 47.4ms)
+
+
+Started POST "/line_items?product_id=4" for 127.0.0.1 at 2018-10-27 20:01:23 -0400
+Processing by LineItemsController#create as JS
+  Parameters: {"authenticity_token"=>"a88X2e04B/TDRKHuZbpt3af6uqtsfAIkZElccHJHQpbaOdLt/VoO+CuwbPpwr7owKtu9z27lnlI+okYdoKq5tw==", "product_id"=>"4"}
+  [1m[36mCart Load (2.1ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 57], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mLineItem Load (0.6ms)[0m  [1m[34mSELECT  "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1 AND "line_items"."product_id" = $2 LIMIT $3[0m  [["cart_id", 57], ["product_id", 4], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35mSQL (41.4ms)[0m  [1m[32mINSERT INTO "line_items" ("product_id", "cart_id", "created_at", "updated_at", "quantity") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["product_id", 4], ["cart_id", 57], ["created_at", "2018-10-28 00:01:24.019441"], ["updated_at", "2018-10-28 00:01:24.019441"], ["quantity", 1]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  Rendering line_items/create.js.erb
+  [1m[36mLineItem Load (0.2ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 57]]
+  Rendered collection of line_items/_line_item.html.erb [1 times] (3.1ms)
+  Rendered carts/_cart.html.erb (16.0ms)
+  Rendered line_items/create.js.erb (22.6ms)
+Completed 200 OK in 160ms (Views: 33.6ms | ActiveRecord: 50.5ms)
+
+
+Started POST "/line_items?product_id=1" for 127.0.0.1 at 2018-10-27 20:01:26 -0400
+Processing by LineItemsController#create as JS
+  Parameters: {"authenticity_token"=>"a88X2e04B/TDRKHuZbpt3af6uqtsfAIkZElccHJHQpbaOdLt/VoO+CuwbPpwr7owKtu9z27lnlI+okYdoKq5tw==", "product_id"=>"1"}
+  [1m[36mCart Load (0.4ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 57], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.8ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mLineItem Load (0.4ms)[0m  [1m[34mSELECT  "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1 AND "line_items"."product_id" = $2 LIMIT $3[0m  [["cart_id", 57], ["product_id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "line_items" ("product_id", "cart_id", "created_at", "updated_at", "quantity") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["product_id", 1], ["cart_id", 57], ["created_at", "2018-10-28 00:01:26.751405"], ["updated_at", "2018-10-28 00:01:26.751405"], ["quantity", 1]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  Rendering line_items/create.js.erb
+  [1m[36mLineItem Load (0.4ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 57]]
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered collection of line_items/_line_item.html.erb [2 times] (3.8ms)
+  Rendered carts/_cart.html.erb (11.0ms)
+  Rendered line_items/create.js.erb (14.4ms)
+Completed 200 OK in 43ms (Views: 21.8ms | ActiveRecord: 4.8ms)
+
+
+Started GET "/orders/new" for 127.0.0.1 at 2018-10-27 20:01:28 -0400
+Processing by OrdersController#new as HTML
+  [1m[36mCart Load (2.3ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 57], ["LIMIT", 1]]
+  [1m[36mLineItem Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "line_items" WHERE "line_items"."cart_id" = $1 LIMIT $2[0m  [["cart_id", 57], ["LIMIT", 1]]
+  Rendering orders/new.html.erb within layouts/application
+  Rendered orders/_form.html.erb (49.6ms)
+  Rendered orders/new.html.erb within layouts/application (54.4ms)
+  [1m[36mLineItem Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "line_items" WHERE "line_items"."cart_id" = $1 LIMIT $2[0m  [["cart_id", 57], ["LIMIT", 1]]
+  [1m[36mLineItem Load (3.7ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 57]]
+  [1m[36mProduct Load (1.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mProduct Load (1.4ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered collection of line_items/_line_item.html.erb [2 times] (15.3ms)
+  Rendered carts/_cart.html.erb (30.0ms)
+Completed 200 OK in 1156ms (Views: 1129.1ms | ActiveRecord: 9.5ms)
+
+
+Started GET "/orders/new" for 127.0.0.1 at 2018-10-27 20:03:11 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by OrdersController#new as HTML
+  [1m[36mCart Load (0.5ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 57], ["LIMIT", 1]]
+  [1m[36mLineItem Exists (1.3ms)[0m  [1m[34mSELECT  1 AS one FROM "line_items" WHERE "line_items"."cart_id" = $1 LIMIT $2[0m  [["cart_id", 57], ["LIMIT", 1]]
+  Rendering orders/new.html.erb within layouts/application
+  Rendered orders/_form.html.erb (68.7ms)
+  Rendered orders/new.html.erb within layouts/application (74.4ms)
+  [1m[36mLineItem Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "line_items" WHERE "line_items"."cart_id" = $1 LIMIT $2[0m  [["cart_id", 57], ["LIMIT", 1]]
+  [1m[36mLineItem Load (0.3ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 57]]
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered collection of line_items/_line_item.html.erb [2 times] (97.7ms)
+  Rendered carts/_cart.html.erb (186.1ms)
+Completed 200 OK in 5856ms (Views: 5658.1ms | ActiveRecord: 25.6ms)
+
+
+Started POST "/orders" for 127.0.0.1 at 2018-10-27 20:04:30 -0400
+Processing by OrdersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"u7755WmF5LWikngngnirc2D+6qLE0g8LqsQRS5vwxZYKSDzReeftuUpmtTOXbXye7d/txsZLk33wLwsmSR0+tw==", "order"=>{"name"=>"Timothy pepe", "address"=>"22202 Monticello CT ", "email"=>"timothypepe@gmail.com", "pay_type"=>"Purchase order"}, "commit"=>"Place Order"}
+  [1m[36mCart Load (1.7ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 57], ["LIMIT", 1]]
+  [1m[36mLineItem Load (1.1ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 57]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mProduct Load (1.3ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (2.6ms)[0m  [1m[32mINSERT INTO "orders" ("name", "address", "email", "pay_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Timothy pepe"], ["address", "22202 Monticello CT "], ["email", "timothypepe@gmail.com"], ["pay_type", "Purchase order"], ["created_at", "2018-10-28 00:04:30.269134"], ["updated_at", "2018-10-28 00:04:30.269134"]]
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "line_items" SET "cart_id" = $1, "order_id" = $2, "updated_at" = $3 WHERE "line_items"."id" = $4[0m  [["cart_id", nil], ["order_id", 46], ["updated_at", "2018-10-28 00:04:30.275796"], ["id", 27]]
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "line_items" SET "cart_id" = $1, "order_id" = $2, "updated_at" = $3 WHERE "line_items"."id" = $4[0m  [["cart_id", nil], ["order_id", 46], ["updated_at", "2018-10-28 00:04:30.278926"], ["id", 28]]
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCart Load (0.4ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 57], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mLineItem Load (0.2ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 57]]
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "carts" WHERE "carts"."id" = $1[0m  [["id", 57]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  Rendering order_notifier_mailer/received.html.erb within layouts/mailer
+  Rendered order_notifier_mailer/received.html.erb within layouts/mailer (0.4ms)
+  Rendering order_notifier_mailer/received.text.erb within layouts/mailer
+  Rendered collection of line_items/_line_item.text.erb [2 times] (1.7ms)
+  Rendered order_notifier_mailer/received.text.erb within layouts/mailer (5.2ms)
+OrderNotifierMailer#received: processed outbound mail in 477.2ms
+Sent mail to timothypepe@gmail.com (1778.4ms)
+Date: Sat, 27 Oct 2018 20:04:31 -0400
+From: Sam Ruby <depot@example.com>
+To: timothypepe@gmail.com
+Message-ID: <5bd4fd0f1e89c_7c6a3fcde00d666c1452@Sandra-1585.fios-router.home.mail>
+Subject: Pragmatic Store Order Confirmation
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_5bd4fd0f1acaa_7c6a3fcde00d666c144cb";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_5bd4fd0f1acaa_7c6a3fcde00d666c144cb
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Dear Timothy pepe
+
+Thank you for your recent order from The  Pragmatic Store.
+
+You ordered the following items:
+
+ 1 x Agile Development
+ 1 x Amazon2
+
+
+We'll send you a separate e-mail when your order ships.
+
+
+----==_mimepart_5bd4fd0f1acaa_7c6a3fcde00d666c144cb
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <h1>OrderNotifier#received</h1>
+
+<p>
+  , find me in app/views/order_notifier_mailer/received.html.erb
+</p>
+
+  </body>
+</html>
+
+----==_mimepart_5bd4fd0f1acaa_7c6a3fcde00d666c144cb--
+
+Redirected to http://localhost:3000/
+Completed 302 Found in 2667ms (ActiveRecord: 12.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-10-27 20:04:32 -0400
+Processing by StoreController#index as HTML
+  [1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (2.4ms)[0m  [1m[32mINSERT INTO "carts" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2018-10-28 00:04:32.927409"], ["updated_at", "2018-10-28 00:04:32.927409"]]
+  [1m[35m (41.3ms)[0m  [1m[35mCOMMIT[0m
+  Rendering store/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT "products".* FROM "products" ORDER BY "products"."title" ASC[0m
+  Rendered store/index.html.erb within layouts/application (20.1ms)
+  [1m[36mLineItem Exists (5.4ms)[0m  [1m[34mSELECT  1 AS one FROM "line_items" WHERE "line_items"."cart_id" = $1 LIMIT $2[0m  [["cart_id", 58], ["LIMIT", 1]]
+  [1m[36mLineItem Load (2.5ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 58]]
+  Rendered collection of templates [0 times] (0.1ms)
+  Rendered carts/_cart.html.erb (13.6ms)
+Completed 200 OK in 867ms (Views: 805.2ms | ActiveRecord: 52.6ms)
+
+
+Started POST "/line_items?product_id=8" for 127.0.0.1 at 2018-10-27 20:07:05 -0400
+Processing by LineItemsController#create as JS
+  Parameters: {"authenticity_token"=>"JPGadCwiGsIpqFzV3z/qK7kuUp0MRfSVBt1FbCJjzbaVB19APEATzsFckcHKKj3GNA9V+Q7caONcNl8B8I42lw==", "product_id"=>"8"}
+  [1m[36mCart Load (1.5ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 58], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mLineItem Load (0.7ms)[0m  [1m[34mSELECT  "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1 AND "line_items"."product_id" = $2 LIMIT $3[0m  [["cart_id", 58], ["product_id", 8], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[35mSQL (2.9ms)[0m  [1m[32mINSERT INTO "line_items" ("product_id", "cart_id", "created_at", "updated_at", "quantity") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["product_id", 8], ["cart_id", 58], ["created_at", "2018-10-28 00:07:05.829989"], ["updated_at", "2018-10-28 00:07:05.829989"], ["quantity", 1]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  Rendering line_items/create.js.erb
+  [1m[36mLineItem Load (0.2ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 58]]
+  Rendered collection of line_items/_line_item.html.erb [1 times] (2.8ms)
+  Rendered carts/_cart.html.erb (13.3ms)
+  Rendered line_items/create.js.erb (18.9ms)
+Completed 200 OK in 73ms (Views: 29.0ms | ActiveRecord: 6.9ms)
+
+
+Started POST "/line_items?product_id=5" for 127.0.0.1 at 2018-10-27 20:07:08 -0400
+Processing by LineItemsController#create as JS
+  Parameters: {"authenticity_token"=>"JPGadCwiGsIpqFzV3z/qK7kuUp0MRfSVBt1FbCJjzbaVB19APEATzsFckcHKKj3GNA9V+Q7caONcNl8B8I42lw==", "product_id"=>"5"}
+  [1m[36mCart Load (1.8ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 58], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mLineItem Load (0.9ms)[0m  [1m[34mSELECT  "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1 AND "line_items"."product_id" = $2 LIMIT $3[0m  [["cart_id", 58], ["product_id", 5], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "line_items" ("product_id", "cart_id", "created_at", "updated_at", "quantity") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["product_id", 5], ["cart_id", 58], ["created_at", "2018-10-28 00:07:08.223321"], ["updated_at", "2018-10-28 00:07:08.223321"], ["quantity", 1]]
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  Rendering line_items/create.js.erb
+  [1m[36mLineItem Load (0.2ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 58]]
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  Rendered collection of line_items/_line_item.html.erb [2 times] (3.4ms)
+  Rendered carts/_cart.html.erb (8.9ms)
+  Rendered line_items/create.js.erb (12.2ms)
+Completed 200 OK in 49ms (Views: 19.0ms | ActiveRecord: 6.8ms)
+
+
+Started GET "/orders/new" for 127.0.0.1 at 2018-10-27 20:07:11 -0400
+Processing by OrdersController#new as HTML
+  [1m[36mCart Load (0.7ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 58], ["LIMIT", 1]]
+  [1m[36mLineItem Exists (5.3ms)[0m  [1m[34mSELECT  1 AS one FROM "line_items" WHERE "line_items"."cart_id" = $1 LIMIT $2[0m  [["cart_id", 58], ["LIMIT", 1]]
+  Rendering orders/new.html.erb within layouts/application
+  Rendered orders/_form.html.erb (10.0ms)
+  Rendered orders/new.html.erb within layouts/application (15.2ms)
+  [1m[36mLineItem Exists (1.2ms)[0m  [1m[34mSELECT  1 AS one FROM "line_items" WHERE "line_items"."cart_id" = $1 LIMIT $2[0m  [["cart_id", 58], ["LIMIT", 1]]
+  [1m[36mLineItem Load (4.6ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 58]]
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  Rendered collection of line_items/_line_item.html.erb [2 times] (11.2ms)
+  Rendered carts/_cart.html.erb (29.8ms)
+Completed 200 OK in 1344ms (Views: 1323.1ms | ActiveRecord: 12.9ms)
+
+
+Started POST "/orders" for 127.0.0.1 at 2018-10-27 20:09:12 -0400
+Processing by OrdersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"MHN+1OyAGz0sNgDREUF2+m6po3YOL7uhKFagHqfTDemBhbvg/OISMcTCzcUEVKEX44ikEgy2J9dyvbpzdT72yA==", "order"=>{"name"=>"Sandra Jones", "address"=>"3892 Monticello CT", "email"=>"primsun22@yahoo.com", "pay_type"=>"Credit card"}, "commit"=>"Place Order"}
+  [1m[36mCart Load (6.1ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 58], ["LIMIT", 1]]
+  [1m[36mLineItem Load (0.6ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 58]]
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Load (0.8ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mProduct Load (1.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35mSQL (2.2ms)[0m  [1m[32mINSERT INTO "orders" ("name", "address", "email", "pay_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Sandra Jones"], ["address", "3892 Monticello CT"], ["email", "primsun22@yahoo.com"], ["pay_type", "Credit card"], ["created_at", "2018-10-28 00:09:12.551213"], ["updated_at", "2018-10-28 00:09:12.551213"]]
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "line_items" SET "cart_id" = $1, "order_id" = $2, "updated_at" = $3 WHERE "line_items"."id" = $4[0m  [["cart_id", nil], ["order_id", 47], ["updated_at", "2018-10-28 00:09:12.556278"], ["id", 29]]
+  [1m[35mSQL (1.4ms)[0m  [1m[33mUPDATE "line_items" SET "cart_id" = $1, "order_id" = $2, "updated_at" = $3 WHERE "line_items"."id" = $4[0m  [["cart_id", nil], ["order_id", 47], ["updated_at", "2018-10-28 00:09:12.559820"], ["id", 30]]
+  [1m[35m (1.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCart Load (0.3ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 58], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mLineItem Load (0.4ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 58]]
+  [1m[35mSQL (0.9ms)[0m  [1m[31mDELETE FROM "carts" WHERE "carts"."id" = $1[0m  [["id", 58]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  Rendering order_notifier_mailer/received.html.erb within layouts/mailer
+  Rendered order_notifier_mailer/received.html.erb within layouts/mailer (0.5ms)
+  Rendering order_notifier_mailer/received.text.erb within layouts/mailer
+  Rendered collection of line_items/_line_item.text.erb [2 times] (2.1ms)
+  Rendered order_notifier_mailer/received.text.erb within layouts/mailer (5.6ms)
+OrderNotifierMailer#received: processed outbound mail in 55.1ms
+Sent mail to primsun22@yahoo.com (903.1ms)
+Date: Sat, 27 Oct 2018 20:09:12 -0400
+From: Sam Ruby <depot@example.com>
+To: primsun22@yahoo.com
+Message-ID: <5bd4fe289a97a_7c6a3fcde00d689c1475f@Sandra-1585.fios-router.home.mail>
+Subject: Pragmatic Store Order Confirmation
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_5bd4fe2898a5e_7c6a3fcde00d689c146e6";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_5bd4fe2898a5e_7c6a3fcde00d689c146e6
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Dear Sandra Jones
+
+Thank you for your recent order from The  Pragmatic Store.
+
+You ordered the following items:
+
+ 1 x Programming Ruby 1.9
+ 1 x ruby
+
+
+We'll send you a separate e-mail when your order ships.
+
+
+----==_mimepart_5bd4fe2898a5e_7c6a3fcde00d689c146e6
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <h1>OrderNotifier#received</h1>
+
+<p>
+  , find me in app/views/order_notifier_mailer/received.html.erb
+</p>
+
+  </body>
+</html>
+
+----==_mimepart_5bd4fe2898a5e_7c6a3fcde00d689c146e6--
+
+Redirected to http://localhost:3000/
+Completed 302 Found in 1010ms (ActiveRecord: 17.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-10-27 20:09:13 -0400
+Processing by StoreController#index as HTML
+  [1m[36mCart Load (0.1ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "carts" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2018-10-28 00:09:13.553555"], ["updated_at", "2018-10-28 00:09:13.553555"]]
+  [1m[35m (41.4ms)[0m  [1m[35mCOMMIT[0m
+  Rendering store/index.html.erb within layouts/application
+  [1m[36mProduct Load (1.1ms)[0m  [1m[34mSELECT "products".* FROM "products" ORDER BY "products"."title" ASC[0m
+  Rendered store/index.html.erb within layouts/application (21.8ms)
+  [1m[36mLineItem Exists (2.0ms)[0m  [1m[34mSELECT  1 AS one FROM "line_items" WHERE "line_items"."cart_id" = $1 LIMIT $2[0m  [["cart_id", 59], ["LIMIT", 1]]
+  [1m[36mLineItem Load (1.0ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 59]]
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered carts/_cart.html.erb (8.1ms)
+Completed 200 OK in 782ms (Views: 723.9ms | ActiveRecord: 46.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-10-27 22:10:46 -0400
+Processing by StoreController#index as HTML
+  [1m[36mCart Load (1.4ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 59], ["LIMIT", 1]]
+  Rendering store/index.html.erb within layouts/application
+  [1m[36mProduct Load (2.3ms)[0m  [1m[34mSELECT "products".* FROM "products" ORDER BY "products"."title" ASC[0m
+  Rendered store/index.html.erb within layouts/application (50.9ms)
+  [1m[36mLineItem Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "line_items" WHERE "line_items"."cart_id" = $1 LIMIT $2[0m  [["cart_id", 59], ["LIMIT", 1]]
+  [1m[36mLineItem Load (1.6ms)[0m  [1m[34mSELECT "line_items".* FROM "line_items" WHERE "line_items"."cart_id" = $1[0m  [["cart_id", 59]]
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered carts/_cart.html.erb (19.1ms)
+Completed 200 OK in 1346ms (Views: 1312.9ms | ActiveRecord: 5.9ms)
+
+
