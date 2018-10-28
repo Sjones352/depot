@@ -47,15 +47,17 @@ config.webpacker.check_yarn_integrity = true
 
   config.action_mailer.delivery_method = :smtp
 
-  config.action_mailer.stmp_settings = {
+  config.action_mailer.smtp_settings = {
     address:               "smtp.gmail.com",
-    port:                  587,
-    domain:                "gmail.com",
+    port:                   587,
+    domain:                "mail.google.com",
     autherntication:       "plain",
-    user_name:             "jonessandra@gmail.com",
-    password:              "pass**",
+    user_name:             ENV["MAIL_USERNAME"],
+    password:              ENV["MAIL_PASSWORD"],
     enable_starttls_auto:   true
   }
+
+  # config.action_mailer.default_url_options={:host => "localhost:3000"}
 
   # Debug mode disables concatenation and preprocessing of assets.
   # This option may cause significant delays in view rendering with a large
