@@ -4,3 +4,6 @@ coverage
 /node_modules
 yarn-debug.log*
 .yarn-integrity
+/tmp
+/config/local_env.yml
+/log/development.log
